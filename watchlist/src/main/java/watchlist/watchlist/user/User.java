@@ -36,6 +36,10 @@ public class User {
 	@Column
 	private String password;
 
+	public User() {
+		super();
+	}
+	
 	public User(String firstname, String lastname, Date birthdate, String email, String username, String password) {
 		super();
 		this.firstname = firstname;
