@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "user")
@@ -16,24 +17,30 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column
-	private long id;
+	private long user_id;
 	
 	@Column
+	@NotBlank
 	private String firstname;
 	
 	@Column
+	@NotBlank
 	private String lastname;
 	
 	@Column
+	//@NotBlank
 	private Date birthdate;
 	
-	@Column
+	@Column(unique =  true)
+	@NotBlank
 	private String email;
 	
-	@Column
+	@Column(unique = true)
+	@NotBlank
 	private String username;
 
 	@Column
+	@NotBlank
 	private String password;
 
 	public User() {
@@ -50,10 +57,10 @@ public class User {
 		this.password = password;
 	}
 
-	public User(long id, String firstname, String lastname, Date birthdate, String email, String username,
+	public User(long user_id, String firstname, String lastname, Date birthdate, String email, String username,
 			String password) {
 		super();
-		this.id = id;
+		this.user_id = user_id;
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.birthdate = birthdate;
@@ -62,12 +69,12 @@ public class User {
 		this.password = password;
 	}
 
-	public long getId() {
-		return id;
+	public long getUser_id() {
+		return user_id;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public void setUser_id(long user_id) {
+		this.user_id = user_id;
 	}
 
 	public String getFirstname() {
