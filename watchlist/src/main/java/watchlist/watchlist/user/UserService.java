@@ -1,5 +1,6 @@
 package watchlist.watchlist.user;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,6 +29,18 @@ public class UserService implements UserServiceable {
 	@Override
 	public void deleteUser(Long id) {
 		repository.deleteById(id);
+	}
+
+	@Override
+	public void updateUser(Long id, String firstname, String lastname, Date birthdate, String email, String username,
+			String password) {
+		var user = getById(id);
+		user.get().setFirstname(firstname);
+		user.get().setLastName(lastname);
+		user.get().setBirthdate(birthdate);
+		user.get().setEmail(email);
+		user.get().setUsername(username);
+		user.get().setPassword(password);
 	}
 
 }
