@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @PreAuthorize("hasRole('ADMIN')")
-@RequestMapping("/auhtorities")
+@RequestMapping("/authorities")
 public class AuthorityController {
 
 	private AuthorityServiceable service;

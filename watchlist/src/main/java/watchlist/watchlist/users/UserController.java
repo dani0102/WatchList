@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
  * 
  * 
  * 
- * @author Daniela Simões
+ * @author Daniela Simoes
  *
  */
 @RestController

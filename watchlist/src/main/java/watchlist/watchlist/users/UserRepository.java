@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
  * 
  * 
  * 
- * @author Daniela Simões
+ * @author Daniela Simoes
  *
  */
 @Repository
