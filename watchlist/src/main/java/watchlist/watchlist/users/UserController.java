@@ -15,6 +15,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * 
+ * 
+ * 
+ * @author Daniela Sim�es
+ *
+ */
 @RestController
 @RequestMapping("/users")
 public class UserController {
@@ -22,6 +29,10 @@ public class UserController {
 	private UserServiceable service;
 	private UserMapper mapper;
 	
+	/**
+	 * @param service
+	 * @param mapper
+	 */
 	@Autowired
 	public UserController(UserServiceable service, UserMapper mapper) {
 		super();
@@ -29,6 +40,9 @@ public class UserController {
 		this.mapper = mapper;
 	}
 	
+	/**
+	 * @return
+	 */
 	@GetMapping({"", "/"})
 	public @ResponseBody ResponseEntity<Iterable<UserDTO>> getAll() {
 		var result = this.service.getAll();
@@ -37,6 +51,10 @@ public class UserController {
 		return new ResponseEntity<>(toReturn, HttpStatus.OK);
 	}
 	
+	/**
+	 * @param id
+	 * @return
+	 */
 	@GetMapping("/{id}")
 	public @ResponseBody ResponseEntity<UserDTO> getById(@PathVariable Long id) {
 		var result = this.service.getById(id);
@@ -49,6 +67,10 @@ public class UserController {
 		}
 	}
 	
+	/**
+	 * @param user
+	 * @return
+	 */
 	@PostMapping({"", "/"})
 	public ResponseEntity<?> createUser(@RequestBody @Valid User user) {
 		this.service.createUser(user);
@@ -56,12 +78,21 @@ public class UserController {
 		return new ResponseEntity<>(user, HttpStatus.CREATED);
 	}
 	
+	/**
+	 * @param id
+	 * @param user
+	 * @return
+	 */
 	@PutMapping("/{id}")
 	public ResponseEntity<?> updateById(@PathVariable Long id, @Valid @RequestBody User user) {
 		this.service.updateUser(id, user);
 		return new ResponseEntity<>(user, HttpStatus.OK);
 	}
 	
+	/**
+	 * @param id
+	 * @return
+	 */
 	@DeleteMapping("/{id}")
 	public ResponseEntity<?> deleteById(@PathVariable Long id){
 		var user = this.service.getById(id);

@@ -8,6 +8,13 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * 
+ * 
+ * 
+ * @author Daniela Sim�es
+ *
+ */
 @Service
 public class UserService implements UserServiceable {
 

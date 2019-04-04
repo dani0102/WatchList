@@ -10,6 +10,13 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
+/**
+ * 
+ * 
+ * 
+ * @author Daniela Sim�es
+ *
+ */
 @Entity
 @Table(name = "users")
 public class User {
@@ -47,6 +54,14 @@ public class User {
 		super();
 	}
 	
+	/**
+	 * @param firstname
+	 * @param lastname
+	 * @param birthdate
+	 * @param email
+	 * @param username
+	 * @param password
+	 */
 	public User(String firstname, String lastname, Date birthdate, String email, String username, String password) {
 		super();
 		this.firstname = firstname;
@@ -57,6 +72,15 @@ public class User {
 		this.password = password;
 	}
 
+	/**
+	 * @param users_id
+	 * @param firstname
+	 * @param lastname
+	 * @param birthdate
+	 * @param email
+	 * @param username
+	 * @param password
+	 */
 	public User(long users_id, String firstname, String lastname, Date birthdate, String email, String username,
 			String password) {
 		super();
