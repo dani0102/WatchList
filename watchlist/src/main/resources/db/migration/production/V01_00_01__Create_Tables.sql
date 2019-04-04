@@ -71,3 +71,27 @@ create table public.users (
 	email varchar(255) not null unique,
 	password varchar(255) not null
 );
+
+create table public.role (
+	role_id bigserial NOT NULL unique PRIMARY KEY,
+	name varchar(255) not null unique
+);
+
+create table public.authority (
+	authority_id bigserial NOT NULL unique PRIMARY KEY,
+	name varchar(255) not null unique
+);
+
+create table public.authority_role (
+	authority_id bigserial NOT NULL unique,
+	role_id bigserial NOT NULL unique,
+CONSTRAINT authority_role_pkey PRIMARY KEY (authority_id, role_id),
+    CONSTRAINT fk_authority FOREIGN KEY (authority_id)
+        REFERENCES public.authority (authority_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT fk_role FOREIGN KEY (role_id)
+        REFERENCES public.role (role_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+);
