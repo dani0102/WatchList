@@ -1,7 +1,5 @@
 package watchlist.watchlist.tvshow;
 
-import java.awt.Image;
-
 /**
  * This class is the DTO for the entity TvShow.
  * 
@@ -17,7 +15,7 @@ public class TvShowDTO {
 	
 	private String description;
 	
-	private Image picture;
+	private byte[] picture;
 	
 	private Integer outcome_year;
 	
@@ -84,14 +82,14 @@ public class TvShowDTO {
 	/**
 	 * @return the picture
 	 */
-	public Image getPicture() {
+	public byte[] getPicture() {
 		return picture;
 	}
 
 	/**
 	 * @param picture the picture to set
 	 */
-	public void setPicture(Image picture) {
+	public void setPicture(byte[] picture) {
 		this.picture = picture;
 	}
 

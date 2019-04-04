@@ -20,8 +20,8 @@ public interface TvShowServiceable {
 	
 	public void createTvShow(TvShow tvShow);
 	
-	public void deleteTvShow(Long id);
+	public void deleteTvShow(TvShow tvShow);
 	
-	public void updateTvShow(TvShow tvShow);
+	public void updateTvShow(Long id, TvShow tvShow);
 	
 }

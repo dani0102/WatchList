@@ -13,7 +13,7 @@ import org.mapstruct.ReportingPolicy;
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface TvShowMapper {
 
-	TvShow toDTO(TvShow tvShow);
+	TvShowDTO toDTO(TvShow tvShow);
 
 	List<TvShowDTO> toListDTO(List<TvShow> tvShow);
 

@@ -36,7 +36,7 @@ public class TvShow {
 	private String description;
 	
 	@Column
-	private Image picture;
+	private byte[] picture;
 	
 	@Column
 	private Integer outcome_year;
@@ -60,7 +60,7 @@ public class TvShow {
 	 * @param end_year
 	 * @param average_length
 	 */
-	public TvShow(@NotBlank String title, String alias_title, @NotBlank String description, Image picture,
+	public TvShow(@NotBlank String title, String alias_title, @NotBlank String description, byte[] picture,
 			Integer outcome_year, Integer end_year, Integer average_length) {
 		super();
 		this.title = title;
@@ -83,7 +83,7 @@ public class TvShow {
 	 * @param average_length
 	 */
 	public TvShow(Long tvshow_id, @NotBlank String title, String alias_title, @NotBlank String description,
-			Image picture, Integer outcome_year, Integer end_year, Integer average_length) {
+			byte[] picture, Integer outcome_year, Integer end_year, Integer average_length) {
 		super();
 		this.tvshow_id = tvshow_id;
 		this.title = title;
@@ -154,14 +154,14 @@ public class TvShow {
 	/**
 	 * @return the picture
 	 */
-	public Image getPicture() {
+	public byte[] getPicture() {
 		return picture;
 	}
 
 	/**
 	 * @param picture the picture to set
 	 */
-	public void setPicture(Image picture) {
+	public void setPicture(byte[] picture) {
 		this.picture = picture;
 	}
 
