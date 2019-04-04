@@ -6,7 +6,7 @@ import java.util.Date;
  * 
  * 
  * 
- * @author Daniela Simões
+ * @author Daniela Simoes
  *
  */
 public class UserDTO {

@@ -14,7 +14,7 @@ import javax.validation.constraints.NotBlank;
  * 
  * 
  * 
- * @author Daniela Simões
+ * @author Daniela Simoes
  *
  */
 @Entity

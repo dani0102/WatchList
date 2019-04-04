@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
  * 
  * 
  * 
- * @author Daniela Simões
+ * @author Daniela Simoes
  *
  */
 @Service
