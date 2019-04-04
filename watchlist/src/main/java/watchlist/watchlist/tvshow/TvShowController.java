@@ -1,4 +1,4 @@
-package watchlist.watchlist.users;
+package watchlist.watchlist.tvshow;
 
 import javax.validation.Valid;
 
@@ -16,47 +16,34 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
+ * This class holds REST endpoints targeted towards the entity tv-shows
  * 
- * 
- * 
- * @author Daniela Sim�es
- *
+ * @author Belinda Schuehle
  */
 @RestController
-@RequestMapping("/users")
-public class UserController {
+@RequestMapping("/tv-shows")
+public class TvShowController {
 
-	private UserServiceable service;
-	private UserMapper mapper;
+	private TvShowServiceable service;
+	private TvShowMapper mapper;
 	
-	/**
-	 * @param service
-	 * @param mapper
-	 */
 	@Autowired
-	public UserController(UserServiceable service, UserMapper mapper) {
+	public TvShowController(TvShowServiceable service, TvShowMapper mapper) {
 		super();
 		this.service = service;
 		this.mapper = mapper;
 	}
 	
-	/**
-	 * @return
-	 */
 	@GetMapping({"", "/"})
-	public @ResponseBody ResponseEntity<Iterable<UserDTO>> getAll() {
+	public @ResponseBody ResponseEntity<Iterable<TvShowDTO>> getAll() {
 		var result = this.service.getAll();
 		var toReturn = mapper.toListDTO(result);
 		
 		return new ResponseEntity<>(toReturn, HttpStatus.OK);
 	}
 	
-	/**
-	 * @param id
-	 * @return
-	 */
 	@GetMapping("/{id}")
-	public @ResponseBody ResponseEntity<UserDTO> getById(@PathVariable Long id) {
+	public @ResponseBody ResponseEntity<TvShowDTO> getById(@PathVariable Long id) {
 		var result = this.service.getById(id);
 		var toReturn = mapper.toDTO(result.get());
 		
@@ -67,36 +54,22 @@ public class UserController {
 		}
 	}
 	
-	/**
-	 * @param user
-	 * @return
-	 */
 	@PostMapping({"", "/"})
-	public ResponseEntity<?> createUser(@RequestBody @Valid User user) {
-		this.service.createUser(user);
-		
-		return new ResponseEntity<>(user, HttpStatus.CREATED);
+	public ResponseEntity<?> createTvShow(@RequestBody @Valid TvShow tvShow) {
+		this.service.createTvShow(tvShow);
+		return new ResponseEntity<>(tvShow, HttpStatus.CREATED);
 	}
 	
-	/**
-	 * @param id
-	 * @param user
-	 * @return
-	 */
 	@PutMapping("/{id}")
-	public ResponseEntity<?> updateById(@PathVariable Long id, @Valid @RequestBody User user) {
-		this.service.updateUser(id, user);
-		return new ResponseEntity<>(user, HttpStatus.OK);
+	public ResponseEntity<?> updateById(@PathVariable Long id, @Valid @RequestBody TvShow tvShow) {
+		this.service.updateTvShow(id, tvShow);
+		return new ResponseEntity<>(tvShow, HttpStatus.OK);
 	}
 	
-	/**
-	 * @param id
-	 * @return
-	 */
 	@DeleteMapping("/{id}")
 	public ResponseEntity<?> deleteById(@PathVariable Long id){
-		var user = this.service.getById(id);
-		this.service.deleteUser(user.get());
+		var tvShow = this.service.getById(id);
+		this.service.deleteTvShow(tvShow.get());
 		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	}
 	
