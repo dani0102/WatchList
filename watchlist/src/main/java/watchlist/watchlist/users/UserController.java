@@ -54,4 +54,21 @@ public class UserController {
 		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
 	
+//	@PutMapping("/{id}")
+//	public ResponseEntity<?> updateUser(@PathVariable Long id, @RequestBody /*Map<String, String>*/User body){
+//		this.service.updateUser(id, body);
+//		
+//		//		this.service.updateUser(id, body.get("firstname"), body.get("lastname"),
+////								body.get("birthdate"), body.get("email"), 
+////								body.get("username"), body.get("password"));
+////		
+//		return new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
+//	}
+	
+	@PutMapping("/{id}")
+	public ResponseEntity<?> updateById(@PathVariable Long id, @Valid @RequestBody User body) {
+		this.service.updateUser(body);
+		return new ResponseEntity<>(body, HttpStatus.OK);
+	}
+	
 }

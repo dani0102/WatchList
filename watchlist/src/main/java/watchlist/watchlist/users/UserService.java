@@ -30,4 +30,13 @@ public class UserService implements UserServiceable {
 		repository.deleteById(id);
 	}
 
+	@Override
+	public void updateUser(User body) {
+
+		
+		repository.save(body);
+	}
+	
+	
+
 }

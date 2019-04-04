@@ -42,7 +42,7 @@ SET default_with_oids = false;
 --create database watchlist;
 
 create table public.movie (
-	movie_id bigint NOT NULL unique PRIMARY KEY,
+	movie_id bigserial NOT NULL unique PRIMARY KEY,
 	title varchar(100) NOT NULL,
 	alias_title varchar(100) NOT NULL,
 	description varchar(255) NOT NULL,
@@ -52,7 +52,7 @@ create table public.movie (
 );
 
 create table public.tvshow (
-	tvshow_id bigint NOT NULL unique PRIMARY KEY,
+	tvshow_id bigserial NOT NULL unique PRIMARY KEY,
 	title varchar(100) NOT NULL,
 	alias_title varchar(100) NOT NULL,
 	description varchar(255) NOT NULL,
@@ -63,7 +63,7 @@ create table public.tvshow (
 );
 
 create table public.users (
-	users_id bigint NOT NULL unique PRIMARY KEY,
+	users_id bigserial NOT NULL unique PRIMARY KEY,
 	username varchar(50) not null unique,
 	firstname varchar(100) not null,
 	lastname varchar(100) not null,
