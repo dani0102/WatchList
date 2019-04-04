@@ -1,10 +1,5 @@
 package watchlist.watchlist.tvshow;
 
-<<<<<<< Updated upstream
-=======
-import java.awt.Image;
-
->>>>>>> Stashed changes
 /**
  * This class is the DTO for the entity TvShow.
  * 
@@ -20,11 +15,7 @@ public class TvShowDTO {
 	
 	private String description;
 	
-<<<<<<< Updated upstream
 	private byte[] picture;
-=======
-	private Image picture;
->>>>>>> Stashed changes
 	
 	private Integer outcome_year;
 	
@@ -91,22 +82,14 @@ public class TvShowDTO {
 	/**
 	 * @return the picture
 	 */
-<<<<<<< Updated upstream
 	public byte[] getPicture() {
-=======
-	public Image getPicture() {
->>>>>>> Stashed changes
 		return picture;
 	}
 
 	/**
 	 * @param picture the picture to set
 	 */
-<<<<<<< Updated upstream
 	public void setPicture(byte[] picture) {
-=======
-	public void setPicture(Image picture) {
->>>>>>> Stashed changes
 		this.picture = picture;
 	}
 

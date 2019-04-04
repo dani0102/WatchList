@@ -1,6 +1,5 @@
 package watchlist.watchlist.tvshow;
 
-import java.awt.Image;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -36,11 +35,7 @@ public class TvShow {
 	private String description;
 	
 	@Column
-<<<<<<< Updated upstream
 	private byte[] picture;
-=======
-	private Image picture;
->>>>>>> Stashed changes
 	
 	@Column
 	private Integer outcome_year;
@@ -64,11 +59,7 @@ public class TvShow {
 	 * @param end_year
 	 * @param average_length
 	 */
-<<<<<<< Updated upstream
 	public TvShow(@NotBlank String title, String alias_title, @NotBlank String description, byte[] picture,
-=======
-	public TvShow(@NotBlank String title, String alias_title, @NotBlank String description, Image picture,
->>>>>>> Stashed changes
 			Integer outcome_year, Integer end_year, Integer average_length) {
 		super();
 		this.title = title;
@@ -91,11 +82,7 @@ public class TvShow {
 	 * @param average_length
 	 */
 	public TvShow(Long tvshow_id, @NotBlank String title, String alias_title, @NotBlank String description,
-<<<<<<< Updated upstream
 			byte[] picture, Integer outcome_year, Integer end_year, Integer average_length) {
-=======
-			Image picture, Integer outcome_year, Integer end_year, Integer average_length) {
->>>>>>> Stashed changes
 		super();
 		this.tvshow_id = tvshow_id;
 		this.title = title;
@@ -166,22 +153,14 @@ public class TvShow {
 	/**
 	 * @return the picture
 	 */
-<<<<<<< Updated upstream
 	public byte[] getPicture() {
-=======
-	public Image getPicture() {
->>>>>>> Stashed changes
 		return picture;
 	}
 
 	/**
 	 * @param picture the picture to set
 	 */
-<<<<<<< Updated upstream
 	public void setPicture(byte[] picture) {
-=======
-	public void setPicture(Image picture) {
->>>>>>> Stashed changes
 		this.picture = picture;
 	}
 
