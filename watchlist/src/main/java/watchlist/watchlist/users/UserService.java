@@ -52,8 +52,13 @@ public class UserService implements UserServiceable {
 	}
 
 	@Override
+<<<<<<< Updated upstream
 	public void deleteUser(User user) {
 		repository.delete(user);
+=======
+	public void updateUser(User body) {
+		repository.save(body);
+>>>>>>> Stashed changes
 	}
 	
 	

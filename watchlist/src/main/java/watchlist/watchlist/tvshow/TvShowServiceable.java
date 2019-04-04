@@ -20,8 +20,14 @@ public interface TvShowServiceable {
 	
 	public void createTvShow(TvShow tvShow);
 	
+<<<<<<< Updated upstream
 	public void deleteTvShow(TvShow tvShow);
 	
 	public void updateTvShow(Long id, TvShow tvShow);
+=======
+	public void deleteTvShow(Long id);
+	
+	public void updateTvShow(TvShow tvShow);
+>>>>>>> Stashed changes
 	
 }

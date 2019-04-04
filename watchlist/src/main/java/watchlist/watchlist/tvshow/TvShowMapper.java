@@ -13,7 +13,11 @@ import org.mapstruct.ReportingPolicy;
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface TvShowMapper {
 
+<<<<<<< Updated upstream
 	TvShowDTO toDTO(TvShow tvShow);
+=======
+	TvShow toDTO(TvShow tvShow);
+>>>>>>> Stashed changes
 
 	List<TvShowDTO> toListDTO(List<TvShow> tvShow);
 
