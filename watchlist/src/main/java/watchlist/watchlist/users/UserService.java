@@ -39,22 +39,12 @@ public class UserService implements UserServiceable {
 	}
 
 	@Override
-	public void updateUser(Long id, String firstname, String lastname, String birthdate, String email, String username,
-			String password) {
-		var user = getById(id);
+	public void updateUser(User body) {
 
-		try {
-			user.get().setFirstname(firstname);
-			user.get().setLastName(lastname);
-			user.get().setBirthdate(new SimpleDateFormat("yyyy-MM-dd").parse(birthdate));
-			user.get().setEmail(email);
-			user.get().setUsername(username);
-			user.get().setPassword(password);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
 		
-		repository.save(user.get());
+		repository.save(body);
 	}
+	
+	
 
 }

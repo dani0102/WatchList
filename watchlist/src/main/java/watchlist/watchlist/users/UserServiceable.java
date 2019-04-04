@@ -16,6 +16,6 @@ public interface UserServiceable {
 	
 	public void deleteUser(Long id);
 	
-	public void updateUser(Long id, String firstname, String lastname, String birthdate, String email, String username, String password);
+	public void updateUser(User user);
 	
 }
