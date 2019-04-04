@@ -34,11 +34,6 @@ public class UserService implements UserServiceable {
 	}
 
 	@Override
-	public void deleteUser(Long id) {
-		repository.deleteById(id);
-	}
-
-	@Override
 	public void updateUser(Long id, User body) {
 		var user = getById(id);
 
@@ -54,6 +49,11 @@ public class UserService implements UserServiceable {
 		}
 		
 		repository.save(user.get());
+	}
+
+	@Override
+	public void deleteUser(User user) {
+		repository.delete(user);
 	}
 	
 	
