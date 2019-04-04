@@ -1,4 +1,4 @@
-package watchlist.watchlist.user;
+package watchlist.watchlist.users;
 
 import java.util.Date;
 
@@ -10,13 +10,17 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column
+<<<<<<< HEAD:watchlist/src/main/java/watchlist/watchlist/user/User.java
 	private long id;
+=======
+	private long users_id;
+>>>>>>> e48c789... meh:watchlist/src/main/java/watchlist/watchlist/users/User.java
 	
 	@Column
 	private String firstname;
@@ -46,10 +50,17 @@ public class User {
 		this.password = password;
 	}
 
+<<<<<<< HEAD:watchlist/src/main/java/watchlist/watchlist/user/User.java
 	public User(long id, String firstname, String lastname, Date birthdate, String email, String username,
 			String password) {
 		super();
 		this.id = id;
+=======
+	public User(long users_id, String firstname, String lastname, Date birthdate, String email, String username,
+			String password) {
+		super();
+		this.users_id = users_id;
+>>>>>>> e48c789... meh:watchlist/src/main/java/watchlist/watchlist/users/User.java
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.birthdate = birthdate;
@@ -58,12 +69,21 @@ public class User {
 		this.password = password;
 	}
 
+<<<<<<< HEAD:watchlist/src/main/java/watchlist/watchlist/user/User.java
 	public long getId() {
 		return id;
 	}
 
 	public void setId(long id) {
 		this.id = id;
+=======
+	public long getUsers_id() {
+		return users_id;
+	}
+
+	public void setUsers_id(long users_id) {
+		this.users_id = users_id;
+>>>>>>> e48c789... meh:watchlist/src/main/java/watchlist/watchlist/users/User.java
 	}
 
 	public String getFirstname() {

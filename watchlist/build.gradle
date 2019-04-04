@@ -41,7 +41,6 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.flywaydb:flyway-core'
 	// Flyway
 	compile "org.flywaydb:flyway-core:5.2.4"
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
@@ -65,6 +64,7 @@ dependencies {
 	
 	// Flyway
 	compile "org.flywaydb:flyway-core:5.2.4"
+	implementation 'org.flywaydb:flyway-core'
 	
 	// Jackson ObjectMapper (JSON)
 	compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.6'
@@ -120,7 +120,7 @@ task setMigrateDev() {
 			validateOnMigrate = true
 
 			//executes production and development sql scripts
-			locations = ["filesystem:$project.projectDir/src/main/resources/db/migration/production", "filesystem:$project.projectDir/src/main/resources/db/migration/development"]
+			locations = ["filesystem:$project.projectDir/src/main/resources/db/migrationproduction", "filesystem:$project.projectDir/src/main/resources/db/migration/development"]
 		}
 	}
 }

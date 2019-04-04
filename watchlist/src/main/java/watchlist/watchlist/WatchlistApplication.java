@@ -9,5 +9,9 @@ public class WatchlistApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(WatchlistApplication.class, args);
 	}
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> e48c789... meh
 }
