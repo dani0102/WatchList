@@ -26,15 +26,16 @@ public class UserService implements UserServiceable {
 	}
 
 	@Override
-	public void deleteUser(Long id) {
-		repository.deleteById(id);
-	}
-
-	@Override
-	public void updateUser(User body) {
+	public void updateUser(Long id, User body) {
+		var user = getById(id);
 
 		
 		repository.save(body);
+	}
+
+	@Override
+	public void deleteUser(User user) {
+		repository.delete(user);
 	}
 	
 	

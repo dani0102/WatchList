@@ -5,6 +5,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -51,24 +52,20 @@ public class UserController {
 	public ResponseEntity<?> createUser(@RequestBody @Valid User user) {
 		this.service.createUser(user);
 		
-		return new ResponseEntity<>(HttpStatus.CREATED);
+		return new ResponseEntity<>(user, HttpStatus.CREATED);
 	}
 	
-//	@PutMapping("/{id}")
-//	public ResponseEntity<?> updateUser(@PathVariable Long id, @RequestBody /*Map<String, String>*/User body){
-//		this.service.updateUser(id, body);
-//		
-//		//		this.service.updateUser(id, body.get("firstname"), body.get("lastname"),
-////								body.get("birthdate"), body.get("email"), 
-////								body.get("username"), body.get("password"));
-////		
-//		return new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
-//	}
-	
 	@PutMapping("/{id}")
-	public ResponseEntity<?> updateById(@PathVariable Long id, @Valid @RequestBody User body) {
-		this.service.updateUser(body);
-		return new ResponseEntity<>(body, HttpStatus.OK);
+	public ResponseEntity<?> updateById(@PathVariable Long id, @Valid @RequestBody User user) {
+		this.service.updateUser(id, user);
+		return new ResponseEntity<>(user, HttpStatus.OK);
+	}
+	
+	@DeleteMapping("/{id}")
+	public ResponseEntity<?> deleteById(@PathVariable Long id){
+		var user = this.service.getById(id);
+		this.service.deleteUser(user.get());
+		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	}
 	
 }

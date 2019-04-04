@@ -14,8 +14,8 @@ public interface UserServiceable {
 	
 	public void createUser(User user);
 	
-	public void deleteUser(Long id);
+	public void updateUser(Long id, User user);
 	
-	public void updateUser(User user);
+	public void deleteUser(User user);
 	
 }
