@@ -1,4 +1,4 @@
-package watchlist.watchlist.user;
+package watchlist.watchlist.users;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

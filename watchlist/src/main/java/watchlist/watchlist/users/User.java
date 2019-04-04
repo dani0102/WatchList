@@ -1,4 +1,4 @@
-package watchlist.watchlist.user;
+package watchlist.watchlist.users;
 
 import java.util.Date;
 
@@ -11,13 +11,13 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column
-	private long user_id;
+	private long users_id;
 	
 	@Column
 	@NotBlank
@@ -57,10 +57,10 @@ public class User {
 		this.password = password;
 	}
 
-	public User(long user_id, String firstname, String lastname, Date birthdate, String email, String username,
+	public User(long users_id, String firstname, String lastname, Date birthdate, String email, String username,
 			String password) {
 		super();
-		this.user_id = user_id;
+		this.users_id = users_id;
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.birthdate = birthdate;
@@ -69,12 +69,12 @@ public class User {
 		this.password = password;
 	}
 
-	public long getUser_id() {
-		return user_id;
+	public long getUsers_id() {
+		return users_id;
 	}
 
-	public void setUser_id(long user_id) {
-		this.user_id = user_id;
+	public void setUsers_id(long users_id) {
+		this.users_id = users_id;
 	}
 
 	public String getFirstname() {

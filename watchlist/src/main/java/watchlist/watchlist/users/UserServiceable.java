@@ -1,6 +1,5 @@
-package watchlist.watchlist.user;
+package watchlist.watchlist.users;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
