@@ -1,6 +1,11 @@
 package watchlist.watchlist.tvshow;
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+import java.awt.Image;
+
+>>>>>>> Stashed changes
 =======
 import java.awt.Image;
 
@@ -21,7 +26,11 @@ public class TvShowDTO {
 	private String description;
 	
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	private byte[] picture;
+=======
+	private Image picture;
+>>>>>>> Stashed changes
 =======
 	private Image picture;
 >>>>>>> Stashed changes
@@ -92,7 +101,11 @@ public class TvShowDTO {
 	 * @return the picture
 	 */
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	public byte[] getPicture() {
+=======
+	public Image getPicture() {
+>>>>>>> Stashed changes
 =======
 	public Image getPicture() {
 >>>>>>> Stashed changes
@@ -103,7 +116,11 @@ public class TvShowDTO {
 	 * @param picture the picture to set
 	 */
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	public void setPicture(byte[] picture) {
+=======
+	public void setPicture(Image picture) {
+>>>>>>> Stashed changes
 =======
 	public void setPicture(Image picture) {
 >>>>>>> Stashed changes

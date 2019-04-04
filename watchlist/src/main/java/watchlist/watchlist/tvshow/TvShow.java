@@ -37,7 +37,11 @@ public class TvShow {
 	
 	@Column
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	private byte[] picture;
+=======
+	private Image picture;
+>>>>>>> Stashed changes
 =======
 	private Image picture;
 >>>>>>> Stashed changes
@@ -65,7 +69,11 @@ public class TvShow {
 	 * @param average_length
 	 */
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	public TvShow(@NotBlank String title, String alias_title, @NotBlank String description, byte[] picture,
+=======
+	public TvShow(@NotBlank String title, String alias_title, @NotBlank String description, Image picture,
+>>>>>>> Stashed changes
 =======
 	public TvShow(@NotBlank String title, String alias_title, @NotBlank String description, Image picture,
 >>>>>>> Stashed changes
@@ -92,7 +100,11 @@ public class TvShow {
 	 */
 	public TvShow(Long tvshow_id, @NotBlank String title, String alias_title, @NotBlank String description,
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 			byte[] picture, Integer outcome_year, Integer end_year, Integer average_length) {
+=======
+			Image picture, Integer outcome_year, Integer end_year, Integer average_length) {
+>>>>>>> Stashed changes
 =======
 			Image picture, Integer outcome_year, Integer end_year, Integer average_length) {
 >>>>>>> Stashed changes
@@ -167,7 +179,11 @@ public class TvShow {
 	 * @return the picture
 	 */
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	public byte[] getPicture() {
+=======
+	public Image getPicture() {
+>>>>>>> Stashed changes
 =======
 	public Image getPicture() {
 >>>>>>> Stashed changes
@@ -178,7 +194,11 @@ public class TvShow {
 	 * @param picture the picture to set
 	 */
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	public void setPicture(byte[] picture) {
+=======
+	public void setPicture(Image picture) {
+>>>>>>> Stashed changes
 =======
 	public void setPicture(Image picture) {
 >>>>>>> Stashed changes

@@ -1,6 +1,7 @@
 package watchlist.watchlist.tvshow;
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,11 +19,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 /**
  * This class holds REST endpoints targeted towards the entity tv-shows
  * 
  * @author Belinda Schuehle
  */
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 @RestController
 @RequestMapping("/tv-shows")
@@ -77,6 +81,11 @@ public class TvShowController {
 		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	}
 	
+=======
+
+public class TvShowController {
+
+>>>>>>> Stashed changes
 =======
 
 public class TvShowController {

@@ -14,7 +14,11 @@ import org.mapstruct.ReportingPolicy;
 public interface TvShowMapper {
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	TvShowDTO toDTO(TvShow tvShow);
+=======
+	TvShow toDTO(TvShow tvShow);
+>>>>>>> Stashed changes
 =======
 	TvShow toDTO(TvShow tvShow);
 >>>>>>> Stashed changes

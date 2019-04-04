@@ -1,6 +1,7 @@
 package watchlist.watchlist.tvshow;
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import java.util.List;
 import java.util.Optional;
 
@@ -9,12 +10,15 @@ import org.springframework.stereotype.Service;
 
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 /**
  * This class implements all data access related methods targeted towards the
  * entity Tv-Show
  * 
  * @author Belinda Schuehle
  */
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 @Service
 public class TvShowService implements TvShowServiceable {
@@ -62,6 +66,9 @@ public class TvShowService implements TvShowServiceable {
 	}
 	
 	
+=======
+public class TvShowService {
+>>>>>>> Stashed changes
 =======
 public class TvShowService {
 >>>>>>> Stashed changes
