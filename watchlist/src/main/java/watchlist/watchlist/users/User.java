@@ -1,4 +1,4 @@
-package watchlist.watchlist.user;
+package watchlist.watchlist.users;
 
 import java.util.Date;
 
@@ -8,34 +8,45 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column
-	private long id;
+	private long users_id;
 	
 	@Column
+	@NotBlank
 	private String firstname;
 	
 	@Column
+	@NotBlank
 	private String lastname;
 	
 	@Column
+	//@NotBlank
 	private Date birthdate;
 	
-	@Column
+	@Column(unique =  true)
+	@NotBlank
 	private String email;
 	
-	@Column
+	@Column(unique = true)
+	@NotBlank
 	private String username;
 
 	@Column
+	@NotBlank
 	private String password;
 
+	public User() {
+		super();
+	}
+	
 	public User(String firstname, String lastname, Date birthdate, String email, String username, String password) {
 		super();
 		this.firstname = firstname;
@@ -46,10 +57,10 @@ public class User {
 		this.password = password;
 	}
 
-	public User(long id, String firstname, String lastname, Date birthdate, String email, String username,
+	public User(long users_id, String firstname, String lastname, Date birthdate, String email, String username,
 			String password) {
 		super();
-		this.id = id;
+		this.users_id = users_id;
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.birthdate = birthdate;
@@ -58,12 +69,12 @@ public class User {
 		this.password = password;
 	}
 
-	public long getId() {
-		return id;
+	public long getUsers_id() {
+		return users_id;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public void setUsers_id(long users_id) {
+		this.users_id = users_id;
 	}
 
 	public String getFirstname() {

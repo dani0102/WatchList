@@ -1,10 +1,10 @@
-package watchlist.watchlist.user;
+package watchlist.watchlist.users;
 
 import java.util.Date;
 
 public class UserDTO {
 
-	private long id;
+	private long users_id;
 	
 	private String firstname;
 	
@@ -18,12 +18,12 @@ public class UserDTO {
 	
 	private String password;
 
-	public long getId() {
-		return id;
+	public long getUsers_id() {
+		return users_id;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public void setUsers_id(long users_id) {
+		this.users_id = users_id;
 	}
 
 	public String getFirstname() {

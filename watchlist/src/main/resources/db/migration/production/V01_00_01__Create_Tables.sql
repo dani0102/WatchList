@@ -41,6 +41,33 @@ SET default_with_oids = false;
 
 --create database watchlist;
 
-create table public.testable (
-test varchar(255)
+create table public.movie (
+	movie_id bigserial NOT NULL unique PRIMARY KEY,
+	title varchar(100) NOT NULL,
+	alias_title varchar(100) NOT NULL,
+	description varchar(255) NOT NULL,
+	picture bytea,
+	outcome_year bigint,
+	length bigint
+);
+
+create table public.tvshow (
+	tvshow_id bigserial NOT NULL unique PRIMARY KEY,
+	title varchar(100) NOT NULL,
+	alias_title varchar(100) NOT NULL,
+	description varchar(255) NOT NULL,
+	picture bytea,
+	outcome_year bigint,
+	end_year bigint,
+	average_length bigint
+);
+
+create table public.users (
+	users_id bigserial NOT NULL unique PRIMARY KEY,
+	username varchar(50) not null unique,
+	firstname varchar(100) not null,
+	lastname varchar(100) not null,
+	birthdate date not null,
+	email varchar(255) not null unique,
+	password varchar(255) not null
 );

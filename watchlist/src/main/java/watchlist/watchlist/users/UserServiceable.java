@@ -1,4 +1,4 @@
-package watchlist.watchlist.user;
+package watchlist.watchlist.users;
 
 import java.util.List;
 import java.util.Optional;
@@ -15,5 +15,7 @@ public interface UserServiceable {
 	public void createUser(User user);
 	
 	public void deleteUser(Long id);
+	
+	public void updateUser(User user);
 	
 }
