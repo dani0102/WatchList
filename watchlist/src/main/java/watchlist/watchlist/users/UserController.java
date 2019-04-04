@@ -70,7 +70,7 @@ public class UserController {
 	
 	@PutMapping("/{id}")
 	public ResponseEntity<?> updateById(@PathVariable Long id, @Valid @RequestBody User body) {
-		this.service.updateUser(body);
+		this.service.updateUser(id, body);
 		return new ResponseEntity<>(body, HttpStatus.OK);
 	}
 	
