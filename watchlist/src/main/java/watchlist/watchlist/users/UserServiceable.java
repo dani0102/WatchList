@@ -5,6 +5,13 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+/**
+ * 
+ * 
+ * 
+ * @author Daniela Simoes
+ *
+ */
 @Service
 public interface UserServiceable {
 
