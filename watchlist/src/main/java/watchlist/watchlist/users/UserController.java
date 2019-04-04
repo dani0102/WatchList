@@ -2,11 +2,10 @@ package watchlist.watchlist.users;
 
 import javax.validation.Valid;
 
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +15,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * 
+ * 
+ * 
+ * @author Daniela Simões
+ *
+ */
 @RestController
 @RequestMapping("/users")
 public class UserController {
@@ -23,6 +29,10 @@ public class UserController {
 	private UserServiceable service;
 	private UserMapper mapper;
 	
+	/**
+	 * @param service
+	 * @param mapper
+	 */
 	@Autowired
 	public UserController(UserServiceable service, UserMapper mapper) {
 		super();
@@ -30,6 +40,9 @@ public class UserController {
 		this.mapper = mapper;
 	}
 	
+	/**
+	 * @return
+	 */
 	@GetMapping({"", "/"})
 	public @ResponseBody ResponseEntity<Iterable<UserDTO>> getAll() {
 		var result = this.service.getAll();
@@ -38,6 +51,10 @@ public class UserController {
 		return new ResponseEntity<>(toReturn, HttpStatus.OK);
 	}
 	
+	/**
+	 * @param id
+	 * @return
+	 */
 	@GetMapping("/{id}")
 	public @ResponseBody ResponseEntity<UserDTO> getById(@PathVariable Long id) {
 		var result = this.service.getById(id);
@@ -50,28 +67,37 @@ public class UserController {
 		}
 	}
 	
+	/**
+	 * @param user
+	 * @return
+	 */
 	@PostMapping({"", "/"})
 	public ResponseEntity<?> createUser(@RequestBody @Valid User user) {
 		this.service.createUser(user);
 		
-		return new ResponseEntity<>(HttpStatus.CREATED);
+		return new ResponseEntity<>(user, HttpStatus.CREATED);
 	}
 	
-//	@PutMapping("/{id}")
-//	public ResponseEntity<?> updateUser(@PathVariable Long id, @RequestBody /*Map<String, String>*/User body){
-//		this.service.updateUser(id, body);
-//		
-//		//		this.service.updateUser(id, body.get("firstname"), body.get("lastname"),
-////								body.get("birthdate"), body.get("email"), 
-////								body.get("username"), body.get("password"));
-////		
-//		return new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
-//	}
-	
+	/**
+	 * @param id
+	 * @param user
+	 * @return
+	 */
 	@PutMapping("/{id}")
-	public ResponseEntity<?> updateById(@PathVariable Long id, @Valid @RequestBody User body) {
-		this.service.updateUser(body);
-		return new ResponseEntity<>(body, HttpStatus.OK);
+	public ResponseEntity<?> updateById(@PathVariable Long id, @Valid @RequestBody User user) {
+		this.service.updateUser(id, user);
+		return new ResponseEntity<>(user, HttpStatus.OK);
+	}
+	
+	/**
+	 * @param id
+	 * @return
+	 */
+	@DeleteMapping("/{id}")
+	public ResponseEntity<?> deleteById(@PathVariable Long id){
+		var user = this.service.getById(id);
+		this.service.deleteUser(user.get());
+		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	}
 	
 }

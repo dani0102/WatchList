@@ -8,6 +8,13 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * 
+ * 
+ * 
+ * @author Daniela Simões
+ *
+ */
 @Service
 public class UserService implements UserServiceable {
 
@@ -34,15 +41,26 @@ public class UserService implements UserServiceable {
 	}
 
 	@Override
-	public void deleteUser(Long id) {
-		repository.deleteById(id);
+	public void updateUser(Long id, User body) {
+		var user = getById(id);
+
+		try {
+			user.get().setFirstname(body.getFirstname());
+			user.get().setLastName(body.getLastname());
+			user.get().setBirthdate(new SimpleDateFormat("yyyy-MM-dd").parse(String.valueOf(body.getBirthdate())));
+			user.get().setEmail(body.getEmail());
+			user.get().setUsername(body.getUsername());
+			user.get().setPassword(body.getPassword());
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		
+		repository.save(user.get());
 	}
 
 	@Override
-	public void updateUser(User body) {
-
-		
-		repository.save(body);
+	public void deleteUser(User user) {
+		repository.delete(user);
 	}
 	
 	
