@@ -2,6 +2,13 @@ package watchlist.watchlist.users;
 
 import java.util.Date;
 
+/**
+ * 
+ * 
+ * 
+ * @author Daniela Simões
+ *
+ */
 public class UserDTO {
 
 	private long users_id;
