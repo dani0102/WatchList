@@ -13,6 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
+import watchlist.watchlist.movie.Movie;
+
 /**
  * This class holds all REST endpoints targeted towards the entity Role.
  * 
@@ -21,6 +27,9 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/roles")
+@Api(
+		value = "RoleController"
+	)
 public class RoleController {
 
 	private RoleServiceable service;
@@ -37,8 +46,14 @@ public class RoleController {
 	}
 	
 	/**
-	 * @return
+	 * This method returns all Roles
+	 *
+	 * @return ResponseEntity with all existing Roles
 	 */
+	@ApiOperation(
+		value = "This endpoint returns all Roles",
+		response = Role.class
+	)
 	@GetMapping({"", "/"})
 	public @ResponseBody ResponseEntity<Iterable<RoleDTO>> getAll() {
 		var result = service.getAll();
@@ -48,9 +63,21 @@ public class RoleController {
 	}
 	
 	/**
-	 * @param id
-	 * @return
+	 * This method returns the requested Role
+	 *
+	 * @param  id Id of the requested Role
+	 * @return    ResponseEntity with the Role that was requested
 	 */
+	@ApiOperation(
+		value = "This endpoint returns the requested Role",
+		response = Role.class
+	)
+	@ApiImplicitParams(
+		{ @ApiImplicitParam(
+			value = "Id of requested Role",
+			required = true
+		) }
+	)
 	@GetMapping({"/{id}"})
 	public @ResponseBody ResponseEntity<RoleDTO> getById(@PathVariable long id){
 		var result = this.service.getById(id);
@@ -64,9 +91,20 @@ public class RoleController {
 	}
 	
 	/**
-	 * @param role
-	 * @return
+	 * This method creates a Role
+	 *
+	 * @return ResponseEntity with the Role that was created
 	 */
+	@ApiOperation(
+		value = "This endpoint creates a Role",
+		response = Role.class
+	)
+	@ApiImplicitParams(
+		{ @ApiImplicitParam(
+			value = "The Role to be created",
+			required = true
+		) }
+	)
 	@PostMapping({"", "/"})
 	public ResponseEntity<?> createRole(@RequestBody @Valid Role role){
 		this.service.createRole(role);

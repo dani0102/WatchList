@@ -15,6 +15,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
+import watchlist.watchlist.movie.Movie;
+
 /**
  * This class holds REST endpoints targeted towards the entity Users.
  * 
@@ -23,6 +29,9 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/users")
+@Api(
+		value = "UserController"
+	)
 public class UserController {
 
 	private UserServiceable service;
@@ -40,8 +49,14 @@ public class UserController {
 	}
 	
 	/**
-	 * @return
+	 * This method returns all Users
+	 *
+	 * @return ResponseEntity with all existing Users
 	 */
+	@ApiOperation(
+		value = "This endpoint returns all Users",
+		response = User.class
+	)
 	@GetMapping({"", "/"})
 	public @ResponseBody ResponseEntity<Iterable<UserDTO>> getAll() {
 		var result = this.service.getAll();
@@ -51,9 +66,21 @@ public class UserController {
 	}
 	
 	/**
-	 * @param id
-	 * @return
+	 * This method returns the requested User
+	 *
+	 * @param  id Id of the requested User
+	 * @return    ResponseEntity with the User that was requested
 	 */
+	@ApiOperation(
+		value = "This endpoint returns the requested User",
+		response = User.class
+	)
+	@ApiImplicitParams(
+		{ @ApiImplicitParam(
+			value = "Id of requested User",
+			required = true
+		) }
+	)
 	@GetMapping("/{id}")
 	public @ResponseBody ResponseEntity<UserDTO> getById(@PathVariable Long id) {
 		var result = this.service.getById(id);
@@ -67,9 +94,20 @@ public class UserController {
 	}
 	
 	/**
-	 * @param user
-	 * @return
+	 * This method creates a User
+	 *
+	 * @return ResponseEntity with the User that was created
 	 */
+	@ApiOperation(
+		value = "This endpoint creates a User",
+		response = User.class
+	)
+	@ApiImplicitParams(
+		{ @ApiImplicitParam(
+			value = "The User to be created",
+			required = true
+		) }
+	)
 	@PostMapping({"", "/"})
 	public ResponseEntity<?> createUser(@RequestBody @Valid User user) {
 		this.service.createUser(user);
@@ -78,10 +116,22 @@ public class UserController {
 	}
 	
 	/**
-	 * @param id
-	 * @param user
-	 * @return
+	 * This method updates the requested User
+	 *
+	 * @param  id   Id of the User that should get updated
+	 * @param  User user entity to which the requested User should get updated to
+	 * @return      ResponseEntity with the updated User
 	 */
+	@ApiOperation(
+		value = "This endpoint updates the requested User",
+		response = User.class
+	)
+	@ApiImplicitParams(
+		{ @ApiImplicitParam(
+			value = "The User to be updated",
+			required = true
+		) }
+	)
 	@PutMapping("/{id}")
 	public ResponseEntity<?> updateById(@PathVariable Long id, @Valid @RequestBody User user) {
 		this.service.updateUser(id, user);
@@ -89,9 +139,21 @@ public class UserController {
 	}
 	
 	/**
-	 * @param id
-	 * @return
+	 * This method deletes the requested User
+	 *
+	 * @param  id Id of the User that should be deleted
+	 * @return    ResponseEntity with the outcome of the deletion process
 	 */
+	@ApiOperation(
+		value = "This endpoint deletes the requested User",
+		response = User.class
+	)
+	@ApiImplicitParams(
+		{ @ApiImplicitParam(
+			value = "Id of requested User",
+			required = true
+		) }
+	)
 	@DeleteMapping("/{id}")
 	public ResponseEntity<?> deleteById(@PathVariable Long id){
 		var user = this.service.getById(id);

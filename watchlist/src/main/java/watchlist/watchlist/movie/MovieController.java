@@ -14,6 +14,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 /**
  * This class holds REST endpoints targeted towards the entity Movie.
  * 
@@ -21,6 +26,9 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/movies")
+@Api(
+		value = "MovieController"
+	)
 public class MovieController {
 
 	private MovieServiceable service;
@@ -38,8 +46,14 @@ public class MovieController {
 	}
 	
 	/**
-	 * @return
+	 * This method returns all Movies
+	 *
+	 * @return ResponseEntity with all existing Movies
 	 */
+	@ApiOperation(
+		value = "This endpoint returns all Movies",
+		response = Movie.class
+	)
 	@GetMapping({"", "/"})
 	public @ResponseBody ResponseEntity<Iterable<MovieDTO>> getAll() {
 		var result = this.service.getAll();
@@ -49,9 +63,21 @@ public class MovieController {
 	}
 	
 	/**
-	 * @param id
-	 * @return
+	 * This method returns the requested Movie
+	 *
+	 * @param  id Id of the requested Movie
+	 * @return    ResponseEntity with the Movie that was requested
 	 */
+	@ApiOperation(
+		value = "This endpoint returns the requested Movie",
+		response = Movie.class
+	)
+	@ApiImplicitParams(
+		{ @ApiImplicitParam(
+			value = "Id of requested Movie",
+			required = true
+		) }
+	)
 	@GetMapping("/{id}")
 	public @ResponseBody ResponseEntity<MovieDTO> getById(@PathVariable Long id) {
 		var result = this.service.getById(id);
@@ -65,9 +91,20 @@ public class MovieController {
 	}
 	
 	/**
-	 * @param movie
-	 * @return
+	 * This method creates a Movie
+	 *
+	 * @return ResponseEntity with the Movie that was created
 	 */
+	@ApiOperation(
+		value = "This endpoint creates a Movie",
+		response = Movie.class
+	)
+	@ApiImplicitParams(
+		{ @ApiImplicitParam(
+			value = "The Movie to be created",
+			required = true
+		) }
+	)
 	@PostMapping({"", "/"})
 	public ResponseEntity<?> createMovie(@RequestBody @Valid Movie movie) {
 		this.service.createMovie(movie);
@@ -75,10 +112,22 @@ public class MovieController {
 	}
 	
 	/**
-	 * @param id
-	 * @param movie
-	 * @return
+	 * This method updates the requested Movie
+	 *
+	 * @param  id   Id of the Movie that should get updated
+	 * @param  Movie movie entity to which the requested Movie should get updated to
+	 * @return      ResponseEntity with the updated Movie
 	 */
+	@ApiOperation(
+		value = "This endpoint updates the requested Movie",
+		response = Movie.class
+	)
+	@ApiImplicitParams(
+		{ @ApiImplicitParam(
+			value = "The Movie to be updated",
+			required = true
+		) }
+	)
 	@PutMapping("/{id}")
 	public ResponseEntity<?> updateById(@PathVariable Long id, @Valid @RequestBody Movie movie) {
 		this.service.updateMovie(id, movie);
@@ -86,9 +135,21 @@ public class MovieController {
 	}
 	
 	/**
-	 * @param id
-	 * @return
+	 * This method deletes the requested Movie
+	 *
+	 * @param  id Id of the Movie that should be deleted
+	 * @return    ResponseEntity with the outcome of the deletion process
 	 */
+	@ApiOperation(
+		value = "This endpoint deletes the requested Movie",
+		response = Movie.class
+	)
+	@ApiImplicitParams(
+		{ @ApiImplicitParam(
+			value = "Id of requested Movie",
+			required = true
+		) }
+	)
 	@DeleteMapping("/{id}")
 	public ResponseEntity<?> deleteById(@PathVariable Long id){
 		var movie = this.service.getById(id);
