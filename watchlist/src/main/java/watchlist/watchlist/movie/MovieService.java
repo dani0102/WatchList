@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 /**
  * This class implements all data access related methods targeted towards the
- * entity Movie
+ * entity Movie.
  * 
  * @author Belinda Stifani
  */

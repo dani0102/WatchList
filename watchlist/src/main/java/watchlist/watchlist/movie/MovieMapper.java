@@ -13,10 +13,22 @@ import org.mapstruct.ReportingPolicy;
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface MovieMapper {
 
+	/**
+	 * @param movie
+	 * @return
+	 */
 	MovieDTO toDTO(Movie movie);
 
-	List<MovieDTO> toListDTO(List<Movie> movie);
+	/**
+	 * @param movies
+	 * @return
+	 */
+	List<MovieDTO> toListDTO(List<Movie> movies);
 
+	/**
+	 * @param movieDTO
+	 * @return
+	 */
 	Movie toEntity(MovieDTO movieDTO);
 
 }

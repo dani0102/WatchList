@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 /**
- * This class holds REST endpoints targeted towards the entity Movie
+ * This class holds REST endpoints targeted towards the entity Movie.
  * 
  * @author Belinda Stifani
  */
@@ -26,6 +26,10 @@ public class MovieController {
 	private MovieServiceable service;
 	private MovieMapper mapper;
 	
+	/**
+	 * @param service
+	 * @param mapper
+	 */
 	@Autowired
 	public MovieController(MovieServiceable service, MovieMapper mapper) {
 		super();
@@ -33,14 +37,20 @@ public class MovieController {
 		this.mapper = mapper;
 	}
 	
+	/**
+	 * @return
+	 */
 	@GetMapping({"", "/"})
 	public @ResponseBody ResponseEntity<Iterable<MovieDTO>> getAll() {
 		var result = this.service.getAll();
 		var toReturn = mapper.toListDTO(result);
-		
 		return new ResponseEntity<>(toReturn, HttpStatus.OK);
 	}
 	
+	/**
+	 * @param id
+	 * @return
+	 */
 	@GetMapping("/{id}")
 	public @ResponseBody ResponseEntity<MovieDTO> getById(@PathVariable Long id) {
 		var result = this.service.getById(id);
@@ -53,18 +63,31 @@ public class MovieController {
 		}
 	}
 	
+	/**
+	 * @param movie
+	 * @return
+	 */
 	@PostMapping({"", "/"})
 	public ResponseEntity<?> createMovie(@RequestBody @Valid Movie movie) {
 		this.service.createMovie(movie);
 		return new ResponseEntity<>(movie, HttpStatus.CREATED);
 	}
 	
+	/**
+	 * @param id
+	 * @param movie
+	 * @return
+	 */
 	@PutMapping("/{id}")
 	public ResponseEntity<?> updateById(@PathVariable Long id, @Valid @RequestBody Movie movie) {
 		this.service.updateMovie(id, movie);
 		return new ResponseEntity<>(movie, HttpStatus.OK);
 	}
 	
+	/**
+	 * @param id
+	 * @return
+	 */
 	@DeleteMapping("/{id}")
 	public ResponseEntity<?> deleteById(@PathVariable Long id){
 		var movie = this.service.getById(id);

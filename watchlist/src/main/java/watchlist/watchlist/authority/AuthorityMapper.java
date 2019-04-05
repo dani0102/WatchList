@@ -13,9 +13,21 @@ import org.mapstruct.ReportingPolicy;
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface AuthorityMapper {
 
+	/**
+	 * @param authority
+	 * @return
+	 */
 	AuthorityDTO toDTO(Authority authority);
 	
+	/**
+	 * @param authorities
+	 * @return
+	 */
 	List<AuthorityDTO> toListDTO(List<Authority> authorities);
 	
-	Authority toEntity(AuthorityDTO authority);
+	/**
+	 * @param authorityDTO
+	 * @return
+	 */
+	Authority toEntity(AuthorityDTO authorityDTO);
 }

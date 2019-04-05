@@ -83,8 +83,8 @@ create table public.authority (
 );
 
 create table public.authority_role (
-	authority_id bigserial NOT NULL unique,
-	role_id bigserial NOT NULL unique,
+	authority_id bigint NOT NULL unique,
+	role_id bigint NOT NULL unique,
 CONSTRAINT authority_role_pkey PRIMARY KEY (authority_id, role_id),
     CONSTRAINT fk_authority FOREIGN KEY (authority_id)
         REFERENCES public.authority (authority_id) MATCH SIMPLE

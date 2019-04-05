@@ -18,6 +18,9 @@ public class AuthorityService implements AuthorityServiceable{
 
 	private AuthorityRepository repository;
 	
+	/**
+	 * @param repository
+	 */
 	@Autowired
 	public AuthorityService(AuthorityRepository repository) {
 		this.repository = repository;
@@ -34,7 +37,7 @@ public class AuthorityService implements AuthorityServiceable{
 	}
 
 	@Override
-	public void createFachrichtung(Authority authority) {
+	public void createAuthority(Authority authority) {
 		repository.save(authority);
 	}
 
