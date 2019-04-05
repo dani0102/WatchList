@@ -5,6 +5,8 @@ import java.util.Set;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import watchlist.watchlist.authority.AuthorityDTO;
+
 /**
  * This class is the DTO for the entity Role.
  * 

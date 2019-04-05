@@ -13,6 +13,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
+import watchlist.watchlist.authority.Authority;
+
 /**
  * This class is the entity Role.
  * 
