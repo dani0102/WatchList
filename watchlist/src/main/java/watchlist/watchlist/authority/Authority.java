@@ -19,8 +19,8 @@ public class Authority {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column
-	private long id;
+	@Column(name = "authority_id")
+	private long authority_id;
 
 	@Column
 	@NotBlank
@@ -34,11 +34,11 @@ public class Authority {
 	}
 
 	public long getId() {
-		return id;
+		return authority_id;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public void setId(long authority_id) {
+		this.authority_id = authority_id;
 	}
 
 	public String getName() {
