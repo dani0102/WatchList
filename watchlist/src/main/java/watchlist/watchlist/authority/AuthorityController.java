@@ -13,6 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
+
 /**
  * This class holds all REST endpoints targeted towards the entity Authority.
  * 
@@ -21,6 +26,9 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/authorities")
+@Api(
+		value = "AuthorityController"
+	)
 public class AuthorityController {
 
 	private AuthorityServiceable service;
@@ -37,8 +45,14 @@ public class AuthorityController {
 	}
 	
 	/**
-	 * @return
+	 * This method returns all Authorities
+	 *
+	 * @return ResponseEntity with all existing Authorities
 	 */
+	@ApiOperation(
+		value = "This endpoint returns all Authority",
+		response = Authority.class
+	)
 	@GetMapping({"", "/"})
 	public @ResponseBody ResponseEntity<Iterable<AuthorityDTO>> getAll() {
 		var result = this.service.getAll();
@@ -47,9 +61,21 @@ public class AuthorityController {
 	}
 	
 	/**
-	 * @param id
-	 * @return
+	 * This method returns the requested Authority
+	 *
+	 * @param  id Id of the requested Authority
+	 * @return    ResponseEntity with the Authority that was requested
 	 */
+	@ApiOperation(
+		value = "This endpoint returns the requested Authority",
+		response = Authority.class
+	)
+	@ApiImplicitParams(
+		{ @ApiImplicitParam(
+			value = "Id of requested Authority",
+			required = true
+		) }
+	)
 	@GetMapping({"/{id}"})
 	public @ResponseBody ResponseEntity<AuthorityDTO> getById(@PathVariable Long id){
 		var result = this.service.getById(id);
@@ -63,9 +89,20 @@ public class AuthorityController {
 	}
 	
 	/**
-	 * @param authority
-	 * @return
+	 * This method creates an Authority
+	 *
+	 * @return ResponseEntity with the Authority that was created
 	 */
+	@ApiOperation(
+		value = "This endpoint creates an Authority",
+		response = Authority.class
+	)
+	@ApiImplicitParams(
+		{ @ApiImplicitParam(
+			value = "The Authority to be created",
+			required = true
+		) }
+	)
 	@PostMapping({"", "/"})
 	public ResponseEntity<?> createAuthority(@RequestBody @Valid Authority authority){
 		this.service.createAuthority(authority);

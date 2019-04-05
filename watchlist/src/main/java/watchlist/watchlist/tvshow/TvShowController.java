@@ -15,6 +15,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
+import watchlist.watchlist.movie.Movie;
+
 /**
  * This class holds REST endpoints targeted towards the entity TvShow.
  * 
@@ -22,6 +28,9 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/tv-shows")
+@Api(
+		value = "TvShowController"
+	)
 public class TvShowController {
 
 	private TvShowServiceable service;
@@ -39,8 +48,14 @@ public class TvShowController {
 	}
 	
 	/**
-	 * @return
+	 * This method returns all TvShows
+	 *
+	 * @return ResponseEntity with all existing TvShows
 	 */
+	@ApiOperation(
+		value = "This endpoint returns all TvShows",
+		response = TvShow.class
+	)
 	@GetMapping({"", "/"})
 	public @ResponseBody ResponseEntity<Iterable<TvShowDTO>> getAll() {
 		var result = this.service.getAll();
@@ -50,9 +65,21 @@ public class TvShowController {
 	}
 	
 	/**
-	 * @param id
-	 * @return
+	 * This method returns the requested TvShow
+	 *
+	 * @param  id Id of the requested TvShow
+	 * @return    ResponseEntity with the TvShow that was requested
 	 */
+	@ApiOperation(
+		value = "This endpoint returns the requested TvShow",
+		response = TvShow.class
+	)
+	@ApiImplicitParams(
+		{ @ApiImplicitParam(
+			value = "Id of requested TvShow",
+			required = true
+		) }
+	)
 	@GetMapping("/{id}")
 	public @ResponseBody ResponseEntity<TvShowDTO> getById(@PathVariable Long id) {
 		var result = this.service.getById(id);
@@ -66,9 +93,20 @@ public class TvShowController {
 	}
 	
 	/**
-	 * @param tvShow
-	 * @return
+	 * This method creates a TvShow
+	 *
+	 * @return ResponseEntity with the TvShow that was created
 	 */
+	@ApiOperation(
+		value = "This endpoint creates a TvShow",
+		response = TvShow.class
+	)
+	@ApiImplicitParams(
+		{ @ApiImplicitParam(
+			value = "The TvShow to be created",
+			required = true
+		) }
+	)
 	@PostMapping({"", "/"})
 	public ResponseEntity<?> createTvShow(@RequestBody @Valid TvShow tvShow) {
 		this.service.createTvShow(tvShow);
@@ -76,10 +114,22 @@ public class TvShowController {
 	}
 	
 	/**
-	 * @param id
-	 * @param tvShow
-	 * @return
+	 * This method updates the requested TvShow
+	 *
+	 * @param  id   Id of the TvShow that should get updated
+	 * @param  TvShow tvShow entity to which the requested TvShow should get updated to
+	 * @return      ResponseEntity with the updated TvShow
 	 */
+	@ApiOperation(
+		value = "This endpoint updates the requested TvShow",
+		response = TvShow.class
+	)
+	@ApiImplicitParams(
+		{ @ApiImplicitParam(
+			value = "The TvShow to be updated",
+			required = true
+		) }
+	)
 	@PutMapping("/{id}")
 	public ResponseEntity<?> updateById(@PathVariable Long id, @Valid @RequestBody TvShow tvShow) {
 		this.service.updateTvShow(id, tvShow);
@@ -87,9 +137,21 @@ public class TvShowController {
 	}
 	
 	/**
-	 * @param id
-	 * @return
+	 * This method deletes the requested TvShow
+	 *
+	 * @param  id Id of the TvShow that should be deleted
+	 * @return    ResponseEntity with the outcome of the deletion process
 	 */
+	@ApiOperation(
+		value = "This endpoint deletes the requested TvShow",
+		response = TvShow.class
+	)
+	@ApiImplicitParams(
+		{ @ApiImplicitParam(
+			value = "Id of requested TvShow",
+			required = true
+		) }
+	)
 	@DeleteMapping("/{id}")
 	public ResponseEntity<?> deleteById(@PathVariable Long id){
 		var tvShow = this.service.getById(id);
