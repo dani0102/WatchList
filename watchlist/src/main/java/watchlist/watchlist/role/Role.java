@@ -4,6 +4,7 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -33,7 +34,7 @@ public class Role {
 	@NotBlank
 	private String name;
 
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(
 		name = "authority_role",
 		joinColumns = @JoinColumn(name = "role_id"),
@@ -57,7 +58,7 @@ public class Role {
 	 * @param name
 	 * @param authorities
 	 */
-	public Role(long role_id, @NotBlank String name, Set<Authority> authorities) {
+	public Role(Long role_id, @NotBlank String name, Set<Authority> authorities) {
 		super();
 		this.role_id = role_id;
 		this.name = name;
@@ -67,7 +68,7 @@ public class Role {
 	/**
 	 * @return the role_id
 	 */
-	public long getRole_id() {
+	public Long getRole_id() {
 		return role_id;
 	}
 
