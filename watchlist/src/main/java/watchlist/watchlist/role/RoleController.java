@@ -69,7 +69,6 @@ public class RoleController {
 	 */
 	@PostMapping({"", "/"})
 	public ResponseEntity<?> createRole(@RequestBody @Valid Role role){
-		System.out.println(role.getAuthorities());
 		this.service.createRole(role);
 		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
