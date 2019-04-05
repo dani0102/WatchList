@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * This class holds REST endpoints targeted towards the entity tv-shows
+ * This class holds REST endpoints targeted towards the entity TvShow.
  * 
  * @author Belinda Schuehle
  */
@@ -27,6 +27,10 @@ public class TvShowController {
 	private TvShowServiceable service;
 	private TvShowMapper mapper;
 	
+	/**
+	 * @param service
+	 * @param mapper
+	 */
 	@Autowired
 	public TvShowController(TvShowServiceable service, TvShowMapper mapper) {
 		super();
@@ -34,6 +38,9 @@ public class TvShowController {
 		this.mapper = mapper;
 	}
 	
+	/**
+	 * @return
+	 */
 	@GetMapping({"", "/"})
 	public @ResponseBody ResponseEntity<Iterable<TvShowDTO>> getAll() {
 		var result = this.service.getAll();
@@ -42,6 +49,10 @@ public class TvShowController {
 		return new ResponseEntity<>(toReturn, HttpStatus.OK);
 	}
 	
+	/**
+	 * @param id
+	 * @return
+	 */
 	@GetMapping("/{id}")
 	public @ResponseBody ResponseEntity<TvShowDTO> getById(@PathVariable Long id) {
 		var result = this.service.getById(id);
@@ -54,18 +65,31 @@ public class TvShowController {
 		}
 	}
 	
+	/**
+	 * @param tvShow
+	 * @return
+	 */
 	@PostMapping({"", "/"})
 	public ResponseEntity<?> createTvShow(@RequestBody @Valid TvShow tvShow) {
 		this.service.createTvShow(tvShow);
 		return new ResponseEntity<>(tvShow, HttpStatus.CREATED);
 	}
 	
+	/**
+	 * @param id
+	 * @param tvShow
+	 * @return
+	 */
 	@PutMapping("/{id}")
 	public ResponseEntity<?> updateById(@PathVariable Long id, @Valid @RequestBody TvShow tvShow) {
 		this.service.updateTvShow(id, tvShow);
 		return new ResponseEntity<>(tvShow, HttpStatus.OK);
 	}
 	
+	/**
+	 * @param id
+	 * @return
+	 */
 	@DeleteMapping("/{id}")
 	public ResponseEntity<?> deleteById(@PathVariable Long id){
 		var tvShow = this.service.getById(id);

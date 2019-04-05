@@ -11,8 +11,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
 /**
- * 
- * 
+ * This class is the entity Users.
  * 
  * @author Daniela Simoes
  *
@@ -93,58 +92,100 @@ public class User {
 		this.password = password;
 	}
 
+	/**
+	 * @return
+	 */
 	public long getUsers_id() {
 		return users_id;
 	}
 
+	/**
+	 * @param users_id
+	 */
 	public void setUsers_id(long users_id) {
 		this.users_id = users_id;
 	}
 
+	/**
+	 * @return
+	 */
 	public String getFirstname() {
 		return firstname;
 	}
 
+	/**
+	 * @param firstname
+	 */
 	public void setFirstname(String firstname) {
 		this.firstname = firstname;
 	}
 
+	/**
+	 * @return
+	 */
 	public String getLastname() {
 		return lastname;
 	}
 
+	/**
+	 * @param lastname
+	 */
 	public void setLastName(String lastname) {
 		this.lastname = lastname;
 	}
 
+	/**
+	 * @return
+	 */
 	public Date getBirthdate() {
 		return birthdate;
 	}
 
+	/**
+	 * @param birthdate
+	 */
 	public void setBirthdate(Date birthdate) {
 		this.birthdate = birthdate;
 	}
 
+	/**
+	 * @return
+	 */
 	public String getEmail() {
 		return email;
 	}
 
+	/**
+	 * @param email
+	 */
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
+	/**
+	 * @return
+	 */
 	public String getUsername() {
 		return username;
 	}
 
+	/**
+	 * @param username
+	 */
 	public void setUsername(String username) {
 		this.username = username;
 	}
 
+	/**
+	 * @return
+	 */
 	public String getPassword() {
 		return password;
 	}
 
+	/**
+	 * @param password
+	 */
 	public void setPassword(String password) {
 		this.password = password;
 	}

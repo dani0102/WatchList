@@ -5,7 +5,6 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-//import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,27 +20,36 @@ import org.springframework.web.bind.annotation.RestController;
  *
  */
 @RestController
-//@PreAuthorize("hasRole('ADMIN')")
 @RequestMapping("/authorities")
 public class AuthorityController {
 
 	private AuthorityServiceable service;
 	private AuthorityMapper mapper;
 	
+	/**
+	 * @param service
+	 * @param mapper
+	 */
 	@Autowired
 	public AuthorityController(AuthorityServiceable service, AuthorityMapper mapper) {
 		this.service = service;
 		this.mapper = mapper;
 	}
 	
+	/**
+	 * @return
+	 */
 	@GetMapping({"", "/"})
 	public @ResponseBody ResponseEntity<Iterable<AuthorityDTO>> getAll() {
 		var result = service.getAll();
 		var toReturn = mapper.toListDTO(result);
-		
 		return new ResponseEntity<>(toReturn, HttpStatus.OK);
 	}
 	
+	/**
+	 * @param id
+	 * @return
+	 */
 	@GetMapping({"/{id}"})
 	public @ResponseBody ResponseEntity<AuthorityDTO> getById(@PathVariable long id){
 		var result = this.service.getById(id);
@@ -54,13 +62,14 @@ public class AuthorityController {
 		}
 	}
 	
+	/**
+	 * @param authority
+	 * @return
+	 */
 	@PostMapping({"", "/"})
-	public ResponseEntity<?> createFachrichtung(@RequestBody @Valid AuthorityDTO valueToAdd){
-		var toCreate = mapper.toEntity(valueToAdd);
-		service.createFachrichtung(toCreate);
-		
+	public ResponseEntity<?> createAuthority(@RequestBody @Valid Authority authority){
+		this.service.createAuthority(authority);
 		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
-	
 	
 }

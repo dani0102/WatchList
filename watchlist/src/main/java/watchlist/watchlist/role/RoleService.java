@@ -34,7 +34,7 @@ public class RoleService implements RoleServiceable{
 	}
 
 	@Override
-	public void createFachrichtung(Role role) {
+	public void createRole(Role role) {
 		repository.save(role);
 	}
 

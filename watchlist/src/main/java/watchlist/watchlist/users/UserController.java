@@ -16,8 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * 
- * 
+ * This class holds REST endpoints targeted towards the entity Users.
  * 
  * @author Daniela Simoes
  *

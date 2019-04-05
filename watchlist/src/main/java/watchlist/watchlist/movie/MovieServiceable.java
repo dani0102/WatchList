@@ -14,14 +14,31 @@ import org.springframework.stereotype.Service;
 @Service
 public interface MovieServiceable {
 
+	/**
+	 * @param id
+	 * @return
+	 */
 	public Optional<Movie> getById(Long id);
 	
+	/**
+	 * @return
+	 */
 	public List<Movie> getAll();
 	
+	/**
+	 * @param movie
+	 */
 	public void createMovie(Movie movie);
 	
+	/**
+	 * @param movie
+	 */
 	public void deleteMovie(Movie movie);
 	
+	/**
+	 * @param id
+	 * @param movie
+	 */
 	public void updateMovie(Long id, Movie movie);
 	
 }

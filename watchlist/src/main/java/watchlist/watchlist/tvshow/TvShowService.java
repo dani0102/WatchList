@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 /**
  * This class implements all data access related methods targeted towards the
- * entity Tv-Show
+ * entity TvShow.
  * 
  * @author Belinda Schuehle
  */
@@ -17,6 +17,9 @@ public class TvShowService implements TvShowServiceable {
 
 	private TvShowRepository repository;
 	
+	/**
+	 * @param repository
+	 */
 	@Autowired
 	public TvShowService(TvShowRepository repository) {
 		this.repository = repository;

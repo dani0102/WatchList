@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 /**
  * This interface holds all data access related methods targeted towards the
- * entity Tv-Show.
+ * entity TvShow.
  * 
  * @author Belinda Schuehle
  */

@@ -27,7 +27,7 @@ public class Role {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column
-	private long id;
+	private long role_id;
 
 	@Column
 	@NotBlank
@@ -35,7 +35,7 @@ public class Role {
 
 	@ManyToMany
 	@JoinTable(
-		name = "roles_authorities",
+		name = "authority_role",
 		joinColumns = @JoinColumn(name = "role_id"),
 		inverseJoinColumns = @JoinColumn(name = "authority_id")
 	)
@@ -44,30 +44,63 @@ public class Role {
 	public Role() {
 	}
 
+	/**
+	 * @param name
+	 */
 	public Role(String name) {
 		this.name = name;
 	}
 
+	/**
+	 * @param role_id
+	 * @param name
+	 * @param authorities
+	 */
+	public Role(long role_id, @NotBlank String name, Set<Authority> authorities) {
+		super();
+		this.role_id = role_id;
+		this.name = name;
+		this.authorities = authorities;
+	}
+
+	/**
+	 * @return
+	 */
 	public long getId() {
-		return id;
+		return role_id;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	/**
+	 * @param role_id
+	 */
+	public void setId(long role_id) {
+		this.role_id = role_id;
 	}
 
+	/**
+	 * @return
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * @param name
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
+	/**
+	 * @return
+	 */
 	public Set<Authority> getAuthorities() {
 		return authorities;
 	}
 
+	/**
+	 * @param authorities
+	 */
 	public void setAuthorities(Set<Authority> authorities) {
 		this.authorities = authorities;
 	}

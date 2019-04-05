@@ -19,32 +19,60 @@ public class Authority {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "authority_id")
+	@Column
 	private long authority_id;
 
 	@Column
 	@NotBlank
 	private String name;
+	
 
 	public Authority() {
 	}
 
-	public Authority(String name) {
+	/**
+	 * @param name
+	 */
+	public Authority(@NotBlank String name) {
+		super();
+		this.name = name;
+	}
+	
+
+	/**
+	 * @param authority_id
+	 * @param name
+	 */
+	public Authority(long authority_id, @NotBlank String name) {
+		super();
+		this.authority_id = authority_id;
 		this.name = name;
 	}
 
+	/**
+	 * @return
+	 */
 	public long getId() {
 		return authority_id;
 	}
 
+	/**
+	 * @param authority_id
+	 */
 	public void setId(long authority_id) {
 		this.authority_id = authority_id;
 	}
 
+	/**
+	 * @return
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * @param name
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}

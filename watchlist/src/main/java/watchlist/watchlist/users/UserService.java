@@ -9,8 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- * 
- * 
+ * This class implements all data access related methods targeted towards the
+ * entity Users.
  * 
  * @author Daniela Simoes
  *
@@ -20,6 +20,9 @@ public class UserService implements UserServiceable {
 
 	private UserRepository repository;
 	
+	/**
+	 * @param repository
+	 */
 	@Autowired
 	public UserService(UserRepository repository) {
 		this.repository = repository;
@@ -63,6 +66,4 @@ public class UserService implements UserServiceable {
 		repository.delete(user);
 	}
 	
-	
-
 }

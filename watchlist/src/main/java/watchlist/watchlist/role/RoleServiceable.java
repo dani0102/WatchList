@@ -14,9 +14,19 @@ import org.springframework.stereotype.Service;
 @Service
 public interface RoleServiceable {
 
+	/**
+	 * @param id
+	 * @return
+	 */
 	public Optional<Role> getById(Long id);
 	
+	/**
+	 * @return
+	 */
 	public List<Role> getAll();
 	
-	public void createFachrichtung(Role role);
+	/**
+	 * @param role
+	 */
+	public void createRole(Role role);
 }

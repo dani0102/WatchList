@@ -14,10 +14,20 @@ import org.springframework.stereotype.Service;
 @Service
 public interface AuthorityServiceable {
 
+	/**
+	 * @param id
+	 * @return
+	 */
 	public Optional<Authority> getById(Long id);
 	
+	/**
+	 * @return
+	 */
 	public List<Authority> getAll();
 	
-	public void createFachrichtung(Authority authority);
+	/**
+	 * @param authority
+	 */
+	public void createAuthority(Authority authority);
 	
 }

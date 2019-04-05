@@ -6,7 +6,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 
 /**
- * 
+ * This interface defines all the mappings of the entity Users.
  * 
  * @author Daniela Simoes
  *
