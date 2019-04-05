@@ -26,8 +26,8 @@ public interface AuthorityMapper {
 	List<AuthorityDTO> toListDTO(List<Authority> authorities);
 	
 	/**
-	 * @param authority
+	 * @param authorityDTO
 	 * @return
 	 */
-	Authority toEntity(AuthorityDTO authority);
+	Authority toEntity(AuthorityDTO authorityDTO);
 }

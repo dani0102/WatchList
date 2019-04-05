@@ -28,6 +28,7 @@ public class Authority {
 	
 
 	public Authority() {
+		super();
 	}
 
 	/**
@@ -50,31 +51,33 @@ public class Authority {
 	}
 
 	/**
-	 * @return
+	 * @return the authority_id
 	 */
-	public long getId() {
+	public long getAuthority_id() {
 		return authority_id;
 	}
 
 	/**
-	 * @param authority_id
+	 * @param authority_id the authority_id to set
 	 */
-	public void setId(long authority_id) {
+	public void setAuthority_id(long authority_id) {
 		this.authority_id = authority_id;
 	}
 
 	/**
-	 * @return
+	 * @return the name
 	 */
 	public String getName() {
 		return name;
 	}
 
 	/**
-	 * @param name
+	 * @param name the name to set
 	 */
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	
 	
 }

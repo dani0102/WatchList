@@ -27,7 +27,7 @@ public class Role {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column
-	private long role_id;
+	private Long role_id;
 
 	@Column
 	@NotBlank
@@ -42,6 +42,7 @@ public class Role {
 	private Set<Authority> authorities;
 	
 	public Role() {
+		super();
 	}
 
 	/**
@@ -64,45 +65,46 @@ public class Role {
 	}
 
 	/**
-	 * @return
+	 * @return the role_id
 	 */
-	public long getId() {
+	public long getRole_id() {
 		return role_id;
 	}
 
 	/**
-	 * @param role_id
+	 * @param role_id the role_id to set
 	 */
-	public void setId(long role_id) {
+	public void setRole_id(Long role_id) {
 		this.role_id = role_id;
 	}
 
 	/**
-	 * @return
+	 * @return the name
 	 */
 	public String getName() {
 		return name;
 	}
 
 	/**
-	 * @param name
+	 * @param name the name to set
 	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
 	/**
-	 * @return
+	 * @return the authorities
 	 */
 	public Set<Authority> getAuthorities() {
 		return authorities;
 	}
 
 	/**
-	 * @param authorities
+	 * @param authorities the authorities to set
 	 */
 	public void setAuthorities(Set<Authority> authorities) {
 		this.authorities = authorities;
 	}
+
 
 }

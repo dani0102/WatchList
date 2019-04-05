@@ -1,7 +1,5 @@
 package watchlist.watchlist.authority;
 
-import javax.validation.constraints.NotBlank;
-
 /**
  * This class is the DTO for the entity Authority.
  * 
@@ -9,10 +7,8 @@ import javax.validation.constraints.NotBlank;
  */
 public class AuthorityDTO {
 	
-	
 	private Long authority_id;
 
-	@NotBlank
 	private String name;
 
 	/**

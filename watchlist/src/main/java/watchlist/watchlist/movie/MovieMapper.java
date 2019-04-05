@@ -20,10 +20,10 @@ public interface MovieMapper {
 	MovieDTO toDTO(Movie movie);
 
 	/**
-	 * @param movie
+	 * @param movies
 	 * @return
 	 */
-	List<MovieDTO> toListDTO(List<Movie> movie);
+	List<MovieDTO> toListDTO(List<Movie> movies);
 
 	/**
 	 * @param movieDTO

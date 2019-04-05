@@ -44,7 +44,6 @@ public class MovieController {
 	public @ResponseBody ResponseEntity<Iterable<MovieDTO>> getAll() {
 		var result = this.service.getAll();
 		var toReturn = mapper.toListDTO(result);
-		
 		return new ResponseEntity<>(toReturn, HttpStatus.OK);
 	}
 	

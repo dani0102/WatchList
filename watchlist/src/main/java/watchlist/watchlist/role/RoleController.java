@@ -41,7 +41,7 @@ public class RoleController {
 	 */
 	@GetMapping({"", "/"})
 	public @ResponseBody ResponseEntity<Iterable<RoleDTO>> getAll() {
-		var result = service.getAll();
+		var result = this.service.getAll();
 		var toReturn = mapper.toListDTO(result);
 		
 		return new ResponseEntity<>(toReturn, HttpStatus.OK);
@@ -52,7 +52,7 @@ public class RoleController {
 	 * @return
 	 */
 	@GetMapping({"/{id}"})
-	public @ResponseBody ResponseEntity<RoleDTO> getById(@PathVariable long id){
+	public @ResponseBody ResponseEntity<RoleDTO> getById(@PathVariable Long id){
 		var result = this.service.getById(id);
 		var toReturn = mapper.toDTO(result.get());
 		
