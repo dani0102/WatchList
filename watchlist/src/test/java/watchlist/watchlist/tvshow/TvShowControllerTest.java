@@ -56,8 +56,6 @@ public class TvShowControllerTest {
 				tvShowMapper.toListDTO(dataHolder.asList())
 		);
 		
-		
-		
 		mockMvc.perform(get("/tv-shows"))
 				.andExpect(status().isOk())
 				.andExpect(content().json(expectedJson));
