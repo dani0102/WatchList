@@ -65,6 +65,18 @@ public class Role {
 		this.authorities = authorities;
 	}
 
+	
+
+	/**
+	 * @param role_id
+	 * @param name
+	 */
+	public Role(Long role_id, @NotBlank String name) {
+		super();
+		this.role_id = role_id;
+		this.name = name;
+	}
+
 	/**
 	 * @return the role_id
 	 */
