@@ -37,5 +37,14 @@ public class RoleService implements RoleServiceable{
 	public void createRole(Role role) {
 		repository.save(role);
 	}
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Role findById(Long id) {
+		Optional<Role> entity = repository.findById(id);
+		return entity.get();
+	}
 
 }

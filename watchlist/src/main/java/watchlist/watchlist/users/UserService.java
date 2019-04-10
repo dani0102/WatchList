@@ -66,4 +66,13 @@ public class UserService implements UserServiceable {
 		repository.delete(user);
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public User findById(Long id) {
+		Optional<User> entity = repository.findById(id);
+		return entity.get();
+	}
+	
 }

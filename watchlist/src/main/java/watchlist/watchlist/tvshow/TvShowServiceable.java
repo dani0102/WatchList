@@ -41,4 +41,12 @@ public interface TvShowServiceable {
 	 */
 	public void updateTvShow(Long id, TvShow tvShow);
 	
+	/**
+	 * This method finds an entity with a given primary key
+	 *
+	 * @param id Primary key of entity
+	 * @return Returns requested entity with given primary key id
+	 */
+	TvShow findById(Long id);
+	
 }

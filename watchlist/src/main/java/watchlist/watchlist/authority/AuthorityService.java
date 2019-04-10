@@ -40,5 +40,14 @@ public class AuthorityService implements AuthorityServiceable{
 	public void createAuthority(Authority authority) {
 		repository.save(authority);
 	}
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Authority findById(Long id) {
+		Optional<Authority> entity = repository.findById(id);
+		return entity.get();
+	}
 
 }

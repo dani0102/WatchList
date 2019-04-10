@@ -56,7 +56,14 @@ public class MovieService implements MovieServiceable {
 		repository.delete(movie);
 	}
 	
-	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Movie findById(Long id) {
+		Optional<Movie> entity = repository.findById(id);
+		return entity.get();
+	}
 
 
 }

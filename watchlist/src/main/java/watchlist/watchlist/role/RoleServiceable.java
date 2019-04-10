@@ -29,4 +29,12 @@ public interface RoleServiceable {
 	 * @param role
 	 */
 	public void createRole(Role role);
+	
+	/**
+	 * This method finds an entity with a given primary key
+	 *
+	 * @param id Primary key of entity
+	 * @return Returns requested entity with given primary key id
+	 */
+	Role findById(Long id);
 }

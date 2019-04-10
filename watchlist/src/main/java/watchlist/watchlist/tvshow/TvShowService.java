@@ -60,6 +60,13 @@ public class TvShowService implements TvShowServiceable {
 		repository.delete(tvShow);
 	}
 	
-	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public TvShow findById(Long id) {
+		Optional<TvShow> entity = repository.findById(id);
+		return entity.get();
+	}
 
 }

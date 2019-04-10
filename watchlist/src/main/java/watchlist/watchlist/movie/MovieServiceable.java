@@ -41,4 +41,12 @@ public interface MovieServiceable {
 	 */
 	public void updateMovie(Long id, Movie movie);
 	
+	/**
+	 * This method finds an entity with a given primary key
+	 *
+	 * @param id Primary key of entity
+	 * @return Returns requested entity with given primary key id
+	 */
+	Movie findById(Long id);
+	
 }
