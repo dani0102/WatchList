@@ -50,7 +50,7 @@ public class AuthorityController {
 	 * @return ResponseEntity with all existing Authorities
 	 */
 	@ApiOperation(
-		value = "This endpoint returns all Authority",
+		value = "This endpoint returns all Authorities",
 		response = Authority.class
 	)
 	@GetMapping({"", "/"})
