@@ -1,5 +1,7 @@
 package watchlist.watchlist.movie;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,17 +34,15 @@ import io.swagger.annotations.ApiOperation;
 public class MovieController {
 
 	private MovieServiceable service;
-	private MovieMapper mapper;
 	
 	/**
 	 * @param service
 	 * @param mapper
 	 */
 	@Autowired
-	public MovieController(MovieServiceable service, MovieMapper mapper) {
+	public MovieController(MovieServiceable service) {
 		super();
 		this.service = service;
-		this.mapper = mapper;
 	}
 	
 	/**
@@ -55,10 +55,9 @@ public class MovieController {
 		response = Movie.class
 	)
 	@GetMapping({"", "/"})
-	public @ResponseBody ResponseEntity<Iterable<MovieDTO>> getAll() {
-		var result = this.service.getAll();
-		var toReturn = mapper.toListDTO(result);
-		return new ResponseEntity<>(toReturn, HttpStatus.OK);
+	public @ResponseBody ResponseEntity<List<Movie>> getAll() {
+		List<Movie> movies = this.service.getAll();
+		return new ResponseEntity<>(movies, HttpStatus.OK);
 	}
 	
 	/**
@@ -78,15 +77,10 @@ public class MovieController {
 		) }
 	)
 	@GetMapping("/{id}")
-	public @ResponseBody ResponseEntity<MovieDTO> getById(@PathVariable Long id) {
-		var result = this.service.getById(id);
-		var toReturn = mapper.toDTO(result.get());
+	public @ResponseBody ResponseEntity<Movie> getById(@PathVariable Long id) {
+		Movie movie = this.service.findById(id);
 		
-		if(result.isPresent()) {
-			return new ResponseEntity<>(toReturn, HttpStatus.OK);
-		} else {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
+			return new ResponseEntity<>(movie, HttpStatus.OK);
 	}
 	
 	/**
@@ -151,8 +145,8 @@ public class MovieController {
 	)
 	@DeleteMapping("/{id}")
 	public ResponseEntity<?> deleteById(@PathVariable Long id){
-		var movie = this.service.getById(id);
-		this.service.deleteMovie(movie.get());
+		Movie movie = this.service.findById(id);
+		this.service.deleteMovie(movie);
 		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	}
 	

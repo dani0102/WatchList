@@ -1,5 +1,7 @@
 package watchlist.watchlist.tvshow;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +21,6 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
-import watchlist.watchlist.movie.Movie;
 
 /**
  * This class holds REST endpoints targeted towards the entity TvShow.
@@ -34,17 +35,15 @@ import watchlist.watchlist.movie.Movie;
 public class TvShowController {
 
 	private TvShowServiceable service;
-	private TvShowMapper mapper;
 	
 	/**
 	 * @param service
 	 * @param mapper
 	 */
 	@Autowired
-	public TvShowController(TvShowServiceable service, TvShowMapper mapper) {
+	public TvShowController(TvShowServiceable service) {
 		super();
 		this.service = service;
-		this.mapper = mapper;
 	}
 	
 	/**
@@ -57,11 +56,9 @@ public class TvShowController {
 		response = TvShow.class
 	)
 	@GetMapping({"", "/"})
-	public @ResponseBody ResponseEntity<Iterable<TvShowDTO>> getAll() {
-		var result = this.service.getAll();
-		var toReturn = mapper.toListDTO(result);
-		
-		return new ResponseEntity<>(toReturn, HttpStatus.OK);
+	public @ResponseBody ResponseEntity<List<TvShow>> getAll() {
+		List<TvShow> result = this.service.getAll();
+		return new ResponseEntity<>(result, HttpStatus.OK);
 	}
 	
 	/**
@@ -81,15 +78,9 @@ public class TvShowController {
 		) }
 	)
 	@GetMapping("/{id}")
-	public @ResponseBody ResponseEntity<TvShowDTO> getById(@PathVariable Long id) {
-		var result = this.service.getById(id);
-		var toReturn = mapper.toDTO(result.get());
-		
-		if(result.isPresent()) {
-			return new ResponseEntity<>(toReturn, HttpStatus.OK);
-		} else {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
+	public @ResponseBody ResponseEntity<TvShow> getById(@PathVariable Long id) {
+		TvShow tvShow = service.findById(id);		
+		return new ResponseEntity<>(tvShow, HttpStatus.OK);
 	}
 	
 	/**
@@ -154,8 +145,8 @@ public class TvShowController {
 	)
 	@DeleteMapping("/{id}")
 	public ResponseEntity<?> deleteById(@PathVariable Long id){
-		var tvShow = this.service.getById(id);
-		this.service.deleteTvShow(tvShow.get());
+		var tvShow = this.service.findById(id);
+		this.service.deleteTvShow(tvShow);
 		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	}
 	
