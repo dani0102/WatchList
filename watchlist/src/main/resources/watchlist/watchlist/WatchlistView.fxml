@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<Pane fx:id="primaryPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="taskbar" layoutY="-2.0" prefHeight="30.0" prefWidth="500.0" style="-fx-background-color: #968e8b;" textFill="#b95050" />
+      <Label fx:id="footer" layoutY="570.0" prefHeight="30.0" prefWidth="500.0" style="-fx-background-color: #968e8b;" text="   @Watchlist, 2019" textFill="#454343">
+         <font>
+            <Font name="Segoe UI" size="12.0" />
+         </font>
+      </Label>
+      <Button fx:id="minimizeWindow" contentDisplay="CENTER" layoutX="407.0" layoutY="1.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="46.0" style="-fx-background-color: #968e8b; -fx-border-radius: 0px; -fx-border-color: #605d5d; -fx-border-width: 0 0 0 2;" text="    " textFill="#454343" underline="true">
+         <effect>
+            <Blend opacity="0.0" />
+         </effect>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="closeWindow" contentDisplay="CENTER" layoutX="453.0" layoutY="1.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="46.0" style="-fx-background-color: #968e8b; -fx-border-radius: 0px; -fx-border-color: #605d5d; -fx-border-width: 0 0 0 2;" text="X" textFill="#494746">
+         <effect>
+            <Blend opacity="0.0" />
+         </effect>
+      </Button>
+      <BorderPane fx:id="content" layoutY="27.0" prefHeight="544.0" prefWidth="500.0">
+         <top>
+            <Label fx:id="header" prefHeight="109.0" prefWidth="441.0" text="Watchlist\n ahsdhas" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Harlow Solid Italic" size="18.0" />
+               </font>
+            </Label>
+         </top>
+         <left>
+            <Pane fx:id="leftPane" prefHeight="410.0" prefWidth="30.0" BorderPane.alignment="CENTER" />
+         </left>
+         <right>
+            <Pane fx:id="rightPane" prefHeight="410.0" prefWidth="30.0" BorderPane.alignment="CENTER" />
+         </right>
+         <bottom>
+            <Pane fx:id="bottomPane" prefHeight="25.0" prefWidth="500.0" BorderPane.alignment="CENTER" />
+         </bottom>
+         <center>
+            <VBox fx:id="centerPane" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox fx:id="navbar" prefHeight="45.0" prefWidth="440.0" style="-fx-background-color: #968e8b;">
+                     <children>
+                        <Label fx:id="navbarHome" alignment="CENTER" prefHeight="45.0" prefWidth="100.0" text="HOME" textAlignment="CENTER">
+                           <HBox.margin>
+                              <Insets left="70.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label fx:id="navbarTvshows" alignment="CENTER" prefHeight="45.0" prefWidth="100.0" text="TV SHOWS" />
+                        <Label fx:id="navbarMovies" alignment="CENTER" prefHeight="45.0" prefWidth="100.0" text="MOVIES">
+                           <HBox.margin>
+                              <Insets right="70.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <VBox fx:id="pageContent" prefHeight="370.0" prefWidth="440.0">
+                     <children>
+                        <Label fx:id="tvshowTitle" text="TV SHOWS" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets bottom="20.0" left="20.0" top="20.0" />
+                           </VBox.margin>
+                        </Label>
+                        <GridPane fx:id="tvshowGrid" prefHeight="117.0" prefWidth="445.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints maxHeight="90.0" minHeight="10.0" prefHeight="77.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="30.0" minHeight="0.0" prefHeight="13.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </GridPane>
+                        <Label fx:id="movieTitle" text="MOVIES">
+                           <VBox.margin>
+                              <Insets bottom="20.0" left="20.0" />
+                           </VBox.margin>
+                        </Label>
+                        <GridPane fx:id="movieGrid" prefHeight="117.0" prefWidth="445.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="90.0" minHeight="10.0" prefHeight="77.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="30.0" minHeight="0.0" prefHeight="13.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                        </GridPane>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </VBox>
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+   </children>
+</Pane>
