@@ -18,37 +18,40 @@ import watchlist.watchlist.users.User;
 import watchlist.watchlist.users.UserRepository;
 import watchlist.watchlist.users.UserService;
 
+/**
+ * This class tests all data access related methods from the
+ * {@link UserService}, using mocks
+ * 
+ * @author Belinda Schuehle
+ *
+ */
 @RunWith(MockitoJUnitRunner.class)
 public class UserServiceTest {
 
 	@InjectMocks
 	private UserService userService;
-	
+
 	@Mock
 	private UserRepository userRepository;
-	
+
 	private DataHolder<User> dataHolder;
-	
+
 	@Before
 	public void setup() {
 		this.dataHolder = DataGenerators.forClass(User.class).generate();
 	}
-	
+
 	@Test
 	public void findById_idExists_returnsUser() {
 		var user = dataHolder.first();
-		when(userRepository.findById(user.getUsers_id()))
-				.thenReturn(Optional.of(user));
-		
-		assertThat(userService.getById(user.getUsers_id()))
-			.isPresent()
-			.contains(user);
+		when(userRepository.findById(user.getUsers_id())).thenReturn(Optional.of(user));
+
+		assertThat(userService.getById(user.getUsers_id())).isPresent().contains(user);
 	}
-	
+
 	@Test
 	public void findById_idDoesNotExist_returnsNothing() {
-		assertThat(userService.getById(223L))
-				.isEmpty();
+		assertThat(userService.getById(223L)).isEmpty();
 	}
-	
+
 }

@@ -29,6 +29,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import watchlist.watchlist.WatchlistApplicationTests;
 
+/**
+ * This class tests all REST endpoints from the {@link TvShowController}, using
+ * mocks
+ * 
+ * @author Belinda Schuehle
+ *
+ */
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes = WatchlistApplicationTests.class)
 @WebMvcTest(TvShowController.class)
@@ -63,6 +70,10 @@ public class TvShowControllerTest {
 		tvshowList.add(tvshow);
 	}
 
+	/**
+	 * @throws JsonProcessingException
+	 * @throws Exception
+	 */
 	@Test
 	public void getById_givenId_returnsTvShow() throws JsonProcessingException, Exception {
 		when(tvShowService.findById(tvshow.getTvshow_id())).thenReturn(tvshow);
@@ -72,6 +83,10 @@ public class TvShowControllerTest {
 				.andExpect(content().json(new ObjectMapper().writeValueAsString(tvshow)));
 	}
 
+	/**
+	 * @throws JsonProcessingException
+	 * @throws Exception
+	 */
 	@Test
 	public void getAll_returnsTvShowList() throws JsonProcessingException, Exception {
 		when(tvShowService.getAll()).thenReturn(tvshowList);
@@ -81,6 +96,10 @@ public class TvShowControllerTest {
 				.andExpect(content().json(new ObjectMapper().writeValueAsString(tvshowList)));
 	}
 
+	/**
+	 * @throws JsonProcessingException
+	 * @throws Exception
+	 */
 	@Test
 	public void create_givenTvShow_returnsTvShow() throws JsonProcessingException, Exception {
 		doNothing().when(tvShowService).createTvShow(tvshowNoId);
@@ -90,6 +109,10 @@ public class TvShowControllerTest {
 				.andExpect(content().json(new ObjectMapper().writeValueAsString(tvshowNoId)));
 	}
 
+	/**
+	 * @throws JsonProcessingException
+	 * @throws Exception
+	 */
 	@Test
 	public void update_givenTvShow_returnsTvShow() throws JsonProcessingException, Exception {
 		objectMapper = new ObjectMapper();
@@ -101,9 +124,13 @@ public class TvShowControllerTest {
 
 		int status = mvcResult.getResponse().getStatus();
 		assertEquals(200, status);
-		
+
 	}
 
+	/**
+	 * @throws JsonProcessingException
+	 * @throws Exception
+	 */
 	@Test
 	public void delete_givenTvShow_returnsNoValue() throws JsonProcessingException, Exception {
 

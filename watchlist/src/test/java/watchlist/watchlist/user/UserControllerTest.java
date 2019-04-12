@@ -35,6 +35,13 @@ import watchlist.watchlist.users.User;
 import watchlist.watchlist.users.UserController;
 import watchlist.watchlist.users.UserService;
 
+/**
+ * This class tests all REST endpoints from the {@link UserController}, using
+ * mocks
+ * 
+ * @author Belinda Schuehle
+ *
+ */
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes = WatchlistApplicationTests.class)
 @WebMvcTest(UserController.class)
@@ -79,6 +86,10 @@ public class UserControllerTest {
 		userList.add(user);
 	}
 
+	/**
+	 * @throws JsonProcessingException
+	 * @throws Exception
+	 */
 	@Test
 	public void getById_givenId_returnsUser() throws JsonProcessingException, Exception {
 		when(userService.findById(user.getUsers_id())).thenReturn(user);
@@ -88,6 +99,10 @@ public class UserControllerTest {
 				.andExpect(content().json(new ObjectMapper().writeValueAsString(user)));
 	}
 
+	/**
+	 * @throws JsonProcessingException
+	 * @throws Exception
+	 */
 	@Test
 	public void getAll_returnsUserList() throws JsonProcessingException, Exception {
 		when(userService.getAll()).thenReturn(userList);
@@ -97,6 +112,10 @@ public class UserControllerTest {
 				.andExpect(content().json(new ObjectMapper().writeValueAsString(userList)));
 	}
 
+	/**
+	 * @throws JsonProcessingException
+	 * @throws Exception
+	 */
 	@Test
 	public void create_givenUser_returnsUser() throws JsonProcessingException, Exception {
 		doNothing().when(userService).createUser(userNoId);
@@ -106,20 +125,28 @@ public class UserControllerTest {
 				.andExpect(content().json(new ObjectMapper().writeValueAsString(userNoId)));
 	}
 
+	/**
+	 * @throws JsonProcessingException
+	 * @throws Exception
+	 */
 	@Test
 	public void update_givenUser_returnsUser() throws JsonProcessingException, Exception {
-		user.setUsername("Lemon");
-
 		objectMapper = new ObjectMapper();
+
 		String inputJson = objectMapper.writeValueAsString(user);
 
-		MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.put("/movies/{id}", user.getUsers_id())
+		MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.put("/users/{id}", user.getUsers_id())
 				.contentType(MediaType.APPLICATION_JSON_VALUE).content(inputJson)).andReturn();
 
 		int status = mvcResult.getResponse().getStatus();
 		assertEquals(200, status);
+
 	}
 
+	/**
+	 * @throws JsonProcessingException
+	 * @throws Exception
+	 */
 	@Test
 	public void delete_givenUser_returnsNoValue() throws JsonProcessingException, Exception {
 

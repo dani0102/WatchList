@@ -29,61 +29,77 @@ import watchlist.watchlist.authority.Authority;
 import watchlist.watchlist.authority.AuthorityController;
 import watchlist.watchlist.authority.AuthorityService;
 
-
+/**
+ * This class tests all REST endpoints from the {@link AuthorityController},
+ * using mocks
+ * 
+ * @author Belinda Schuehle
+ *
+ */
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes = WatchlistApplicationTests.class)
 @WebMvcTest(AuthorityController.class)
 public class AuthorityControllerTest {
-	
+
 	@InjectMocks
 	private AuthorityController authorityController;
 
-	
 	private MockMvc mockMvc;
-	
+
 	@Mock
 	private AuthorityService authorityService;
-	
+
 	private Authority authority;
 	private Authority authorityNoId;
-	
+
 	List<Authority> authorityList;
-	
+
 	@Before
-	public void setup() throws Exception{
-		
+	public void setup() throws Exception {
+
 		mockMvc = MockMvcBuilders.standaloneSetup(authorityController).build();
-		
+
 		authority = new Authority(1L, "read-update-create-delete");
-		authorityNoId = new Authority("read-update-create");			
-				
-				
+		authorityNoId = new Authority("read-update-create");
+
 		authorityList = new ArrayList<>();
 		authorityList.add(authority);
 	}
-	
+
+	/**
+	 * @throws JsonProcessingException
+	 * @throws Exception
+	 */
 	@Test
 	public void getById_givenId_returnsAuthority() throws JsonProcessingException, Exception {
 		when(authorityService.findById(authority.getAuthority_id())).thenReturn(authority);
-		
+
 		mockMvc.perform(MockMvcRequestBuilders.get("/authorities/{id}", authority.getAuthority_id()))
 				.andExpect(status().isOk()).andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
 				.andExpect(content().json(new ObjectMapper().writeValueAsString(authority)));
 	}
-	
+
+	/**
+	 * @throws JsonProcessingException
+	 * @throws Exception
+	 */
 	@Test
 	public void getAll_returnsAuthorityList() throws JsonProcessingException, Exception {
 		when(authorityService.getAll()).thenReturn(authorityList);
-		
+
 		mockMvc.perform(MockMvcRequestBuilders.get("/authorities")).andExpect(status().isOk())
 				.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
 				.andExpect(content().json(new ObjectMapper().writeValueAsString(authorityList)));
 	}
-	
+
+	/**
+	 * @throws JsonProcessingException
+	 * @throws Exception
+	 */
 	@Test
 	public void create_givenAuthority_returnsAuthority() throws JsonProcessingException, Exception {
 		doNothing().when(authorityService).createAuthority(authorityNoId);
-		
+
 		mockMvc.perform(MockMvcRequestBuilders.post("/authorities").contentType(MediaType.APPLICATION_JSON)
 				.content(new ObjectMapper().writeValueAsString(authorityNoId))).andExpect(status().isCreated());
 	}

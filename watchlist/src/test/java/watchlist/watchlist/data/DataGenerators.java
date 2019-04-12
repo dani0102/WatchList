@@ -7,12 +7,20 @@ import watchlist.watchlist.role.Role;
 import watchlist.watchlist.tvshow.TvShow;
 import watchlist.watchlist.users.User;
 
+/**
+ * @author Belinda Stifani
+ *
+ */
 public class DataGenerators {
 
 	public static <T> DataGeneratable<T> forClass(Class<T> clazz) {
 		return new DataGenerators().build(clazz);
 	}
 
+	/**
+	 * @param clazz
+	 * @return
+	 */
 	@SuppressWarnings("unchecked")
 	public <T> DataGeneratable<T> build(Class<T> clazz) {
 		DataGeneratable<?> gen = null;
@@ -25,11 +33,9 @@ public class DataGenerators {
 			gen = movieGen();
 		} else if (Authority.class.isAssignableFrom(clazz)) {
 			gen = authorityGen();
-		} 
-		else if (Role.class.isAssignableFrom(clazz)) {
+		} else if (Role.class.isAssignableFrom(clazz)) {
 			gen = roleGen();
-		} 
-		else {
+		} else {
 			throw new RuntimeException();
 		}
 

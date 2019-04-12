@@ -32,6 +32,13 @@ import watchlist.watchlist.movie.Movie;
 import watchlist.watchlist.movie.MovieController;
 import watchlist.watchlist.movie.MovieService;
 
+/**
+ * This class tests all REST endpoints from the {@link MovieController}, using
+ * mocks
+ * 
+ * @author Belinda Schuehle
+ *
+ */
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes = WatchlistApplicationTests.class)
 @WebMvcTest(MovieController.class)
@@ -65,6 +72,10 @@ public class MovieControllerTest {
 		movieList.add(movie);
 	}
 
+	/**
+	 * @throws JsonProcessingException
+	 * @throws Exception
+	 */
 	@Test
 	public void getById_givenId_returnsMovie() throws JsonProcessingException, Exception {
 		when(tvShowService.findById(movie.getMovie_id())).thenReturn(movie);
@@ -74,6 +85,10 @@ public class MovieControllerTest {
 				.andExpect(content().json(new ObjectMapper().writeValueAsString(movie)));
 	}
 
+	/**
+	 * @throws JsonProcessingException
+	 * @throws Exception
+	 */
 	@Test
 	public void getAll_returnsMovieList() throws JsonProcessingException, Exception {
 		when(tvShowService.getAll()).thenReturn(movieList);
@@ -83,6 +98,10 @@ public class MovieControllerTest {
 				.andExpect(content().json(new ObjectMapper().writeValueAsString(movieList)));
 	}
 
+	/**
+	 * @throws JsonProcessingException
+	 * @throws Exception
+	 */
 	@Test
 	public void create_givenMovie_returnsMovie() throws JsonProcessingException, Exception {
 		doNothing().when(tvShowService).createMovie(movieNoId);
@@ -92,6 +111,10 @@ public class MovieControllerTest {
 				.andExpect(content().json(new ObjectMapper().writeValueAsString(movieNoId)));
 	}
 
+	/**
+	 * @throws JsonProcessingException
+	 * @throws Exception
+	 */
 	@Test
 	public void update_givenMovie_returnsMovie() throws JsonProcessingException, Exception {
 
@@ -107,6 +130,10 @@ public class MovieControllerTest {
 		assertEquals(200, status);
 	}
 
+	/**
+	 * @throws JsonProcessingException
+	 * @throws Exception
+	 */
 	@Test
 	public void delete_givenMovie_returnsNoValue() throws JsonProcessingException, Exception {
 
