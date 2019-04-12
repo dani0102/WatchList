@@ -1,70 +1,131 @@
 package watchlist.watchlist.user;
 
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.context.annotation.ComponentScan.Filter;
-import org.springframework.context.annotation.FilterType;
+import org.springframework.http.MediaType;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import watchlist.watchlist.data.DataGenerators;
-import watchlist.watchlist.data.DataHolder;
+import watchlist.watchlist.WatchlistApplicationTests;
 import watchlist.watchlist.users.User;
 import watchlist.watchlist.users.UserController;
-import watchlist.watchlist.users.UserMapper;
 import watchlist.watchlist.users.UserService;
 
-
 @RunWith(SpringRunner.class)
-@WebMvcTest(controllers = UserController.class, includeFilters = {
-		@Filter(classes = {UserMapper.class},
-				type = FilterType.ASSIGNABLE_TYPE)
-})
+@ContextConfiguration(classes = WatchlistApplicationTests.class)
+@WebMvcTest(UserController.class)
 public class UserControllerTest {
 
-	@Autowired
+	@InjectMocks
+	private UserController userController;
+
 	private MockMvc mockMvc;
-	
-	@MockBean
+
+	@Mock
 	private UserService userService;
-	
-	@Autowired
+
+	private User user;
+	private User userNoId;
+
+	private Calendar calendarOne;
+	private Calendar calendarTwo;
+
+	private Date dateOne;
+	private Date dateTwo;
+
 	private ObjectMapper objectMapper;
-	
-	@Autowired
-	private UserMapper userMapper;
-	
-	private DataHolder<User> dataHolder;
-	
+
+	List<User> userList;
+
 	@Before
-	public void setup() {
-		this.dataHolder = DataGenerators.forClass(User.class).generate();
+	public void setup() throws Exception {
+
+		mockMvc = MockMvcBuilders.standaloneSetup(userController).build();
+
+		calendarOne = new GregorianCalendar(2001, 4, 16);
+		calendarTwo = new GregorianCalendar(1997, 10, 23);
+		dateOne = calendarOne.getTime();
+		dateTwo = calendarTwo.getTime();
+
+		user = new User(1L, "Belinda", "Schuehle", dateOne, "beli.schuehle@gmail.com", "dabi0102", "dabi0102password");
+		userNoId = new User("Belinda", "Stifani", dateTwo, "belinda.stifani@gmail.com", "bruce0102",
+				"bruce0102password");
+
+		userList = new ArrayList<>();
+		userList.add(user);
 	}
-	
+
 	@Test
-	public void test() throws Exception {
-		when(userService.getAll()).thenReturn(dataHolder.asList());
-		
-		var expectedJson = objectMapper.writeValueAsString(
-				userMapper.toListDTO(dataHolder.asList())
-		);
-		
-		
-		
-		mockMvc.perform(get("/users"))
-				.andExpect(status().isOk())
-				.andExpect(content().json(expectedJson));
+	public void getById_givenId_returnsUser() throws JsonProcessingException, Exception {
+		when(userService.findById(user.getUsers_id())).thenReturn(user);
+
+		mockMvc.perform(MockMvcRequestBuilders.get("/users/{id}", user.getUsers_id())).andExpect(status().isOk())
+				.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
+				.andExpect(content().json(new ObjectMapper().writeValueAsString(user)));
+	}
+
+	@Test
+	public void getAll_returnsUserList() throws JsonProcessingException, Exception {
+		when(userService.getAll()).thenReturn(userList);
+
+		mockMvc.perform(MockMvcRequestBuilders.get("/users")).andExpect(status().isOk())
+				.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
+				.andExpect(content().json(new ObjectMapper().writeValueAsString(userList)));
+	}
+
+	@Test
+	public void create_givenUser_returnsUser() throws JsonProcessingException, Exception {
+		doNothing().when(userService).createUser(userNoId);
+
+		mockMvc.perform(MockMvcRequestBuilders.post("/users").contentType(MediaType.APPLICATION_JSON)
+				.content(new ObjectMapper().writeValueAsString(userNoId))).andExpect(status().isCreated())
+				.andExpect(content().json(new ObjectMapper().writeValueAsString(userNoId)));
+	}
+
+	@Test
+	public void update_givenUser_returnsUser() throws JsonProcessingException, Exception {
+		user.setUsername("Lemon");
+
+		objectMapper = new ObjectMapper();
+		String inputJson = objectMapper.writeValueAsString(user);
+
+		MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.put("/movies/{id}", user.getUsers_id())
+				.contentType(MediaType.APPLICATION_JSON_VALUE).content(inputJson)).andReturn();
+
+		int status = mvcResult.getResponse().getStatus();
+		assertEquals(200, status);
+	}
+
+	@Test
+	public void delete_givenUser_returnsNoValue() throws JsonProcessingException, Exception {
+
+		mockMvc.perform(
+				MockMvcRequestBuilders.delete("/users/{id}", user.getUsers_id()).accept(MediaType.APPLICATION_JSON))
+				.andExpect(MockMvcResultMatchers.status().isNoContent());
 	}
 
 }

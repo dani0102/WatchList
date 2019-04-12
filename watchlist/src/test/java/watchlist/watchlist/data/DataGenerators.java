@@ -2,6 +2,7 @@ package watchlist.watchlist.data;
 
 import watchlist.watchlist.authority.Authority;
 import watchlist.watchlist.movie.Movie;
+import watchlist.watchlist.role.Role;
 //import watchlist.watchlist.role.Role;
 import watchlist.watchlist.tvshow.TvShow;
 import watchlist.watchlist.users.User;
@@ -25,9 +26,9 @@ public class DataGenerators {
 		} else if (Authority.class.isAssignableFrom(clazz)) {
 			gen = authorityGen();
 		} 
-//		else if (Role.class.isAssignableFrom(clazz)) {
-//			gen = roleGen();
-//		} 
+		else if (Role.class.isAssignableFrom(clazz)) {
+			gen = roleGen();
+		} 
 		else {
 			throw new RuntimeException();
 		}
@@ -43,10 +44,9 @@ public class DataGenerators {
 		return new AuthorityDataGenerator();
 	}
 
-// TODO: Fix RoleDataGenerator
-//	private RoleDataGenerator roleGen() {
-//		return new RoleDataGenerator(authorityGen());
-//	}
+	private RoleDataGenerator roleGen() {
+		return new RoleDataGenerator();
+	}
 
 	private UserDataGenerator userGen() {
 		return new UserDataGenerator();
