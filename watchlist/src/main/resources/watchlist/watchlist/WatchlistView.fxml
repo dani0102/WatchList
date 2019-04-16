@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.gluonhq.charm.glisten.control.TextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollBar?>
 <?import javafx.scene.effect.Blend?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -12,7 +15,6 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-
 
 <Pane fx:id="primaryPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
@@ -36,87 +38,224 @@
          </effect>
       </Button>
       <BorderPane fx:id="content" layoutY="27.0" prefHeight="544.0" prefWidth="500.0">
-         <top>
-            <Label fx:id="header" prefHeight="109.0" prefWidth="441.0" text="Watchlist\n ahsdhas" BorderPane.alignment="CENTER">
-               <font>
-                  <Font name="Harlow Solid Italic" size="18.0" />
-               </font>
-            </Label>
-         </top>
          <left>
             <Pane fx:id="leftPane" prefHeight="410.0" prefWidth="30.0" BorderPane.alignment="CENTER" />
          </left>
          <right>
             <Pane fx:id="rightPane" prefHeight="410.0" prefWidth="30.0" BorderPane.alignment="CENTER" />
          </right>
+         <center>
+            <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox fx:id="centerPane_home" prefHeight="410.0" prefWidth="441.0" visible="false">
+                     <children>
+                        <HBox fx:id="navbar" prefHeight="81.0" prefWidth="441.0" style="-fx-background-color: #968e8b;">
+                           <children>
+                              <Label fx:id="navbarHome_home" alignment="CENTER" prefHeight="45.0" prefWidth="100.0" style="-fx-background-color: b7aeaa;" text="HOME" textAlignment="CENTER">
+                                 <HBox.margin>
+                                    <Insets left="70.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label fx:id="navbarTvshows_home" alignment="CENTER" prefHeight="45.0" prefWidth="100.0" text="TV SHOWS" />
+                              <Label fx:id="navbarMovies_home" alignment="CENTER" prefHeight="45.0" prefWidth="100.0" text="MOVIES">
+                                 <HBox.margin>
+                                    <Insets right="70.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <VBox fx:id="pageContent" prefHeight="410.0" prefWidth="440.0">
+                           <children>
+                              <Label fx:id="tvshowTitle" text="TV SHOWS" VBox.vgrow="ALWAYS">
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" left="20.0" top="20.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <GridPane fx:id="tvshowGrid" prefHeight="117.0" prefWidth="445.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints maxHeight="90.0" minHeight="10.0" prefHeight="77.0" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="30.0" minHeight="0.0" prefHeight="13.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </GridPane>
+                              <Label fx:id="movieTitle" text="MOVIES">
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" left="20.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <GridPane fx:id="movieGrid" prefHeight="117.0" prefWidth="445.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints maxHeight="90.0" minHeight="10.0" prefHeight="77.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="30.0" minHeight="0.0" prefHeight="13.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+                  <VBox fx:id="centerPane_tvshow" prefHeight="410.0" prefWidth="441.0">
+                     <children>
+                        <HBox fx:id="navbar1" prefHeight="81.0" prefWidth="441.0" style="-fx-background-color: #968e8b;">
+                           <children>
+                              <Label fx:id="navbarHome_tv" alignment="CENTER" prefHeight="45.0" prefWidth="100.0" text="HOME" textAlignment="CENTER">
+                                 <HBox.margin>
+                                    <Insets left="70.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label fx:id="navbarTvshows_tv" alignment="CENTER" prefHeight="45.0" prefWidth="100.0" style="-fx-background-color: b7aeaa;" text="TV SHOWS" />
+                              <Label fx:id="navbarMovies_tv" alignment="CENTER" prefHeight="45.0" prefWidth="100.0" text="MOVIES">
+                                 <HBox.margin>
+                                    <Insets right="70.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <VBox fx:id="pageContent1" prefHeight="410.0" prefWidth="440.0">
+                           <children>
+                              <BorderPane prefHeight="377.0" prefWidth="441.0">
+                                 <center>
+                                    <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                       <children>
+                                          <GridPane fx:id="grid_tvshow" layoutX="14.0" layoutY="-8.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="326.0" prefWidth="371.0">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="189.0" minWidth="10.0" prefWidth="130.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="262.0" minWidth="10.0" prefWidth="130.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="262.0" minWidth="10.0" prefWidth="130.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints maxHeight="136.0" minHeight="10.0" prefHeight="136.0" vgrow="SOMETIMES" />
+                                              <RowConstraints maxHeight="115.0" minHeight="0.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="190.0" minHeight="10.0" prefHeight="158.0" vgrow="SOMETIMES" />
+                                              <RowConstraints maxHeight="234.0" minHeight="8.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                          </GridPane>
+                                       </children>
+                                    </Pane>
+                                 </center>
+                                 <top>
+                                    <Pane prefHeight="52.0" prefWidth="441.0" BorderPane.alignment="CENTER">
+                                       <children>
+                                          <TextField fx:id="search_field_movie" layoutX="96.0" layoutY="14.0" prefHeight="25.0" prefWidth="267.0" />
+                                          <Label fx:id="search_label_movie" layoutX="14.0" layoutY="18.0" prefHeight="17.0" prefWidth="66.0" text="Search:" />
+                                       </children>
+                                    </Pane>
+                                 </top>
+                                 <right>
+                                    <ScrollBar fx:id="scrollbar_tvshow" orientation="VERTICAL" BorderPane.alignment="CENTER" />
+                                 </right>
+                              </BorderPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+                  <VBox fx:id="centerPane_tvshow1" prefHeight="410.0" prefWidth="441.0" visible="false">
+                     <children>
+                        <HBox fx:id="navbar11" prefHeight="81.0" prefWidth="441.0" style="-fx-background-color: #968e8b;">
+                           <children>
+                              <Label fx:id="navbarHome_movie" alignment="CENTER" prefHeight="45.0" prefWidth="100.0" text="HOME" textAlignment="CENTER">
+                                 <HBox.margin>
+                                    <Insets left="70.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label fx:id="navbarTvshows_movie" alignment="CENTER" prefHeight="45.0" prefWidth="100.0" text="TV SHOWS" />
+                              <Label fx:id="navbarMovies_movie" alignment="CENTER" prefHeight="45.0" prefWidth="100.0" style="-fx-background-color: b7aeaa;" text="MOVIES">
+                                 <HBox.margin>
+                                    <Insets right="70.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <VBox fx:id="pageContent11" prefHeight="410.0" prefWidth="440.0">
+                           <children>
+                              <BorderPane prefHeight="377.0" prefWidth="441.0">
+                                 <center>
+                                    <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                       <children>
+                                          <GridPane fx:id="grid_movie" layoutX="14.0" layoutY="-8.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="326.0" prefWidth="371.0">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="189.0" minWidth="10.0" prefWidth="130.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="262.0" minWidth="10.0" prefWidth="130.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="262.0" minWidth="10.0" prefWidth="130.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints maxHeight="136.0" minHeight="10.0" prefHeight="136.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="115.0" minHeight="0.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="190.0" minHeight="10.0" prefHeight="158.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="234.0" minHeight="8.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                          </GridPane>
+                                       </children>
+                                    </Pane>
+                                 </center>
+                                 <top>
+                                    <Pane prefHeight="52.0" prefWidth="441.0" BorderPane.alignment="CENTER">
+                                       <children>
+                                          <TextField fx:id="search_field_movie" layoutX="96.0" layoutY="14.0" prefHeight="25.0" prefWidth="267.0" />
+                                          <Label fx:id="search_label_movie" layoutX="14.0" layoutY="18.0" prefHeight="17.0" prefWidth="66.0" text="Search:" />
+                                       </children>
+                                    </Pane>
+                                 </top>
+                                 <right>
+                                    <ScrollBar fx:id="scrollbar_movie" orientation="VERTICAL" BorderPane.alignment="CENTER" />
+                                 </right>
+                              </BorderPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </children>
+            </Pane>
+         </center>
          <bottom>
             <Pane fx:id="bottomPane" prefHeight="25.0" prefWidth="500.0" BorderPane.alignment="CENTER" />
          </bottom>
-         <center>
-            <VBox fx:id="centerPane" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-               <children>
-                  <HBox fx:id="navbar" prefHeight="45.0" prefWidth="440.0" style="-fx-background-color: #968e8b;">
+         <top>
+            <BorderPane BorderPane.alignment="CENTER">
+               <center>
+                  <Label fx:id="header" prefHeight="55.0" prefWidth="438.0" text="Watchlist" BorderPane.alignment="CENTER">
+                     <font>
+                        <Font name="Harlow Solid Italic" size="18.0" />
+                     </font>
+                  </Label>
+               </center>
+               <top>
+                  <Pane prefHeight="34.0" prefWidth="500.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Label fx:id="navbarHome" alignment="CENTER" prefHeight="45.0" prefWidth="100.0" text="HOME" textAlignment="CENTER">
-                           <HBox.margin>
-                              <Insets left="70.0" />
-                           </HBox.margin>
-                        </Label>
-                        <Label fx:id="navbarTvshows" alignment="CENTER" prefHeight="45.0" prefWidth="100.0" text="TV SHOWS" />
-                        <Label fx:id="navbarMovies" alignment="CENTER" prefHeight="45.0" prefWidth="100.0" text="MOVIES">
-                           <HBox.margin>
-                              <Insets right="70.0" />
-                           </HBox.margin>
-                        </Label>
+                        <Pane fx:id="pane_login" prefHeight="34.0" prefWidth="500.0" visible="false">
+                           <children>
+                              <Hyperlink fx:id="link_login" layoutX="356.0" layoutY="5.0" text="login" textFill="#7c0d38" underline="true">
+                                 <padding>
+                                    <Insets left="15.0" />
+                                 </padding>
+                              </Hyperlink>
+                              <Hyperlink fx:id="link_register" layoutX="400.0" layoutY="3.0" text="register" textAlignment="RIGHT" textFill="#7c0d38" underline="true" />
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="36.0" prefWidth="500.0">
+                           <children>
+                              <Hyperlink fx:id="link_logout" layoutX="398.0" layoutY="5.0" text="logout" textFill="#7c0d38" />
+                              <Hyperlink fx:id="link_profile" layoutX="356.0" layoutY="5.0" text="profile" textFill="#7c0d38" />
+                           </children>
+                        </Pane>
                      </children>
-                  </HBox>
-                  <VBox fx:id="pageContent" prefHeight="370.0" prefWidth="440.0">
-                     <children>
-                        <Label fx:id="tvshowTitle" text="TV SHOWS" VBox.vgrow="ALWAYS">
-                           <VBox.margin>
-                              <Insets bottom="20.0" left="20.0" top="20.0" />
-                           </VBox.margin>
-                        </Label>
-                        <GridPane fx:id="tvshowGrid" prefHeight="117.0" prefWidth="445.0">
-                          <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints maxHeight="90.0" minHeight="10.0" prefHeight="77.0" vgrow="SOMETIMES" />
-                            <RowConstraints maxHeight="30.0" minHeight="0.0" prefHeight="13.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                        </GridPane>
-                        <Label fx:id="movieTitle" text="MOVIES">
-                           <VBox.margin>
-                              <Insets bottom="20.0" left="20.0" />
-                           </VBox.margin>
-                        </Label>
-                        <GridPane fx:id="movieGrid" prefHeight="117.0" prefWidth="445.0">
-                           <columnConstraints>
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
-                           </columnConstraints>
-                           <rowConstraints>
-                              <RowConstraints maxHeight="90.0" minHeight="10.0" prefHeight="77.0" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="30.0" minHeight="0.0" prefHeight="13.0" vgrow="SOMETIMES" />
-                           </rowConstraints>
-                        </GridPane>
-                     </children>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </VBox>
-               </children>
-            </VBox>
-         </center>
+                  </Pane>
+               </top>
+            </BorderPane>
+         </top>
       </BorderPane>
    </children>
 </Pane>
