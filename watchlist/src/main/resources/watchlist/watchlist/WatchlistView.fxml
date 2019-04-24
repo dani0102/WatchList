@@ -4,6 +4,10 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.ScrollBar?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
@@ -12,424 +16,369 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="873.0" prefWidth="956.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane prefHeight="873.0" prefWidth="956.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+      <AnchorPane prefHeight="797.0" prefWidth="805.0">
          <children>
-            <VBox fx:id="centerPane_tvshow" prefHeight="761.0" prefWidth="760.0" visible="false" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <AnchorPane prefHeight="52.0" prefWidth="754.0" stylesheets="@watchlist_stylesheet.css" AnchorPane.bottomAnchor="663.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <HBox fx:id="navbar1" prefHeight="45.0" prefWidth="441.0" style="-fx-background-color: #968e8b;">
-                     <children>
-                        <AnchorPane prefHeight="45.0" prefWidth="768.0">
+                  <MenuBar fx:id="navbar_watchlist" prefHeight="55.0" prefWidth="824.0" style="-fx-background-color: #968e8b; -fx-alignment: center;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <menus>
+                      <Menu mnemonicParsing="false" style="-fx-background-color: #968e8b; -fx-effect: none; -fx-padding: 0 30 0 0;" styleClass="navbar-menu" text="Home" />
+                      <Menu mnemonicParsing="false" style="-fx-background-color: #968e8b; -fx-effect: none; -fx-padding: 0 30 0 0;" styleClass="menu" text="Tv Shows">
+                        <items>
+                          <MenuItem mnemonicParsing="false" styleClass=".menu-item" text="show all Tv Shows" />
+                              <MenuItem mnemonicParsing="false" styleClass=".menu-item" text="add new Tv Show" />
+                        </items>
+                      </Menu>
+                      <Menu mnemonicParsing="false" style="-fx-background-color: #968e8b; -fx-effect: none; -fx-padding: 0 30 0 0;" text="Movies">
+                        <items>
+                          <MenuItem mnemonicParsing="false" styleClass=".menu-item" text="show all movies" />
+                              <MenuItem mnemonicParsing="false" styleClass=".menu-item" text="add new Movie" />
+                        </items>
+                      </Menu>
+                    </menus>
+                  </MenuBar>
+               </children>
+            </AnchorPane>
+            <VBox fx:id="centerPane_tvshow" layoutY="55.0" prefHeight="743.0" prefWidth="826.0" visible="false" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="55.0">
+               <children>
+                  <BorderPane prefHeight="717.0" prefWidth="826.0">
+                     <center>
+                        <Pane prefHeight="649.0" prefWidth="816.0">
                            <children>
-                              <Label fx:id="navbarHome_tv" alignment="CENTER" layoutX="228.0" prefHeight="45.0" prefWidth="100.0" text="HOME" textAlignment="CENTER" />
-                              <Label fx:id="navbarTvshows_tv" alignment="CENTER" layoutX="328.0" prefHeight="45.0" prefWidth="100.0" style="-fx-background-color: b7aeaa;" text="TV SHOWS" />
-                              <Label fx:id="navbarMovies_tv" alignment="CENTER" layoutX="428.0" prefHeight="45.0" prefWidth="100.0" text="MOVIES" />
+                              <GridPane fx:id="grid_movie1" layoutX="-8.0" layoutY="-8.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="615.0" prefWidth="750.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="250.0" minWidth="10.0" prefWidth="200.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="250.0" minWidth="10.0" prefWidth="200.0" />
+                                    <ColumnConstraints maxWidth="250.0" minWidth="10.0" prefWidth="200.0" />
+                                    <ColumnConstraints hgrow="ALWAYS" maxWidth="250.0" minWidth="10.0" prefWidth="200.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints maxHeight="247.0" minHeight="10.0" prefHeight="197.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="207.0" minHeight="0.0" prefHeight="55.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="247.0" minHeight="10.0" prefHeight="197.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="241.0" minHeight="8.0" prefHeight="55.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
                            </children>
-                        </AnchorPane>
-                     </children>
-                  </HBox>
-                  <VBox fx:id="pageContent1" prefHeight="671.0" prefWidth="760.0">
-                     <children>
-                        <BorderPane prefHeight="672.0" prefWidth="756.0">
-                           <center>
-                              <Pane prefHeight="611.0" prefWidth="750.0">
-                                 <children>
-                                    <GridPane fx:id="grid_movie1" layoutX="-8.0" layoutY="-8.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="629.0" prefWidth="762.0">
-                                       <columnConstraints>
-                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="250.0" minWidth="10.0" prefWidth="200.0" />
-                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="250.0" minWidth="10.0" prefWidth="200.0" />
-                                          <ColumnConstraints maxWidth="250.0" minWidth="10.0" prefWidth="200.0" />
-                                          <ColumnConstraints hgrow="ALWAYS" maxWidth="250.0" minWidth="10.0" prefWidth="200.0" />
-                                       </columnConstraints>
-                                       <rowConstraints>
-                                          <RowConstraints maxHeight="247.0" minHeight="10.0" prefHeight="197.0" vgrow="SOMETIMES" />
-                                          <RowConstraints maxHeight="207.0" minHeight="0.0" prefHeight="55.0" vgrow="SOMETIMES" />
-                                          <RowConstraints maxHeight="247.0" minHeight="10.0" prefHeight="197.0" vgrow="ALWAYS" />
-                                          <RowConstraints maxHeight="241.0" minHeight="8.0" prefHeight="55.0" vgrow="SOMETIMES" />
-                                       </rowConstraints>
-                                    </GridPane>
-                                 </children>
-                              </Pane>
-                           </center>
-                           <top>
-                              <Pane prefHeight="52.0" prefWidth="441.0" BorderPane.alignment="CENTER">
-                                 <children>
-                                    <TextField fx:id="search_field_movie" layoutX="96.0" layoutY="14.0" prefHeight="25.0" prefWidth="267.0">
-                                       <opaqueInsets>
-                                          <Insets />
-                                       </opaqueInsets>
-                                    </TextField>
-                                    <Label fx:id="search_label_movie" layoutX="14.0" layoutY="18.0" prefHeight="17.0" prefWidth="66.0" text="Search:" />
-                                 </children>
-                              </Pane>
-                           </top>
-                           <right>
-                              <ScrollBar fx:id="scrollbar_tvshow" orientation="VERTICAL" BorderPane.alignment="CENTER" />
-                           </right>
-                        </BorderPane>
-                     </children>
-                  </VBox>
+                        </Pane>
+                     </center>
+                     <top>
+                        <Pane prefHeight="52.0" prefWidth="441.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <TextField fx:id="search_field_movie" layoutX="96.0" layoutY="14.0" prefHeight="25.0" prefWidth="267.0">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </TextField>
+                              <Label fx:id="search_label_movie" layoutX="14.0" layoutY="18.0" prefHeight="17.0" prefWidth="66.0" text="Search:" />
+                           </children>
+                        </Pane>
+                     </top>
+                     <right>
+                        <ScrollBar fx:id="scrollbar_tvshow" orientation="VERTICAL" BorderPane.alignment="CENTER" />
+                     </right>
+                  </BorderPane>
                </children>
             </VBox>
-            <VBox fx:id="centerPane_movie" prefHeight="762.0" prefWidth="760.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <VBox fx:id="centerPane_movie" layoutY="53.0" prefHeight="744.0" prefWidth="824.0" visible="false" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="55.0">
                <children>
-                  <HBox fx:id="navbar11" alignment="TOP_CENTER" prefHeight="45.0" prefWidth="441.0" style="-fx-background-color: #968e8b;">
-                     <children>
-                        <AnchorPane prefHeight="45.0" prefWidth="775.0">
+                  <BorderPane prefHeight="720.0" prefWidth="760.0">
+                     <center>
+                        <Pane prefHeight="611.0" prefWidth="750.0" BorderPane.alignment="CENTER">
                            <children>
-                              <Label fx:id="navbarTvshows_movie" alignment="CENTER" layoutX="328.0" prefHeight="45.0" prefWidth="100.0" text="TV SHOWS" />
-                              <Label fx:id="navbarMovies_movie" alignment="CENTER" layoutX="428.0" prefHeight="45.0" prefWidth="100.0" style="-fx-background-color: b7aeaa;" text="MOVIES" />
-                              <Label fx:id="navbarHome_movie" alignment="CENTER" layoutX="228.0" prefHeight="45.0" prefWidth="100.0" text="HOME" textAlignment="CENTER" />
+                              <GridPane fx:id="grid_movie" layoutX="-8.0" layoutY="-8.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="612.0" prefWidth="749.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="250.0" minWidth="10.0" prefWidth="200.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="250.0" minWidth="10.0" prefWidth="200.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="250.0" minWidth="10.0" prefWidth="200.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="250.0" minWidth="10.0" prefWidth="200.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints maxHeight="247.0" minHeight="10.0" prefHeight="197.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="207.0" minHeight="0.0" prefHeight="55.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="247.0" minHeight="10.0" prefHeight="197.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="241.0" minHeight="8.0" prefHeight="55.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
                            </children>
-                        </AnchorPane>
-                     </children>
-                  </HBox>
-                  <VBox fx:id="pageContent11" prefHeight="672.0" prefWidth="760.0">
-                     <children>
-                        <BorderPane prefHeight="720.0" prefWidth="760.0">
-                           <center>
-                              <Pane prefHeight="611.0" prefWidth="750.0" BorderPane.alignment="CENTER">
-                                 <children>
-                                    <GridPane fx:id="grid_movie" layoutX="-8.0" layoutY="-8.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="629.0" prefWidth="762.0">
-                                       <columnConstraints>
-                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="250.0" minWidth="10.0" prefWidth="200.0" />
-                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="250.0" minWidth="10.0" prefWidth="200.0" />
-                                          <ColumnConstraints maxWidth="250.0" minWidth="10.0" prefWidth="200.0" />
-                                          <ColumnConstraints hgrow="ALWAYS" maxWidth="250.0" minWidth="10.0" prefWidth="200.0" />
-                                       </columnConstraints>
-                                       <rowConstraints>
-                                          <RowConstraints maxHeight="247.0" minHeight="10.0" prefHeight="197.0" vgrow="SOMETIMES" />
-                                          <RowConstraints maxHeight="207.0" minHeight="0.0" prefHeight="55.0" vgrow="SOMETIMES" />
-                                          <RowConstraints maxHeight="247.0" minHeight="10.0" prefHeight="197.0" vgrow="ALWAYS" />
-                                          <RowConstraints maxHeight="241.0" minHeight="8.0" prefHeight="55.0" vgrow="SOMETIMES" />
-                                       </rowConstraints>
-                                    </GridPane>
-                                 </children>
-                              </Pane>
-                           </center>
-                           <top>
-                              <Pane prefHeight="52.0" prefWidth="441.0" BorderPane.alignment="CENTER">
-                                 <children>
-                                    <TextField fx:id="search_field_movie" layoutX="96.0" layoutY="14.0" prefHeight="25.0" prefWidth="267.0" />
-                                    <Label fx:id="search_label_movie" layoutX="14.0" layoutY="18.0" prefHeight="17.0" prefWidth="66.0" text="Search:" />
-                                 </children>
-                              </Pane>
-                           </top>
-                           <right>
-                              <ScrollBar fx:id="scrollbar_movie" orientation="VERTICAL" BorderPane.alignment="CENTER" />
-                           </right>
-                        </BorderPane>
-                     </children>
-                  </VBox>
+                        </Pane>
+                     </center>
+                     <top>
+                        <Pane prefHeight="52.0" prefWidth="441.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <TextField fx:id="search_field_movie" layoutX="96.0" layoutY="14.0" prefHeight="25.0" prefWidth="267.0" />
+                              <Label fx:id="search_label_movie" layoutX="14.0" layoutY="18.0" prefHeight="17.0" prefWidth="66.0" text="Search:" />
+                           </children>
+                        </Pane>
+                     </top>
+                     <right>
+                        <ScrollBar fx:id="scrollbar_movie" orientation="VERTICAL" BorderPane.alignment="CENTER" />
+                     </right>
+                  </BorderPane>
                </children>
             </VBox>
-            <VBox fx:id="centerPane_home" prefHeight="760.0" prefWidth="760.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <VBox fx:id="centerPane_home" layoutY="53.0" prefHeight="744.0" prefWidth="824.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="55.0">
                <children>
-                  <HBox fx:id="navbar" alignment="TOP_CENTER" prefHeight="45.0" prefWidth="441.0" style="-fx-background-color: #968e8b;">
+                  <Label fx:id="tvshowTitle" text="TV SHOWS" VBox.vgrow="ALWAYS">
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="20.0" top="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <GridPane fx:id="tvshowGrid" prefHeight="307.0" prefWidth="824.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="256.0" minHeight="10.0" prefHeight="256.0" vgrow="SOMETIMES" />
+                      <RowConstraints fillHeight="false" maxHeight="104.0" minHeight="0.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </GridPane>
+                  <Label fx:id="movieTitle" text="MOVIES">
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <GridPane fx:id="movieGrid" prefHeight="307.0" prefWidth="824.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="256.0" minHeight="10.0" prefHeight="256.0" vgrow="SOMETIMES" />
+                        <RowConstraints fillHeight="false" maxHeight="104.0" minHeight="0.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                  </GridPane>
+               </children>
+            </VBox>
+            <VBox fx:id="centerPane_show_profile" layoutY="52.0" prefHeight="664.0" prefWidth="756.0" visible="false" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="52.0">
+               <children>
+                  <Pane prefHeight="61.0" prefWidth="756.0">
                      <children>
-                        <AnchorPane prefHeight="45.0" prefWidth="793.0">
-                           <children>
-                              <Label fx:id="navbarHome_home" alignment="CENTER" layoutX="228.0" prefHeight="45.0" prefWidth="100.0" style="-fx-background-color: b7aeaa;" text="HOME" textAlignment="CENTER" />
-                              <Label fx:id="navbarTvshows_home" alignment="CENTER" layoutX="328.0" prefHeight="45.0" prefWidth="100.0" text="TV SHOWS" />
-                              <Label fx:id="navbarMovies_home" alignment="CENTER" layoutX="428.0" prefHeight="45.0" prefWidth="100.0" text="MOVIES" />
-                           </children>
-                        </AnchorPane>
+                        <Label fx:id="profile_label" layoutX="359.0" layoutY="17.0" text="Profile" />
                      </children>
-                  </HBox>
-                  <VBox fx:id="pageContent" prefHeight="410.0" prefWidth="440.0">
+                  </Pane>
+                  <Pane prefHeight="623.0" prefWidth="756.0">
                      <children>
-                        <Label fx:id="tvshowTitle" text="TV SHOWS" VBox.vgrow="ALWAYS">
-                           <VBox.margin>
-                              <Insets bottom="20.0" left="20.0" top="20.0" />
-                           </VBox.margin>
+                        <ImageView fx:id="profile_image" fitHeight="160.0" fitWidth="200.0" layoutX="278.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="label_username" layoutX="278.0" layoutY="223.0" text="Username:" />
+                        <Label fx:id="label_firstname" layoutX="279.0" layoutY="252.0" text="Firstname:" />
+                        <Label fx:id="label_lastname" layoutX="278.0" layoutY="282.0" text="Lastname:" />
+                        <Label fx:id="username_input" layoutX="378.0" layoutY="223.0" text="____" />
+                        <Label fx:id="firstname_input" layoutX="378.0" layoutY="252.0" text="____" />
+                        <Label fx:id="lastname_input" layoutX="378.0" layoutY="282.0" text="____" />
+                        <Label fx:id="label_email" layoutX="279.0" layoutY="311.0" text="Email" />
+                        <Label fx:id="email_input" layoutX="379.0" layoutY="311.0" text="____" />
+                        <Hyperlink fx:id="link_edit_profile" layoutX="668.0" layoutY="581.0" text="edit profile" />
+                     </children>
+                  </Pane>
+               </children>
+            </VBox>
+            <VBox fx:id="centerPane_edit_profile" layoutX="-2.0" layoutY="53.0" prefHeight="744.0" prefWidth="828.0" visible="false" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="55.0">
+               <children>
+                  <Pane prefHeight="63.0" prefWidth="756.0">
+                     <children>
+                        <Label fx:id="profile_label1" layoutX="361.0" layoutY="13.0" text="Profile" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="662.0" prefWidth="756.0">
+                     <children>
+                        <ImageView fx:id="profile_image1" fitHeight="160.0" fitWidth="200.0" layoutX="286.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="label_username1" layoutX="279.0" layoutY="215.0" text="Username:" />
+                        <Label fx:id="label_firstname1" layoutX="279.0" layoutY="252.0" text="Firstname:" />
+                        <Label fx:id="label_lastname1" layoutX="279.0" layoutY="288.0" text="Lastname:" />
+                        <Label fx:id="label_email1" layoutX="279.0" layoutY="327.0" text="Email:" />
+                        <Hyperlink fx:id="link_delete_profile" layoutX="654.0" layoutY="583.0" text="delete profile" textFill="RED" />
+                        <TextField fx:id="username_text_input" layoutX="355.0" layoutY="211.0" promptText="username" />
+                        <TextField fx:id="firstname_text_input" layoutX="354.0" layoutY="248.0" promptText="firstname" />
+                        <TextField fx:id="lastname_text_input" layoutX="355.0" layoutY="284.0" promptText="lastname" />
+                        <TextField fx:id="email_text_input" layoutX="355.0" layoutY="323.0" promptText="email" />
+                        <Button fx:id="button_profile_save" layoutX="443.0" layoutY="408.0" mnemonicParsing="false" onAction="#saveProfile" prefWidth="70.0" text="save" />
+                        <Button fx:id="button_profile_cancel" layoutX="343.0" layoutY="408.0" mnemonicParsing="false" prefWidth="70.0" text="cancel" />
+                     </children>
+                  </Pane>
+               </children>
+            </VBox>
+            <VBox fx:id="centerPane_show_movie" layoutY="56.0" prefHeight="732.0" prefWidth="825.0" visible="false" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="55.0">
+               <children>
+                  <Pane prefHeight="63.0" prefWidth="756.0">
+                     <children>
+                        <Label fx:id="movie_title" layoutX="361.0" layoutY="13.0" text="movie_title" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="662.0" prefWidth="756.0">
+                     <children>
+                        <ImageView fx:id="movie_image" fitHeight="225.0" fitWidth="244.0" layoutX="23.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="label_movie" layoutX="276.0" layoutY="43.0" text="Movie" />
+                        <Label fx:id="label_alias_title" layoutX="276.0" layoutY="80.0" text="Alias title" />
+                        <Label fx:id="label_outcome_year" layoutX="276.0" layoutY="116.0" text="outcome year" />
+                        <Label fx:id="label_length" layoutX="276.0" layoutY="155.0" text="length" />
+                        <Hyperlink fx:id="link_delete_movie" layoutX="666.0" layoutY="567.0" text="delete movie" textFill="RED" />
+                        <TextField fx:id="movie_text_input" layoutX="391.0" layoutY="40.0" promptText="movie" />
+                        <TextField fx:id="alias_title_text_input" layoutX="390.0" layoutY="77.0" promptText="alias title" />
+                        <TextField fx:id="outcome_year_text_input" layoutX="391.0" layoutY="113.0" promptText="1997" />
+                        <TextField fx:id="length_text_input" layoutX="391.0" layoutY="151.0" promptText="120" />
+                        <Button fx:id="button_movie_save" layoutX="429.0" layoutY="555.0" mnemonicParsing="false" onAction="#saveMovie" prefWidth="70.0" text="save" />
+                        <Button fx:id="button_profile_cancel1" layoutX="289.0" layoutY="555.0" mnemonicParsing="false" prefWidth="70.0" text="cancel" />
+                        <Label fx:id="label_description" layoutX="42.0" layoutY="285.0" text="Description" />
+                        <TextArea fx:id="description_text_input" layoutX="42.0" layoutY="316.0" prefHeight="200.0" prefWidth="694.0" />
+                     </children>
+                  </Pane>
+               </children>
+            </VBox>
+            <VBox fx:id="centerPane_edit_movie" layoutX="-3.0" layoutY="55.0" prefHeight="718.0" prefWidth="827.0" visible="false" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="55.0">
+               <children>
+                  <Pane prefHeight="63.0" prefWidth="756.0">
+                     <children>
+                        <Label fx:id="movie_title1" layoutX="361.0" layoutY="13.0" text="movie_title" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="662.0" prefWidth="756.0">
+                     <children>
+                        <ImageView fx:id="movie_image1" fitHeight="225.0" fitWidth="244.0" layoutX="23.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="label_movie1" layoutX="276.0" layoutY="43.0" text="Movie" />
+                        <Label fx:id="label_alias_title1" layoutX="276.0" layoutY="80.0" text="Alias title" />
+                        <Label fx:id="label_outcome_year1" layoutX="276.0" layoutY="116.0" text="outcome year" />
+                        <Label fx:id="label_length1" layoutX="276.0" layoutY="155.0" text="length" />
+                        <Hyperlink fx:id="link_delete_movie1" layoutX="674.0" layoutY="590.0" text="edit movie" />
+                        <Label fx:id="label_description1" layoutX="42.0" layoutY="285.0" text="Description" />
+                        <Label fx:id="description_input" layoutX="42.0" layoutY="318.0" text="____" />
+                        <Label fx:id="description_input1" layoutX="377.0" layoutY="43.0" text="____" />
+                        <Label fx:id="alias_title_input" layoutX="377.0" layoutY="80.0" text="____" />
+                        <Label fx:id="outcome_year_input" layoutX="377.0" layoutY="116.0" text="____" />
+                        <Label fx:id="length_input" layoutX="377.0" layoutY="155.0" text="____" />
+                     </children>
+                  </Pane>
+               </children>
+            </VBox>
+            <VBox fx:id="centerPane_show_tvshow" layoutX="-3.0" layoutY="52.0" prefHeight="731.0" prefWidth="825.0" visible="false" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="55.0">
+               <children>
+                  <Pane prefHeight="63.0" prefWidth="756.0">
+                     <children>
+                        <Label fx:id="tvshow_title" layoutX="361.0" layoutY="13.0" text="tvshow_title" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="640.0" prefWidth="825.0">
+                     <children>
+                        <ImageView fx:id="tvshow_image" fitHeight="225.0" fitWidth="244.0" layoutX="23.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="label_movie11" layoutX="276.0" layoutY="43.0" text="TV Show" />
+                        <Label fx:id="label_alias_title_tv" layoutX="276.0" layoutY="80.0" text="Alias title" />
+                        <Label fx:id="label_outcome_year_tv" layoutX="276.0" layoutY="158.0" text="Outcome year" />
+                        <Label fx:id="label_length_tv" layoutX="276.0" layoutY="119.0" text="Average length" />
+                        <Hyperlink fx:id="link_edit_tvshow" layoutX="660.0" layoutY="579.0" text="edit tv show" />
+                        <Label fx:id="label_description_tv" layoutX="42.0" layoutY="285.0" text="Description" />
+                        <Label fx:id="description_input_tv" layoutX="42.0" layoutY="318.0" text="____" />
+                        <Label fx:id="tvshow_input" layoutX="377.0" layoutY="43.0" text="____" />
+                        <Label fx:id="alias_title_input_tv" layoutX="377.0" layoutY="80.0" text="____" />
+                        <Label fx:id="outcome_year_input_tv" layoutX="377.0" layoutY="158.0" text="____" />
+                        <Label fx:id="length_input_tv" layoutX="377.0" layoutY="119.0" text="____" />
+                        <Label fx:id="label_end_year_tv" layoutX="276.0" layoutY="195.0" text="End year" />
+                        <Label fx:id="end_year_input_tv" layoutX="377.0" layoutY="195.0" text="____" />
+                     </children>
+                  </Pane>
+               </children>
+            </VBox>
+            <VBox fx:id="centerPane_edit_tvshow" layoutX="-2.0" layoutY="54.0" prefHeight="729.0" prefWidth="825.0" visible="false" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="55.0">
+               <children>
+                  <Pane prefHeight="63.0" prefWidth="756.0">
+                     <children>
+                        <Label fx:id="tvshow_title_edit" layoutX="361.0" layoutY="13.0" text="tvshow_title" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="662.0" prefWidth="756.0">
+                     <children>
+                        <ImageView fx:id="tvshow_image_edit" fitHeight="225.0" fitWidth="244.0" layoutX="23.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="label_tvshow" layoutX="276.0" layoutY="43.0" text="Tv Show" />
+                        <Label fx:id="label_alias_title_tvedit" layoutX="276.0" layoutY="80.0" text="Alias title" />
+                        <Label fx:id="label_average_length_tvedit" layoutX="276.0" layoutY="116.0" text="Average length" />
+                        <Label fx:id="label_outcome_year_tvedit" layoutX="276.0" layoutY="155.0" text="Outcome year" />
+                        <Label fx:id="label_description_tvedit" layoutX="42.0" layoutY="285.0" text="Description" />
+                        <Label fx:id="label_outcome_year_tvedit1" layoutX="276.0" layoutY="191.0" text="End year" />
+                        <Hyperlink fx:id="link_delete_tvshow" layoutX="646.0" layoutY="581.0" text="delete tv show" textFill="RED" />
+                        <TextArea layoutX="42.0" layoutY="312.0" prefHeight="212.0" prefWidth="718.0" />
+                        <TextField fx:id="tvshow_text_input" layoutX="390.0" layoutY="39.0" promptText="tv show" />
+                        <TextField fx:id="alias_title_text_input_tv" layoutX="390.0" layoutY="76.0" promptText="alias title" />
+                        <TextField fx:id="average_text_input_tv" layoutX="390.0" layoutY="112.0" promptText="25" />
+                        <TextField fx:id="outcome_year_text_input_tv" layoutX="390.0" layoutY="151.0" promptText="1997" />
+                        <Button fx:id="button_tvshow_save" layoutX="464.0" layoutY="565.0" mnemonicParsing="false" onAction="#saveTvShow" prefWidth="70.0" text="save" />
+                        <Button fx:id="button_profile_cancel11" layoutX="300.0" layoutY="565.0" mnemonicParsing="false" prefWidth="70.0" text="cancel" />
+                        <TextField fx:id="end_year_text_input_tv" layoutX="390.0" layoutY="187.0" promptText="2010" />
+                     </children>
+                  </Pane>
+               </children>
+            </VBox>
+            <VBox fx:id="centerPane_login" layoutX="-4.0" layoutY="56.0" prefHeight="737.0" prefWidth="828.0" visible="false" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="55.0">
+               <children>
+                  <Pane prefHeight="63.0" prefWidth="756.0">
+                     <children>
+                        <Label fx:id="title_login" layoutX="361.0" layoutY="13.0" text="Login">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
                         </Label>
-                        <GridPane fx:id="tvshowGrid" prefHeight="117.0" prefWidth="445.0">
-                          <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints maxHeight="90.0" minHeight="10.0" prefHeight="77.0" vgrow="SOMETIMES" />
-                            <RowConstraints maxHeight="30.0" minHeight="0.0" prefHeight="13.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                        </GridPane>
-                        <Label fx:id="movieTitle" text="MOVIES">
-                           <VBox.margin>
-                              <Insets bottom="20.0" left="20.0" />
-                           </VBox.margin>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="662.0" prefWidth="756.0">
+                     <children>
+                        <Label layoutX="181.0" layoutY="64.0" text="Username or email address" />
+                        <Label layoutX="284.0" layoutY="101.0" text="Password" />
+                        <TextField fx:id="username_input_login" layoutX="368.0" layoutY="60.0" />
+                        <PasswordField fx:id="password_input_login" layoutX="368.0" layoutY="97.0" />
+                        <Button fx:id="button_login" layoutX="466.0" layoutY="205.0" mnemonicParsing="false" onAction="#loginUser" text="Login" />
+                        <Button fx:id="button_cancel" layoutX="376.0" layoutY="205.0" mnemonicParsing="false" text="Cancel" />
+                        <Label layoutX="181.0" layoutY="341.0" text="Sign up">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
                         </Label>
-                        <GridPane fx:id="movieGrid" prefHeight="117.0" prefWidth="445.0">
-                           <columnConstraints>
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
-                           </columnConstraints>
-                           <rowConstraints>
-                              <RowConstraints maxHeight="90.0" minHeight="10.0" prefHeight="77.0" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="30.0" minHeight="0.0" prefHeight="13.0" vgrow="SOMETIMES" />
-                           </rowConstraints>
-                        </GridPane>
+                        <Label layoutX="181.0" layoutY="365.0" text="Don't have an account yet? Registration is easy and free." />
+                        <Button fx:id="button_login1" layoutX="181.0" layoutY="410.0" mnemonicParsing="false" text="Sign up" />
                      </children>
-                  </VBox>
+                  </Pane>
                </children>
             </VBox>
-            <VBox fx:id="centerPane_show_profile" prefHeight="760.0" prefWidth="760.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <VBox fx:id="centerPane_signup" layoutX="-4.0" layoutY="55.0" prefHeight="708.0" prefWidth="828.0" visible="false" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="55.0">
                <children>
-                  <HBox fx:id="navbar2" alignment="TOP_CENTER" prefHeight="45.0" prefWidth="714.0" style="-fx-background-color: #968e8b;">
+                  <Pane prefHeight="63.0" prefWidth="756.0">
                      <children>
-                        <AnchorPane prefHeight="45.0" prefWidth="781.0">
-                           <children>
-                              <Label fx:id="navbarHome_home1" alignment="CENTER" contentDisplay="CENTER" layoutX="228.0" prefHeight="45.0" prefWidth="100.0" text="HOME" textAlignment="CENTER" />
-                              <Label fx:id="navbarTvshows_home1" alignment="CENTER" layoutX="328.0" prefHeight="45.0" prefWidth="100.0" text="TV SHOWS" textAlignment="CENTER" />
-                              <Label fx:id="navbarMovies_home1" alignment="CENTER" layoutX="428.0" prefHeight="45.0" prefWidth="100.0" text="MOVIES" textAlignment="CENTER" />
-                           </children>
-                        </AnchorPane>
+                        <Label fx:id="title_login1" layoutX="348.0" layoutY="14.0" text="Sign up">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
                      </children>
-                  </HBox>
-                  <VBox fx:id="pageContent2" prefHeight="704.0" prefWidth="756.0">
+                  </Pane>
+                  <Pane prefHeight="662.0" prefWidth="824.0">
                      <children>
-                        <Pane prefHeight="63.0" prefWidth="756.0">
-                           <children>
-                              <Label fx:id="profile_label" layoutX="361.0" layoutY="13.0" text="Profile" />
-                           </children>
-                        </Pane>
-                        <Pane prefHeight="662.0" prefWidth="756.0">
-                           <children>
-                              <ImageView fx:id="profile_image" fitHeight="160.0" fitWidth="200.0" layoutX="278.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="label_username" layoutX="278.0" layoutY="223.0" text="Username:" />
-                              <Label fx:id="label_firstname" layoutX="279.0" layoutY="252.0" text="Firstname:" />
-                              <Label fx:id="label_lastname" layoutX="278.0" layoutY="282.0" text="Lastname:" />
-                              <Label fx:id="username_input" layoutX="378.0" layoutY="223.0" text="____" />
-                              <Label fx:id="firstname_input" layoutX="378.0" layoutY="252.0" text="____" />
-                              <Label fx:id="lastname_input" layoutX="378.0" layoutY="282.0" text="____" />
-                              <Label fx:id="label_email" layoutX="279.0" layoutY="311.0" text="Email" />
-                              <Label fx:id="email_input" layoutX="379.0" layoutY="311.0" text="____" />
-                              <Hyperlink fx:id="link_edit_profile" layoutX="674.0" layoutY="598.0" text="edit profile" />
-                           </children>
-                        </Pane>
+                        <Label layoutX="257.0" layoutY="65.0" text="Username" />
+                        <Label layoutX="261.0" layoutY="102.0" text="Firstname" />
+                        <TextField fx:id="username_inputfield" layoutX="342.0" layoutY="61.0" />
+                        <PasswordField fx:id="firstname_inputfield" layoutX="342.0" layoutY="98.0" />
+                        <Button fx:id="button_signup" layoutX="400.0" layoutY="344.0" mnemonicParsing="false" onAction="#signupUser" text="Sign up" />
+                        <Button fx:id="button_cancel_register" layoutX="310.0" layoutY="344.0" mnemonicParsing="false" text="Cancel" />
+                        <Label layoutX="173.0" layoutY="297.0" text="By clicking Sign Up, you agree to the Terms of Use and Privacy Policy." />
+                        <Label layoutX="261.0" layoutY="143.0" text="Lastname" />
+                        <PasswordField fx:id="lastname_inputfield" layoutX="342.0" layoutY="138.0" />
+                        <Label layoutX="287.0" layoutY="182.0" text="Email" />
+                        <PasswordField fx:id="email_inputfield" layoutX="342.0" layoutY="177.0" />
+                        <Label layoutX="261.0" layoutY="223.0" text="Password" />
+                        <PasswordField fx:id="password_inputfield" layoutX="342.0" layoutY="217.0" />
                      </children>
-                  </VBox>
-               </children>
-            </VBox>
-            <VBox fx:id="centerPane_edit_profile" layoutX="-2.0" layoutY="-7.0" prefHeight="760.0" prefWidth="772.0" visible="false">
-               <children>
-                  <HBox fx:id="navbar21" alignment="TOP_CENTER" prefHeight="45.0" prefWidth="714.0" style="-fx-background-color: #968e8b;">
-                     <children>
-                        <AnchorPane prefHeight="45.0" prefWidth="781.0">
-                           <children>
-                              <Label fx:id="navbarHome_home11" alignment="CENTER" contentDisplay="CENTER" layoutX="228.0" prefHeight="45.0" prefWidth="100.0" text="HOME" textAlignment="CENTER" />
-                              <Label fx:id="navbarTvshows_home11" alignment="CENTER" layoutX="328.0" prefHeight="45.0" prefWidth="100.0" text="TV SHOWS" textAlignment="CENTER" />
-                              <Label fx:id="navbarMovies_home11" alignment="CENTER" layoutX="428.0" prefHeight="45.0" prefWidth="100.0" text="MOVIES" textAlignment="CENTER" />
-                           </children>
-                        </AnchorPane>
-                     </children>
-                  </HBox>
-                  <VBox fx:id="pageContent21" prefHeight="704.0" prefWidth="756.0">
-                     <children>
-                        <Pane prefHeight="63.0" prefWidth="756.0">
-                           <children>
-                              <Label fx:id="profile_label1" layoutX="361.0" layoutY="13.0" text="Profile" />
-                           </children>
-                        </Pane>
-                        <Pane prefHeight="662.0" prefWidth="756.0">
-                           <children>
-                              <ImageView fx:id="profile_image1" fitHeight="160.0" fitWidth="200.0" layoutX="286.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="label_username1" layoutX="279.0" layoutY="215.0" text="Username:" />
-                              <Label fx:id="label_firstname1" layoutX="279.0" layoutY="252.0" text="Firstname:" />
-                              <Label fx:id="label_lastname1" layoutX="279.0" layoutY="288.0" text="Lastname:" />
-                              <Label fx:id="label_email1" layoutX="279.0" layoutY="327.0" text="Email:" />
-                              <Hyperlink fx:id="link_delete_profile" layoutX="675.0" layoutY="604.0" text="delete profile" textFill="RED" />
-                              <TextField fx:id="username_text_input" layoutX="355.0" layoutY="211.0" promptText="username" />
-                              <TextField fx:id="firstname_text_input" layoutX="354.0" layoutY="248.0" promptText="firstname" />
-                              <TextField fx:id="lastname_text_input" layoutX="355.0" layoutY="284.0" promptText="lastname" />
-                              <TextField fx:id="email_text_input" layoutX="355.0" layoutY="323.0" promptText="email" />
-                              <Button fx:id="button_profile_save" layoutX="443.0" layoutY="408.0" mnemonicParsing="false" onAction="#saveProfile" prefWidth="70.0" text="save" />
-                              <Button fx:id="button_profile_cancel" layoutX="343.0" layoutY="408.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="cancel" />
-                           </children>
-                        </Pane>
-                     </children>
-                  </VBox>
-               </children>
-            </VBox>
-            <VBox fx:id="centerPane_show_movie" layoutY="-2.0" prefHeight="765.0" prefWidth="780.0" visible="false">
-               <children>
-                  <HBox fx:id="navbar211" alignment="TOP_CENTER" prefHeight="45.0" prefWidth="714.0" style="-fx-background-color: #968e8b;">
-                     <children>
-                        <AnchorPane prefHeight="45.0" prefWidth="781.0">
-                           <children>
-                              <Label fx:id="navbarHome_home111" alignment="CENTER" contentDisplay="CENTER" layoutX="228.0" prefHeight="45.0" prefWidth="100.0" text="HOME" textAlignment="CENTER" />
-                              <Label fx:id="navbarTvshows_home111" alignment="CENTER" layoutX="328.0" prefHeight="45.0" prefWidth="100.0" text="TV SHOWS" textAlignment="CENTER" />
-                              <Label fx:id="navbarMovies_home111" alignment="CENTER" layoutX="428.0" prefHeight="45.0" prefWidth="100.0" text="MOVIES" textAlignment="CENTER" />
-                           </children>
-                        </AnchorPane>
-                     </children>
-                  </HBox>
-                  <VBox fx:id="pageContent211" prefHeight="704.0" prefWidth="756.0">
-                     <children>
-                        <Pane prefHeight="63.0" prefWidth="756.0">
-                           <children>
-                              <Label fx:id="movie_title" layoutX="361.0" layoutY="13.0" text="movie_title" />
-                           </children>
-                        </Pane>
-                        <Pane prefHeight="662.0" prefWidth="756.0">
-                           <children>
-                              <ImageView fx:id="movie_image" fitHeight="225.0" fitWidth="244.0" layoutX="23.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="label_movie" layoutX="276.0" layoutY="43.0" text="Movie" />
-                              <Label fx:id="label_alias_title" layoutX="276.0" layoutY="80.0" text="Alias title" />
-                              <Label fx:id="label_outcome_year" layoutX="276.0" layoutY="116.0" text="outcome year" />
-                              <Label fx:id="label_length" layoutX="276.0" layoutY="155.0" text="length" />
-                              <Hyperlink fx:id="link_delete_movie" layoutX="666.0" layoutY="567.0" text="delete movie" textFill="RED" />
-                              <TextField fx:id="movie_text_input" layoutX="391.0" layoutY="40.0" promptText="movie" />
-                              <TextField fx:id="alias_title_text_input" layoutX="390.0" layoutY="77.0" promptText="alias title" />
-                              <TextField fx:id="outcome_year_text_input" layoutX="391.0" layoutY="113.0" promptText="1997" />
-                              <TextField fx:id="length_text_input" layoutX="391.0" layoutY="151.0" promptText="120" />
-                              <Button fx:id="button_movie_save" layoutX="429.0" layoutY="555.0" mnemonicParsing="false" onAction="#saveMovie" prefWidth="70.0" text="save" />
-                              <Button fx:id="button_profile_cancel1" layoutX="289.0" layoutY="555.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="cancel" />
-                              <Label fx:id="label_description" layoutX="42.0" layoutY="285.0" text="Description" />
-                              <TextArea fx:id="description_text_input" layoutX="42.0" layoutY="316.0" prefHeight="200.0" prefWidth="694.0" />
-                           </children>
-                        </Pane>
-                     </children>
-                  </VBox>
-               </children>
-            </VBox>
-            <VBox fx:id="centerPane_edit_movie" layoutX="-3.0" layoutY="-1.0" prefHeight="774.0" prefWidth="793.0" visible="false">
-               <children>
-                  <HBox fx:id="navbar2111" alignment="TOP_CENTER" prefHeight="45.0" prefWidth="714.0" style="-fx-background-color: #968e8b;">
-                     <children>
-                        <AnchorPane prefHeight="45.0" prefWidth="781.0">
-                           <children>
-                              <Label fx:id="navbarHome_home1111" alignment="CENTER" contentDisplay="CENTER" layoutX="228.0" prefHeight="45.0" prefWidth="100.0" text="HOME" textAlignment="CENTER" />
-                              <Label fx:id="navbarTvshows_home1111" alignment="CENTER" layoutX="328.0" prefHeight="45.0" prefWidth="100.0" text="TV SHOWS" textAlignment="CENTER" />
-                              <Label fx:id="navbarMovies_home1111" alignment="CENTER" layoutX="428.0" prefHeight="45.0" prefWidth="100.0" text="MOVIES" textAlignment="CENTER" />
-                           </children>
-                        </AnchorPane>
-                     </children>
-                  </HBox>
-                  <VBox fx:id="pageContent2111" prefHeight="704.0" prefWidth="756.0">
-                     <children>
-                        <Pane prefHeight="63.0" prefWidth="756.0">
-                           <children>
-                              <Label fx:id="movie_title1" layoutX="361.0" layoutY="13.0" text="movie_title" />
-                           </children>
-                        </Pane>
-                        <Pane prefHeight="662.0" prefWidth="756.0">
-                           <children>
-                              <ImageView fx:id="movie_image1" fitHeight="225.0" fitWidth="244.0" layoutX="23.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="label_movie1" layoutX="276.0" layoutY="43.0" text="Movie" />
-                              <Label fx:id="label_alias_title1" layoutX="276.0" layoutY="80.0" text="Alias title" />
-                              <Label fx:id="label_outcome_year1" layoutX="276.0" layoutY="116.0" text="outcome year" />
-                              <Label fx:id="label_length1" layoutX="276.0" layoutY="155.0" text="length" />
-                              <Hyperlink fx:id="link_delete_movie1" layoutX="674.0" layoutY="590.0" text="edit movie" />
-                              <Label fx:id="label_description1" layoutX="42.0" layoutY="285.0" text="Description" />
-                              <Label fx:id="description_input" layoutX="42.0" layoutY="318.0" text="____" />
-                              <Label fx:id="description_input1" layoutX="377.0" layoutY="43.0" text="____" />
-                              <Label fx:id="alias_title_input" layoutX="377.0" layoutY="80.0" text="____" />
-                              <Label fx:id="outcome_year_input" layoutX="377.0" layoutY="116.0" text="____" />
-                              <Label fx:id="length_input" layoutX="377.0" layoutY="155.0" text="____" />
-                           </children>
-                        </Pane>
-                     </children>
-                  </VBox>
-               </children>
-            </VBox>
-            <VBox fx:id="centerPane_show_tvshow" layoutX="-3.0" layoutY="-1.0" prefHeight="784.0" prefWidth="803.0">
-               <children>
-                  <HBox fx:id="navbar21111" alignment="TOP_CENTER" prefHeight="45.0" prefWidth="714.0" style="-fx-background-color: #968e8b;">
-                     <children>
-                        <AnchorPane prefHeight="45.0" prefWidth="781.0">
-                           <children>
-                              <Label fx:id="navbarHome_home11111" alignment="CENTER" contentDisplay="CENTER" layoutX="228.0" prefHeight="45.0" prefWidth="100.0" text="HOME" textAlignment="CENTER" />
-                              <Label fx:id="navbarTvshows_home11111" alignment="CENTER" layoutX="328.0" prefHeight="45.0" prefWidth="100.0" text="TV SHOWS" textAlignment="CENTER" />
-                              <Label fx:id="navbarMovies_home11111" alignment="CENTER" layoutX="428.0" prefHeight="45.0" prefWidth="100.0" text="MOVIES" textAlignment="CENTER" />
-                           </children>
-                        </AnchorPane>
-                     </children>
-                  </HBox>
-                  <VBox fx:id="pageContent21111" prefHeight="704.0" prefWidth="756.0">
-                     <children>
-                        <Pane prefHeight="63.0" prefWidth="756.0">
-                           <children>
-                              <Label fx:id="tvshow_title" layoutX="361.0" layoutY="13.0" text="tvshow_title" />
-                           </children>
-                        </Pane>
-                        <Pane prefHeight="662.0" prefWidth="756.0">
-                           <children>
-                              <ImageView fx:id="tvshow_image" fitHeight="225.0" fitWidth="244.0" layoutX="23.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="label_movie11" layoutX="276.0" layoutY="43.0" text="TV Show" />
-                              <Label fx:id="label_alias_title_tv" layoutX="276.0" layoutY="80.0" text="Alias title" />
-                              <Label fx:id="label_outcome_year_tv" layoutX="276.0" layoutY="158.0" text="Outcome year" />
-                              <Label fx:id="label_length_tv" layoutX="276.0" layoutY="119.0" text="Average length" />
-                              <Hyperlink fx:id="link_edit_tvshow" layoutX="674.0" layoutY="590.0" text="edit tv show" />
-                              <Label fx:id="label_description_tv" layoutX="42.0" layoutY="285.0" text="Description" />
-                              <Label fx:id="description_input_tv" layoutX="42.0" layoutY="318.0" text="____" />
-                              <Label fx:id="tvshow_input" layoutX="377.0" layoutY="43.0" text="____" />
-                              <Label fx:id="alias_title_input_tv" layoutX="377.0" layoutY="80.0" text="____" />
-                              <Label fx:id="outcome_year_input_tv" layoutX="377.0" layoutY="158.0" text="____" />
-                              <Label fx:id="length_input_tv" layoutX="377.0" layoutY="119.0" text="____" />
-                              <Label fx:id="label_end_year_tv" layoutX="276.0" layoutY="195.0" text="End year" />
-                              <Label fx:id="end_year_input_tv" layoutX="377.0" layoutY="195.0" text="____" />
-                           </children>
-                        </Pane>
-                     </children>
-                  </VBox>
-               </children>
-            </VBox>
-            <VBox fx:id="centerPane_edit_tvshow" layoutX="-2.0" prefHeight="783.0" prefWidth="802.0" visible="false">
-               <children>
-                  <HBox fx:id="navbar21112" alignment="TOP_CENTER" prefHeight="45.0" prefWidth="714.0" style="-fx-background-color: #968e8b;">
-                     <children>
-                        <AnchorPane prefHeight="45.0" prefWidth="781.0">
-                           <children>
-                              <Label fx:id="navbarHome_home11112" alignment="CENTER" contentDisplay="CENTER" layoutX="228.0" prefHeight="45.0" prefWidth="100.0" text="HOME" textAlignment="CENTER" />
-                              <Label fx:id="navbarTvshows_home11112" alignment="CENTER" layoutX="328.0" prefHeight="45.0" prefWidth="100.0" text="TV SHOWS" textAlignment="CENTER" />
-                              <Label fx:id="navbarMovies_home11112" alignment="CENTER" layoutX="428.0" prefHeight="45.0" prefWidth="100.0" text="MOVIES" textAlignment="CENTER" />
-                           </children>
-                        </AnchorPane>
-                     </children>
-                  </HBox>
-                  <VBox fx:id="pageContent21112" prefHeight="704.0" prefWidth="756.0">
-                     <children>
-                        <Pane prefHeight="63.0" prefWidth="756.0">
-                           <children>
-                              <Label fx:id="tvshow_title_edit" layoutX="361.0" layoutY="13.0" text="tvshow_title" />
-                           </children>
-                        </Pane>
-                        <Pane prefHeight="662.0" prefWidth="756.0">
-                           <children>
-                              <ImageView fx:id="tvshow_image_edit" fitHeight="225.0" fitWidth="244.0" layoutX="23.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="label_tvshow" layoutX="276.0" layoutY="43.0" text="Tv Show" />
-                              <Label fx:id="label_alias_title_tvedit" layoutX="276.0" layoutY="80.0" text="Alias title" />
-                              <Label fx:id="label_average_length_tvedit" layoutX="276.0" layoutY="116.0" text="Average length" />
-                              <Label fx:id="label_outcome_year_tvedit" layoutX="276.0" layoutY="155.0" text="Outcome year" />
-                              <Label fx:id="label_description_tvedit" layoutX="42.0" layoutY="285.0" text="Description" />
-                              <Label fx:id="label_outcome_year_tvedit1" layoutX="276.0" layoutY="191.0" text="End year" />
-                              <Hyperlink fx:id="link_delete_tvshow" layoutX="681.0" layoutY="590.0" text="delete tv show" textFill="RED" />
-                              <TextArea layoutX="42.0" layoutY="312.0" prefHeight="212.0" prefWidth="718.0" />
-                              <TextField fx:id="tvshow_text_input" layoutX="390.0" layoutY="39.0" promptText="tv show" />
-                              <TextField fx:id="alias_title_text_input_tv" layoutX="390.0" layoutY="76.0" promptText="alias title" />
-                              <TextField fx:id="average_text_input_tv" layoutX="390.0" layoutY="112.0" promptText="25" />
-                              <TextField fx:id="outcome_year_text_input_tv" layoutX="390.0" layoutY="151.0" promptText="1997" />
-                              <Button fx:id="button_tvshow_save" layoutX="464.0" layoutY="565.0" mnemonicParsing="false" onAction="#saveTvShow" prefWidth="70.0" text="save" />
-                              <Button fx:id="button_profile_cancel11" layoutX="300.0" layoutY="565.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="cancel" />
-                              <TextField fx:id="end_year_text_input_tv" layoutX="390.0" layoutY="187.0" promptText="2010" />
-                           </children>
-                        </Pane>
-                     </children>
-                  </VBox>
+                  </Pane>
                </children>
             </VBox>
          </children>
@@ -438,7 +387,7 @@
    <bottom>
       <AnchorPane prefHeight="47.0" prefWidth="681.0" style="-fx-background-color: #968e8b;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="37.0" layoutY="15.0" text="Watchlist" AnchorPane.bottomAnchor="14.0" />
+            <Label layoutX="75.0" layoutY="15.0" text="© Watchlist, 2019" AnchorPane.bottomAnchor="14.0" />
          </children>
       </AnchorPane>
    </bottom>
@@ -451,7 +400,7 @@
             <AnchorPane prefHeight="106.0" prefWidth="956.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Hyperlink fx:id="link_login" layoutX="808.0" layoutY="13.0" text="login" textFill="#7c0d38" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="13.0" />
-                  <Hyperlink fx:id="link_register" layoutX="749.0" layoutY="14.0" text="register" textFill="#7c0d38" underline="true" AnchorPane.rightAnchor="159.0" AnchorPane.topAnchor="13.0" />
+                  <Hyperlink fx:id="link_register" layoutX="749.0" layoutY="14.0" text="register" textFill="#7c0d38" AnchorPane.rightAnchor="159.0" AnchorPane.topAnchor="13.0" />
                   <Label layoutX="109.0" layoutY="70.0" text="Watchlist">
                      <font>
                         <Font size="18.0" />
