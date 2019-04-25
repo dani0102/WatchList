@@ -30,17 +30,17 @@
                <children>
                   <MenuBar fx:id="navbar_watchlist" prefHeight="54.0" prefWidth="754.0" style="-fx-background-color: #968e8b; -fx-alignment: center;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <menus>
-                      <Menu mnemonicParsing="false" style="-fx-background-color: #968e8b; -fx-effect: none; -fx-padding: 0 30 0 0;" styleClass="navbar-menu" text="Home" />
-                      <Menu mnemonicParsing="false" style="-fx-background-color: #968e8b; -fx-effect: none; -fx-padding: 0 30 0 0;" styleClass="menu" text="Tv Shows">
+                      <Menu fx:id="navbaritem_home" mnemonicParsing="false" onAction="#openHomeView" style="-fx-background-color: #968e8b; -fx-effect: none; -fx-padding: 0 30 0 0;" styleClass="navbar-menu" text="Home" />
+                      <Menu fx:id="navbaritem_tvshow" mnemonicParsing="false" onAction="#openTvShowAll" style="-fx-background-color: #968e8b; -fx-effect: none; -fx-padding: 0 30 0 0;" styleClass="menu" text="Tv Shows">
                         <items>
-                          <MenuItem mnemonicParsing="false" styleClass=".menu-item" text="show all Tv Shows" />
-                              <MenuItem mnemonicParsing="false" styleClass=".menu-item" text="add new Tv Show" />
+                          <MenuItem fx:id="navbarsubitem_showAllTv" mnemonicParsing="false" onAction="#openTvShowAll" styleClass=".menu-item" text="show all Tv Shows" />
+                              <MenuItem fx:id="navbarsubitem_addTvShow" mnemonicParsing="false" onAction="#openAddTvShowView" styleClass=".menu-item" text="add new Tv Show" />
                         </items>
                       </Menu>
-                      <Menu mnemonicParsing="false" style="-fx-background-color: #968e8b; -fx-effect: none; -fx-padding: 0 30 0 0;" text="Movies">
+                      <Menu fx:id="navbaritem_movies" mnemonicParsing="false" onAction="#openMovieAll" style="-fx-background-color: #968e8b; -fx-effect: none; -fx-padding: 0 30 0 0;" text="Movies">
                         <items>
-                          <MenuItem mnemonicParsing="false" styleClass=".menu-item" text="show all movies" />
-                              <MenuItem mnemonicParsing="false" styleClass=".menu-item" text="add new Movie" />
+                          <MenuItem fx:id="navbarsubitem_showAllMovies" mnemonicParsing="false" onAction="#openMovieAll" styleClass=".menu-item" text="show all movies" />
+                              <MenuItem fx:id="navbarsubitem_addMovie" mnemonicParsing="false" onAction="#openAddMovieView" styleClass=".menu-item" text="add new Movie" />
                         </items>
                       </Menu>
                     </menus>

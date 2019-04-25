@@ -9,7 +9,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.ScrollBar;
 import javafx.scene.control.TextArea;
@@ -22,6 +24,27 @@ public class WatchlistController {
 
     @FXML // fx:id="navbar_watchlist"
     private MenuBar navbar_watchlist; // Value injected by FXMLLoader
+
+    @FXML // fx:id="navbaritem_home"
+    private Menu navbaritem_home; // Value injected by FXMLLoader
+
+    @FXML // fx:id="navbaritem_tvshow"
+    private Menu navbaritem_tvshow; // Value injected by FXMLLoader
+
+    @FXML // fx:id="navbarsubitem_showAllTv"
+    private MenuItem navbarsubitem_showAllTv; // Value injected by FXMLLoader
+
+    @FXML // fx:id="navbarsubitem_addTvShow"
+    private MenuItem navbarsubitem_addTvShow; // Value injected by FXMLLoader
+
+    @FXML // fx:id="navbaritem_movies"
+    private Menu navbaritem_movies; // Value injected by FXMLLoader
+
+    @FXML // fx:id="navbarsubitem_showAllMovies"
+    private MenuItem navbarsubitem_showAllMovies; // Value injected by FXMLLoader
+
+    @FXML // fx:id="navbarsubitem_addMovie"
+    private MenuItem navbarsubitem_addMovie; // Value injected by FXMLLoader
 
     @FXML // fx:id="centerPane_tvshow"
     private VBox centerPane_tvshow; // Value injected by FXMLLoader
@@ -421,7 +444,27 @@ public class WatchlistController {
     }
 
     @FXML
+    void openAddMovieView(ActionEvent event) {
+
+    }
+
+    @FXML
+    void openAddTvShowView(ActionEvent event) {
+
+    }
+
+    @FXML
+    void openHomeView(ActionEvent event) {
+
+    }
+
+    @FXML
     void openLoginView(ActionEvent event) {
+
+    }
+
+    @FXML
+    void openMovieAll(ActionEvent event) {
 
     }
 
@@ -432,6 +475,11 @@ public class WatchlistController {
 
     @FXML
     void openRegisterView(ActionEvent event) {
+
+    }
+
+    @FXML
+    void openTvShowAll(ActionEvent event) {
 
     }
 
