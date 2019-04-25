@@ -1,5 +1,9 @@
 package watchlist.watchlist;
 
+/**
+ * Sample Skeleton for 'WatchlistView.fxml' Controller Class
+ */
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -14,380 +18,420 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
-
 public class WatchlistController {
 
-    @FXML
-    private MenuBar navbar_watchlist;
+    @FXML // fx:id="navbar_watchlist"
+    private MenuBar navbar_watchlist; // Value injected by FXMLLoader
 
-    @FXML
-    private VBox centerPane_tvshow;
+    @FXML // fx:id="centerPane_tvshow"
+    private VBox centerPane_tvshow; // Value injected by FXMLLoader
 
-    @FXML
-    private GridPane grid_movie1;
+    @FXML // fx:id="tvshow_grid_tvshow"
+    private GridPane tvshow_grid_tvshow; // Value injected by FXMLLoader
 
-    @FXML
-    private TextField search_field_movie;
+    @FXML // fx:id="search_field_tvshow"
+    private TextField search_field_tvshow; // Value injected by FXMLLoader
 
-    @FXML
-    private Label search_label_movie;
+    @FXML // fx:id="search_label_movie"
+    private Label search_label_movie; // Value injected by FXMLLoader
 
-    @FXML
-    private ScrollBar scrollbar_tvshow;
+    @FXML // fx:id="scrollbar_tvshow"
+    private ScrollBar scrollbar_tvshow; // Value injected by FXMLLoader
 
-    @FXML
-    private VBox centerPane_movie;
+    @FXML // fx:id="centerPane_movie"
+    private VBox centerPane_movie; // Value injected by FXMLLoader
 
-    @FXML
-    private GridPane grid_movie;
+    @FXML // fx:id="movie_grid_movie"
+    private GridPane movie_grid_movie; // Value injected by FXMLLoader
 
-    @FXML
-    private ScrollBar scrollbar_movie;
+    @FXML // fx:id="search_field_movie"
+    private TextField search_field_movie; // Value injected by FXMLLoader
 
-    @FXML
-    private VBox centerPane_home;
+    @FXML // fx:id="scrollbar_movie"
+    private ScrollBar scrollbar_movie; // Value injected by FXMLLoader
 
-    @FXML
-    private Label tvshowTitle;
+    @FXML // fx:id="centerPane_home"
+    private VBox centerPane_home; // Value injected by FXMLLoader
 
-    @FXML
-    private GridPane tvshowGrid;
+    @FXML // fx:id="tvshowTitle"
+    private Label tvshowTitle; // Value injected by FXMLLoader
 
-    @FXML
-    private Label movieTitle;
+    @FXML // fx:id="tvshowGrid"
+    private GridPane tvshowGrid; // Value injected by FXMLLoader
 
-    @FXML
-    private GridPane movieGrid;
+    @FXML // fx:id="movieTitle"
+    private Label movieTitle; // Value injected by FXMLLoader
 
-    @FXML
-    private VBox centerPane_show_profile;
+    @FXML // fx:id="movieGrid"
+    private GridPane movieGrid; // Value injected by FXMLLoader
 
-    @FXML
-    private Label profile_label;
+    @FXML // fx:id="centerPane_show_profile"
+    private VBox centerPane_show_profile; // Value injected by FXMLLoader
 
-    @FXML
-    private ImageView profile_image;
+    @FXML // fx:id="profile_label"
+    private Label profile_label; // Value injected by FXMLLoader
 
-    @FXML
-    private Label label_username;
+    @FXML // fx:id="profile_image_profile"
+    private ImageView profile_image_profile; // Value injected by FXMLLoader
 
-    @FXML
-    private Label label_firstname;
+    @FXML // fx:id="label_username"
+    private Label label_username; // Value injected by FXMLLoader
 
-    @FXML
-    private Label label_lastname;
+    @FXML // fx:id="label_firstname"
+    private Label label_firstname; // Value injected by FXMLLoader
 
-    @FXML
-    private Label username_input;
+    @FXML // fx:id="label_lastname"
+    private Label label_lastname; // Value injected by FXMLLoader
 
-    @FXML
-    private Label firstname_input;
+    @FXML // fx:id="username_label_profile"
+    private Label username_label_profile; // Value injected by FXMLLoader
 
-    @FXML
-    private Label lastname_input;
+    @FXML // fx:id="firstname_label_profile"
+    private Label firstname_label_profile; // Value injected by FXMLLoader
 
-    @FXML
-    private Label label_email;
+    @FXML // fx:id="lastname_label_profile"
+    private Label lastname_label_profile; // Value injected by FXMLLoader
 
-    @FXML
-    private Label email_input;
+    @FXML // fx:id="label_email"
+    private Label label_email; // Value injected by FXMLLoader
 
-    @FXML
-    private Hyperlink link_edit_profile;
+    @FXML // fx:id="email_label_profile"
+    private Label email_label_profile; // Value injected by FXMLLoader
 
-    @FXML
-    private VBox centerPane_edit_profile;
+    @FXML // fx:id="edit_link_profile"
+    private Hyperlink edit_link_profile; // Value injected by FXMLLoader
 
-    @FXML
-    private Label profile_label1;
+    @FXML // fx:id="centerPane_edit_profile"
+    private VBox centerPane_edit_profile; // Value injected by FXMLLoader
 
-    @FXML
-    private ImageView profile_image1;
+    @FXML // fx:id="profile_label1"
+    private Label profile_label1; // Value injected by FXMLLoader
 
-    @FXML
-    private Label label_username1;
+    @FXML // fx:id="image_profile_edit"
+    private ImageView image_profile_edit; // Value injected by FXMLLoader
 
-    @FXML
-    private Label label_firstname1;
+    @FXML // fx:id="label_username1"
+    private Label label_username1; // Value injected by FXMLLoader
 
-    @FXML
-    private Label label_lastname1;
+    @FXML // fx:id="label_firstname1"
+    private Label label_firstname1; // Value injected by FXMLLoader
 
-    @FXML
-    private Label label_email1;
+    @FXML // fx:id="label_lastname1"
+    private Label label_lastname1; // Value injected by FXMLLoader
 
-    @FXML
-    private Hyperlink link_delete_profile;
+    @FXML // fx:id="label_email1"
+    private Label label_email1; // Value injected by FXMLLoader
 
-    @FXML
-    private TextField username_text_input;
+    @FXML // fx:id="delete_link_profile"
+    private Hyperlink delete_link_profile; // Value injected by FXMLLoader
 
-    @FXML
-    private TextField firstname_text_input;
+    @FXML // fx:id="username_textfield_profile"
+    private TextField username_textfield_profile; // Value injected by FXMLLoader
 
-    @FXML
-    private TextField lastname_text_input;
+    @FXML // fx:id="firstname_textfield_profile"
+    private TextField firstname_textfield_profile; // Value injected by FXMLLoader
 
-    @FXML
-    private TextField email_text_input;
+    @FXML // fx:id="lastname_textfield_profile"
+    private TextField lastname_textfield_profile; // Value injected by FXMLLoader
 
-    @FXML
-    private Button button_profile_save;
+    @FXML // fx:id="email_textfield_profile"
+    private TextField email_textfield_profile; // Value injected by FXMLLoader
 
-    @FXML
-    private Button button_profile_cancel;
+    @FXML // fx:id="save_button_profile"
+    private Button save_button_profile; // Value injected by FXMLLoader
 
-    @FXML
-    private VBox centerPane_show_movie;
+    @FXML // fx:id="cancel_button_profile"
+    private Button cancel_button_profile; // Value injected by FXMLLoader
 
-    @FXML
-    private Label movie_title;
+    @FXML // fx:id="centerPane_show_movie"
+    private VBox centerPane_show_movie; // Value injected by FXMLLoader
 
-    @FXML
-    private ImageView movie_image;
+    @FXML // fx:id="movie_title"
+    private Label movie_title; // Value injected by FXMLLoader
 
-    @FXML
-    private Label label_movie;
+    @FXML // fx:id="movie_image"
+    private ImageView movie_image; // Value injected by FXMLLoader
 
-    @FXML
-    private Label label_alias_title;
+    @FXML // fx:id="label_movie"
+    private Label label_movie; // Value injected by FXMLLoader
 
-    @FXML
-    private Label label_outcome_year;
+    @FXML // fx:id="label_alias_title"
+    private Label label_alias_title; // Value injected by FXMLLoader
 
-    @FXML
-    private Label label_length;
+    @FXML // fx:id="label_outcome_year"
+    private Label label_outcome_year; // Value injected by FXMLLoader
 
-    @FXML
-    private Hyperlink link_delete_movie;
+    @FXML // fx:id="label_length"
+    private Label label_length; // Value injected by FXMLLoader
 
-    @FXML
-    private TextField movie_text_input;
+    @FXML // fx:id="delete_link_movie"
+    private Hyperlink delete_link_movie; // Value injected by FXMLLoader
 
-    @FXML
-    private TextField alias_title_text_input;
+    @FXML // fx:id="movie_textfield_movie"
+    private TextField movie_textfield_movie; // Value injected by FXMLLoader
 
-    @FXML
-    private TextField outcome_year_text_input;
+    @FXML // fx:id="alias_title_textfield_movie"
+    private TextField alias_title_textfield_movie; // Value injected by FXMLLoader
 
-    @FXML
-    private TextField length_text_input;
+    @FXML // fx:id="outcome_year_textfield_movie"
+    private TextField outcome_year_textfield_movie; // Value injected by FXMLLoader
 
-    @FXML
-    private Button button_movie_save;
+    @FXML // fx:id="length_textfield_movie"
+    private TextField length_textfield_movie; // Value injected by FXMLLoader
 
-    @FXML
-    private Button button_profile_cancel1;
+    @FXML // fx:id="save_button_movie"
+    private Button save_button_movie; // Value injected by FXMLLoader
 
-    @FXML
-    private Label label_description;
+    @FXML // fx:id="cancel_button_movie"
+    private Button cancel_button_movie; // Value injected by FXMLLoader
 
-    @FXML
-    private TextArea description_text_input;
+    @FXML // fx:id="label_description"
+    private Label label_description; // Value injected by FXMLLoader
 
-    @FXML
-    private VBox centerPane_edit_movie;
+    @FXML // fx:id="description_textarea_movie"
+    private TextArea description_textarea_movie; // Value injected by FXMLLoader
 
-    @FXML
-    private Label movie_title1;
+    @FXML // fx:id="centerPane_edit_movie"
+    private VBox centerPane_edit_movie; // Value injected by FXMLLoader
 
-    @FXML
-    private ImageView movie_image1;
+    @FXML // fx:id="movie_label_movie"
+    private Label movie_label_movie; // Value injected by FXMLLoader
 
-    @FXML
-    private Label label_movie1;
+    @FXML // fx:id="movie_image1"
+    private ImageView movie_image1; // Value injected by FXMLLoader
 
-    @FXML
-    private Label label_alias_title1;
+    @FXML // fx:id="label_movie1"
+    private Label label_movie1; // Value injected by FXMLLoader
 
-    @FXML
-    private Label label_outcome_year1;
+    @FXML // fx:id="label_alias_title1"
+    private Label label_alias_title1; // Value injected by FXMLLoader
 
-    @FXML
-    private Label label_length1;
+    @FXML // fx:id="label_outcome_year1"
+    private Label label_outcome_year1; // Value injected by FXMLLoader
 
-    @FXML
-    private Hyperlink link_delete_movie1;
+    @FXML // fx:id="label_length1"
+    private Label label_length1; // Value injected by FXMLLoader
 
-    @FXML
-    private Label label_description1;
+    @FXML // fx:id="edit_link_movie"
+    private Hyperlink edit_link_movie; // Value injected by FXMLLoader
 
-    @FXML
-    private Label description_input;
+    @FXML // fx:id="label_description1"
+    private Label label_description1; // Value injected by FXMLLoader
 
-    @FXML
-    private Label description_input1;
+    @FXML // fx:id="description_label_viewmovie"
+    private Label description_label_viewmovie; // Value injected by FXMLLoader
 
-    @FXML
-    private Label alias_title_input;
+    @FXML // fx:id="movie_label_viewmovie"
+    private Label movie_label_viewmovie; // Value injected by FXMLLoader
 
-    @FXML
-    private Label outcome_year_input;
+    @FXML // fx:id="alias_title_label_viewmovie"
+    private Label alias_title_label_viewmovie; // Value injected by FXMLLoader
 
-    @FXML
-    private Label length_input;
+    @FXML // fx:id="outcome_year_label_viewmovie"
+    private Label outcome_year_label_viewmovie; // Value injected by FXMLLoader
 
-    @FXML
-    private VBox centerPane_show_tvshow;
+    @FXML // fx:id="length_label_viewmovie"
+    private Label length_label_viewmovie; // Value injected by FXMLLoader
 
-    @FXML
-    private Label tvshow_title;
+    @FXML // fx:id="centerPane_show_tvshow"
+    private VBox centerPane_show_tvshow; // Value injected by FXMLLoader
 
-    @FXML
-    private ImageView tvshow_image;
+    @FXML // fx:id="tvshow_label_tvshow"
+    private Label tvshow_label_tvshow; // Value injected by FXMLLoader
 
-    @FXML
-    private Label label_movie11;
+    @FXML // fx:id="tvshow_image"
+    private ImageView tvshow_image; // Value injected by FXMLLoader
 
-    @FXML
-    private Label label_alias_title_tv;
+    @FXML // fx:id="label_movie11"
+    private Label label_movie11; // Value injected by FXMLLoader
 
-    @FXML
-    private Label label_outcome_year_tv;
+    @FXML // fx:id="label_alias_title_tv"
+    private Label label_alias_title_tv; // Value injected by FXMLLoader
 
-    @FXML
-    private Label label_length_tv;
+    @FXML // fx:id="label_outcome_year_tv"
+    private Label label_outcome_year_tv; // Value injected by FXMLLoader
 
-    @FXML
-    private Hyperlink link_edit_tvshow;
+    @FXML // fx:id="label_length_tv"
+    private Label label_length_tv; // Value injected by FXMLLoader
 
-    @FXML
-    private Label label_description_tv;
+    @FXML // fx:id="edit_link_tvshow"
+    private Hyperlink edit_link_tvshow; // Value injected by FXMLLoader
 
-    @FXML
-    private Label description_input_tv;
+    @FXML // fx:id="label_description_tv"
+    private Label label_description_tv; // Value injected by FXMLLoader
 
-    @FXML
-    private Label tvshow_input;
+    @FXML // fx:id="description_label_viewtv"
+    private Label description_label_viewtv; // Value injected by FXMLLoader
 
-    @FXML
-    private Label alias_title_input_tv;
+    @FXML // fx:id="tvshow_label_viewtv"
+    private Label tvshow_label_viewtv; // Value injected by FXMLLoader
 
-    @FXML
-    private Label outcome_year_input_tv;
+    @FXML // fx:id="alias_title_label_viewtv"
+    private Label alias_title_label_viewtv; // Value injected by FXMLLoader
 
-    @FXML
-    private Label length_input_tv;
+    @FXML // fx:id="outcome_year_label_viewtv"
+    private Label outcome_year_label_viewtv; // Value injected by FXMLLoader
 
-    @FXML
-    private Label label_end_year_tv;
+    @FXML // fx:id="length_label_viewtv"
+    private Label length_label_viewtv; // Value injected by FXMLLoader
 
-    @FXML
-    private Label end_year_input_tv;
+    @FXML // fx:id="label_end_year_tv"
+    private Label label_end_year_tv; // Value injected by FXMLLoader
 
-    @FXML
-    private VBox centerPane_edit_tvshow;
+    @FXML // fx:id="end_year_label_viewtv"
+    private Label end_year_label_viewtv; // Value injected by FXMLLoader
 
-    @FXML
-    private Label tvshow_title_edit;
+    @FXML // fx:id="centerPane_edit_tvshow"
+    private VBox centerPane_edit_tvshow; // Value injected by FXMLLoader
 
-    @FXML
-    private ImageView tvshow_image_edit;
+    @FXML // fx:id="tvshow_label"
+    private Label tvshow_label; // Value injected by FXMLLoader
 
-    @FXML
-    private Label label_tvshow;
+    @FXML // fx:id="tvshow_image_edit"
+    private ImageView tvshow_image_edit; // Value injected by FXMLLoader
 
-    @FXML
-    private Label label_alias_title_tvedit;
+    @FXML // fx:id="label_tvshow"
+    private Label label_tvshow; // Value injected by FXMLLoader
 
-    @FXML
-    private Label label_average_length_tvedit;
+    @FXML // fx:id="label_alias_title_tvedit"
+    private Label label_alias_title_tvedit; // Value injected by FXMLLoader
 
-    @FXML
-    private Label label_outcome_year_tvedit;
+    @FXML // fx:id="label_average_length_tvedit"
+    private Label label_average_length_tvedit; // Value injected by FXMLLoader
 
-    @FXML
-    private Label label_description_tvedit;
+    @FXML // fx:id="label_outcome_year_tvedit"
+    private Label label_outcome_year_tvedit; // Value injected by FXMLLoader
 
-    @FXML
-    private Label label_outcome_year_tvedit1;
+    @FXML // fx:id="label_description_tvedit"
+    private Label label_description_tvedit; // Value injected by FXMLLoader
 
-    @FXML
-    private Hyperlink link_delete_tvshow;
+    @FXML // fx:id="label_outcome_year_tvedit1"
+    private Label label_outcome_year_tvedit1; // Value injected by FXMLLoader
 
-    @FXML
-    private TextField tvshow_text_input;
+    @FXML // fx:id="delete_link_tvshow"
+    private Hyperlink delete_link_tvshow; // Value injected by FXMLLoader
 
-    @FXML
-    private TextField alias_title_text_input_tv;
+    @FXML // fx:id="description_textarea_tvshow"
+    private TextArea description_textarea_tvshow; // Value injected by FXMLLoader
 
-    @FXML
-    private TextField average_text_input_tv;
+    @FXML // fx:id="tvshow_textfield_tvshow"
+    private TextField tvshow_textfield_tvshow; // Value injected by FXMLLoader
 
-    @FXML
-    private TextField outcome_year_text_input_tv;
+    @FXML // fx:id="alias_title_textfield_tvshow"
+    private TextField alias_title_textfield_tvshow; // Value injected by FXMLLoader
 
-    @FXML
-    private Button button_tvshow_save;
+    @FXML // fx:id="average_textfield_tvshow"
+    private TextField average_textfield_tvshow; // Value injected by FXMLLoader
 
-    @FXML
-    private Button button_profile_cancel11;
+    @FXML // fx:id="outcome_year_textfield_tvshow"
+    private TextField outcome_year_textfield_tvshow; // Value injected by FXMLLoader
 
-    @FXML
-    private TextField end_year_text_input_tv;
+    @FXML // fx:id="save_button_tvshow"
+    private Button save_button_tvshow; // Value injected by FXMLLoader
 
-    @FXML
-    private VBox centerPane_login;
+    @FXML // fx:id="cancel_button_tvshow"
+    private Button cancel_button_tvshow; // Value injected by FXMLLoader
 
-    @FXML
-    private Label title_login;
+    @FXML // fx:id="end_year_textfield_tvshow"
+    private TextField end_year_textfield_tvshow; // Value injected by FXMLLoader
 
-    @FXML
-    private TextField username_input_login;
+    @FXML // fx:id="centerPane_login"
+    private VBox centerPane_login; // Value injected by FXMLLoader
 
-    @FXML
-    private PasswordField password_input_login;
+    @FXML // fx:id="title_login"
+    private Label title_login; // Value injected by FXMLLoader
 
-    @FXML
-    private Button button_login;
+    @FXML // fx:id="username_textfield_login"
+    private TextField username_textfield_login; // Value injected by FXMLLoader
 
-    @FXML
-    private Button button_cancel;
+    @FXML // fx:id="password_passwordfield_login"
+    private PasswordField password_passwordfield_login; // Value injected by FXMLLoader
 
-    @FXML
-    private Button button_login1;
+    @FXML // fx:id="button_login_login"
+    private Button button_login_login; // Value injected by FXMLLoader
 
-    @FXML
-    private VBox centerPane_signup;
+    @FXML // fx:id="button_cancel_login"
+    private Button button_cancel_login; // Value injected by FXMLLoader
 
-    @FXML
-    private Label title_login1;
+    @FXML // fx:id="button_signup_login"
+    private Button button_signup_login; // Value injected by FXMLLoader
 
-    @FXML
-    private TextField username_inputfield;
+    @FXML // fx:id="centerPane_signup"
+    private VBox centerPane_signup; // Value injected by FXMLLoader
 
-    @FXML
-    private PasswordField firstname_inputfield;
+    @FXML // fx:id="title_login1"
+    private Label title_login1; // Value injected by FXMLLoader
 
-    @FXML
-    private Button button_signup;
+    @FXML // fx:id="username_textfield_signup"
+    private TextField username_textfield_signup; // Value injected by FXMLLoader
 
-    @FXML
-    private Button button_cancel_register;
+    @FXML // fx:id="firstname_textfield_signup"
+    private PasswordField firstname_textfield_signup; // Value injected by FXMLLoader
 
-    @FXML
-    private PasswordField lastname_inputfield;
+    @FXML // fx:id="button_signup_signup"
+    private Button button_signup_signup; // Value injected by FXMLLoader
 
-    @FXML
-    private PasswordField email_inputfield;
+    @FXML // fx:id="button_cancel_signup"
+    private Button button_cancel_signup; // Value injected by FXMLLoader
 
-    @FXML
-    private PasswordField password_inputfield;
+    @FXML // fx:id="lastname_textfield_signup"
+    private PasswordField lastname_textfield_signup; // Value injected by FXMLLoader
 
-    @FXML
-    private Hyperlink link_login;
+    @FXML // fx:id="email_textfield_signup"
+    private PasswordField email_textfield_signup; // Value injected by FXMLLoader
 
+    @FXML // fx:id="password_passwordfield_signup"
+    private PasswordField password_passwordfield_signup; // Value injected by FXMLLoader
+
+    @FXML // fx:id="link_login"
+    private Hyperlink link_login; // Value injected by FXMLLoader
+
+    @FXML // fx:id="link_register"
+    private Hyperlink link_register; // Value injected by FXMLLoader
+
+    @FXML // fx:id="link_logout"
+    private Hyperlink link_logout; // Value injected by FXMLLoader
+
+    @FXML // fx:id="link_profile"
+    private Hyperlink link_profile; // Value injected by FXMLLoader
+
     @FXML
-    private Hyperlink link_register;
+    void cancelLogin(ActionEvent event) {
+
+    }
 
     @FXML
-    private Hyperlink link_logout;
+    void cancelMovie(ActionEvent event) {
 
+    }
+
     @FXML
-    private Hyperlink link_profile;
+    void cancelProfile(ActionEvent event) {
+
+    }
 
     @FXML
     void loginUser(ActionEvent event) {
+
+    }
+
+    @FXML
+    void logoutProfile(ActionEvent event) {
+
+    }
+
+    @FXML
+    void openLoginView(ActionEvent event) {
+
+    }
+
+    @FXML
+    void openProfileView(ActionEvent event) {
+
+    }
+
+    @FXML
+    void openRegisterView(ActionEvent event) {
 
     }
 
@@ -403,6 +447,16 @@ public class WatchlistController {
 
     @FXML
     void saveTvShow(ActionEvent event) {
+
+    }
+
+    @FXML
+    void searchMovie(ActionEvent event) {
+
+    }
+
+    @FXML
+    void searchTvShow(ActionEvent event) {
 
     }
 
