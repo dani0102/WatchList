@@ -187,8 +187,7 @@
                      <children>
                         <ImageView fx:id="tvshow_image" blendMode="MULTIPLY" fitHeight="225.0" fitWidth="244.0" layoutX="23.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                             
-                           </image></ImageView>
+                          </image></ImageView>
                         <Label fx:id="label_movie11" layoutX="276.0" layoutY="43.0" text="TV Show" />
                         <Label fx:id="label_alias_title_tv" layoutX="276.0" layoutY="80.0" text="Alias title" />
                         <Label fx:id="label_outcome_year_tv" layoutX="276.0" layoutY="158.0" text="Outcome year" />
