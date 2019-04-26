@@ -67,7 +67,7 @@ create table public.users (
 	username varchar(50) not null unique,
 	firstname varchar(100) not null,
 	lastname varchar(100) not null,
-	birthdate date not null,
+	birthdate date,
 	email varchar(255) not null unique,
 	password varchar(255) not null
 );
