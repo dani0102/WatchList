@@ -4,9 +4,16 @@
 
 package watchlist.watchlist;
 
+import java.util.Optional;
+
+import javax.swing.JOptionPane;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
@@ -16,9 +23,11 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.ScrollBar;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 public class WatchlistController {
 
@@ -420,11 +429,31 @@ public class WatchlistController {
 
     @FXML
     void cancelLogin(ActionEvent event) {
+    	
+    	Alert cancelOptionDialog = new Alert(AlertType.CONFIRMATION);
+    	cancelOptionDialog.setTitle("Confirmation Cancellation");
+    	cancelOptionDialog.setContentText("Do you really want to cancel your Login?");
+    	
+    	// Get the Stage.
+    	Stage stage = (Stage) cancelOptionDialog.getDialogPane().getScene().getWindow();
+
+    	// Add a custom icon.
+    	stage.getIcons().add(new Image(this.getClass().getResource("resources/watchlist/watchlist/watchlist/images/chickennuggets.jpg").toString()));
+
+    	Optional<ButtonType> result = cancelOptionDialog.showAndWait();
+    	if (result.get() == ButtonType.OK){
+    		centerPane_login.toBack();
+    	} else {
+    	    cancelOptionDialog.close();
+    	}
+    	 
 
     }
 
     @FXML
     void cancelMovie(ActionEvent event) {
+    	
+    	
 
     }
 
