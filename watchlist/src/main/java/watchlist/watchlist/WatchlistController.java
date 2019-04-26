@@ -476,6 +476,7 @@ public class WatchlistController {
 		centerPane_signup.setVisible(false);
 		centerPane_tvshow.setVisible(false);
 		centerPane_show_profile.setVisible(false);
+	}
 
     @FXML
     void openAddMovieView(ActionEvent event) {
@@ -529,12 +530,9 @@ public class WatchlistController {
 	}
 
 	@FXML
-	void saveMovie(ActionEvent event) {
-
-	}
-
-	@FXML
 	void saveProfile(ActionEvent event) {
+	}
+	
 
     @FXML
     void openTvShowAll(ActionEvent event) {
