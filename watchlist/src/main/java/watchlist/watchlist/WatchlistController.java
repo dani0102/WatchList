@@ -422,12 +422,6 @@ public class WatchlistController {
 		optionDialog.setContentText("Do you really want to cancel?");
 		optionDialog.setHeaderText(null);
 
-//    	// Get the Stage.
-//    	Stage stage = (Stage) optionDialog.getDialogPane().getScene().getWindow();
-//
-//    	// Add a custom icon.
-//    	stage.getIcons().add(new Image(this.getClass().getResource("resources/watchlist/watchlist/watchlist/images/chickennuggets.jpg").toString()));
-
 		result = optionDialog.showAndWait();
 		if (result.get() == ButtonType.OK) {
 			centerPane_login.toBack();
@@ -445,11 +439,6 @@ public class WatchlistController {
 		optionDialog.setContentText("Do you really want to delete this Movie?");
 		optionDialog.setHeaderText(null);
 
-//    	// Get the Stage.
-//    	Stage stage = (Stage) optionDialog.getDialogPane().getScene().getWindow();
-//
-//    	// Add a custom icon.
-//    	stage.getIcons().add(new Image(this.getClass().getResource("resources/watchlist/watchlist/watchlist/images/chickennuggets.jpg").toString()));
 		result = optionDialog.showAndWait();
 		if (result.get() == ButtonType.OK) {
 			centerPane_login.toBack();
@@ -468,11 +457,6 @@ public class WatchlistController {
 		optionDialog.setContentText("Do you really want to delete this Profile?");
 		optionDialog.setHeaderText(null);
 
-//    	// Get the Stage.
-//    	Stage stage = (Stage) optionDialog.getDialogPane().getScene().getWindow();
-//
-//    	// Add a custom icon.
-//    	stage.getIcons().add(new Image(this.getClass().getResource("resources/watchlist/watchlist/watchlist/images/chickennuggets.jpg").toString()));
 		result = optionDialog.showAndWait();
 		if (result.get() == ButtonType.OK) {
 			centerPane_login.toBack();
@@ -491,11 +475,6 @@ public class WatchlistController {
 		optionDialog.setContentText("Do you really want to delete this Tv Show?");
 		optionDialog.setHeaderText(null);
 
-//    	// Get the Stage.
-//    	Stage stage = (Stage) optionDialog.getDialogPane().getScene().getWindow();
-//
-//    	// Add a custom icon.
-//    	stage.getIcons().add(new Image(this.getClass().getResource("resources/watchlist/watchlist/watchlist/images/chickennuggets.jpg").toString()));
 		result = optionDialog.showAndWait();
 		if (result.get() == ButtonType.OK) {
 			centerPane_login.toBack();
@@ -524,10 +503,12 @@ public class WatchlistController {
 	void saveTvShow(ActionEvent event) {
 
     }
-		@FXML
+	
+	@FXML
     void openEditProfile(ActionEvent event) {
 		centerPane_edit_profile.toFront();
     }
+	
 	@FXML
 	void searchMovie(ActionEvent event) {
 
@@ -596,11 +577,15 @@ public class WatchlistController {
     @FXML
     void openEditMovie(ActionEvent event) {
 		centerPane_edit_movie.toFront();
+		
+		delete_link_movie.setVisible(true);
     }
 
     @FXML
     void openEditTvshow(ActionEvent event) {
 		centerPane_edit_tvshow.toFront();
+		
+		delete_link_tvshow.setVisible(true);
 
 	}
 
