@@ -4,12 +4,7 @@ package watchlist.watchlist;
  * Sample Skeleton for 'WatchlistView.fxml' Controller Class
  */
 
-package watchlist.watchlist;
-
 import java.util.Optional;
-
-import javax.swing.JOptionPane;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -87,21 +82,6 @@ public class WatchlistController {
 	@FXML // fx:id="scrollbar_movie"
 	private ScrollBar scrollbar_movie; // Value injected by FXMLLoader
 
-	@FXML // fx:id="centerPane_home"
-	private VBox centerPane_home; // Value injected by FXMLLoader
-
-	@FXML // fx:id="tvshowTitle"
-	private Label tvshowTitle; // Value injected by FXMLLoader
-
-	@FXML // fx:id="tvshowGrid"
-	private GridPane tvshowGrid; // Value injected by FXMLLoader
-
-	@FXML // fx:id="movieTitle"
-	private Label movieTitle; // Value injected by FXMLLoader
-
-	@FXML // fx:id="movieGrid"
-	private GridPane movieGrid; // Value injected by FXMLLoader
-
 	@FXML // fx:id="centerPane_show_profile"
 	private VBox centerPane_show_profile; // Value injected by FXMLLoader
 
@@ -137,96 +117,6 @@ public class WatchlistController {
 
 	@FXML // fx:id="edit_link_profile"
 	private Hyperlink edit_link_profile; // Value injected by FXMLLoader
-
-	@FXML // fx:id="centerPane_edit_profile"
-	private VBox centerPane_edit_profile; // Value injected by FXMLLoader
-
-	@FXML // fx:id="profile_label1"
-	private Label profile_label1; // Value injected by FXMLLoader
-
-	@FXML // fx:id="image_profile_edit"
-	private ImageView image_profile_edit; // Value injected by FXMLLoader
-
-	@FXML // fx:id="label_username1"
-	private Label label_username1; // Value injected by FXMLLoader
-
-	@FXML // fx:id="label_firstname1"
-	private Label label_firstname1; // Value injected by FXMLLoader
-
-	@FXML // fx:id="label_lastname1"
-	private Label label_lastname1; // Value injected by FXMLLoader
-
-	@FXML // fx:id="label_email1"
-	private Label label_email1; // Value injected by FXMLLoader
-
-	@FXML // fx:id="delete_link_profile"
-	private Hyperlink delete_link_profile; // Value injected by FXMLLoader
-
-	@FXML // fx:id="username_textfield_profile"
-	private TextField username_textfield_profile; // Value injected by FXMLLoader
-
-	@FXML // fx:id="firstname_textfield_profile"
-	private TextField firstname_textfield_profile; // Value injected by FXMLLoader
-
-	@FXML // fx:id="lastname_textfield_profile"
-	private TextField lastname_textfield_profile; // Value injected by FXMLLoader
-
-	@FXML // fx:id="email_textfield_profile"
-	private TextField email_textfield_profile; // Value injected by FXMLLoader
-
-	@FXML // fx:id="save_button_profile"
-	private Button save_button_profile; // Value injected by FXMLLoader
-
-	@FXML // fx:id="cancel_button_profile"
-	private Button cancel_button_profile; // Value injected by FXMLLoader
-
-	@FXML // fx:id="centerPane_edit_movie"
-	private VBox centerPane_edit_movie; // Value injected by FXMLLoader
-
-	@FXML // fx:id="movie_title"
-	private Label movie_title; // Value injected by FXMLLoader
-
-	@FXML // fx:id="movie_image"
-	private ImageView movie_image; // Value injected by FXMLLoader
-
-	@FXML // fx:id="label_movie"
-	private Label label_movie; // Value injected by FXMLLoader
-
-	@FXML // fx:id="label_alias_title"
-	private Label label_alias_title; // Value injected by FXMLLoader
-
-	@FXML // fx:id="label_outcome_year"
-	private Label label_outcome_year; // Value injected by FXMLLoader
-
-	@FXML // fx:id="label_length"
-	private Label label_length; // Value injected by FXMLLoader
-
-	@FXML // fx:id="delete_link_movie"
-	private Hyperlink delete_link_movie; // Value injected by FXMLLoader
-
-	@FXML // fx:id="movie_textfield_movie"
-	private TextField movie_textfield_movie; // Value injected by FXMLLoader
-
-	@FXML // fx:id="alias_title_textfield_movie"
-	private TextField alias_title_textfield_movie; // Value injected by FXMLLoader
-
-	@FXML // fx:id="outcome_year_textfield_movie"
-	private TextField outcome_year_textfield_movie; // Value injected by FXMLLoader
-
-	@FXML // fx:id="length_textfield_movie"
-	private TextField length_textfield_movie; // Value injected by FXMLLoader
-
-	@FXML // fx:id="save_button_movie"
-	private Button save_button_movie; // Value injected by FXMLLoader
-
-	@FXML // fx:id="cancel_button_movie"
-	private Button cancel_button_movie; // Value injected by FXMLLoader
-
-	@FXML // fx:id="label_description"
-	private Label label_description; // Value injected by FXMLLoader
-
-	@FXML // fx:id="description_textarea_movie"
-	private TextArea description_textarea_movie; // Value injected by FXMLLoader
 
 	@FXML // fx:id="centerPane_show_movie"
 	private VBox centerPane_show_movie; // Value injected by FXMLLoader
@@ -355,9 +245,6 @@ public class WatchlistController {
     private VBox centerPane_edit_tvshow; // Value injected by FXMLLoader
 	@FXML // fx:id="end_year_label_viewtv"
 	private Label end_year_label_viewtv; // Value injected by FXMLLoader
-
-	@FXML // fx:id="centerPane_edit_tvshow"
-	private VBox centerPane_edit_tvshow; // Value injected by FXMLLoader
 
 	@FXML // fx:id="tvshow_label"
 	private Label tvshow_label; // Value injected by FXMLLoader
@@ -500,17 +387,11 @@ public class WatchlistController {
     @FXML // fx:id="centerPane_signup"
     private VBox centerPane_signup; // Value injected by FXMLLoader
 
-	@FXML // fx:id="centerPane_signup"
-	private VBox centerPane_signup; // Value injected by FXMLLoader
-
 	@FXML // fx:id="title_login1"
 	private Label title_login1; // Value injected by FXMLLoader
 
     @FXML // fx:id="button_signup_signup"
     private Button button_signup_signup; // Value injected by FXMLLoader
-
-	@FXML // fx:id="button_signup_signup"
-	private Button button_signup_signup; // Value injected by FXMLLoader
 
     @FXML // fx:id="password_passwordfield_signup"
     private PasswordField password_passwordfield_signup; // Value injected by FXMLLoader
@@ -527,17 +408,11 @@ public class WatchlistController {
     @FXML // fx:id="link_login"
     private Hyperlink link_login; // Value injected by FXMLLoader
 
-	@FXML // fx:id="link_login"
-	private Hyperlink link_login; // Value injected by FXMLLoader
-
 	@FXML // fx:id="link_register"
 	private Hyperlink link_register; // Value injected by FXMLLoader
 
 	@FXML // fx:id="link_logout"
 	private Hyperlink link_logout; // Value injected by FXMLLoader
-
-    @FXML
-    void cancelButton(ActionEvent event) {
 
 	@FXML
 	void cancelButton(ActionEvent event) {
@@ -627,12 +502,8 @@ public class WatchlistController {
 			// TODO: DELETE FUNCTION
 		} else {
 			optionDialog.close();
+			}
 		}
-
-    @FXML
-    void saveProfile(ActionEvent event) {
-
-	}
 
 	@FXML
 	void loginUser(ActionEvent event) {
@@ -661,21 +532,19 @@ public class WatchlistController {
 	void searchMovie(ActionEvent event) {
 
 	}
+	
 	@FXML
-
-
 	void searchTvShow(ActionEvent event) {
 	}
-	}
+	
 
 	@FXML
 	void signupUser(ActionEvent event) {
-
+	}
 
 
 	@FXML
 	void saveMovie(ActionEvent event) {
-
 	}
 
 	@FXML
