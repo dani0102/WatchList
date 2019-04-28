@@ -42,4 +42,12 @@ public interface UserServiceable {
 	 */
 	public void deleteUser(User user);
 	
+	/**
+	 * This method finds an entity with a given primary key
+	 *
+	 * @param id Primary key of entity
+	 * @return Returns requested entity with given primary key id
+	 */
+	User findById(Long id);
+	
 }

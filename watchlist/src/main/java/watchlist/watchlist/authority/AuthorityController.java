@@ -1,5 +1,7 @@
 package watchlist.watchlist.authority;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,16 +34,14 @@ import io.swagger.annotations.ApiOperation;
 public class AuthorityController {
 
 	private AuthorityServiceable service;
-	private AuthorityMapper mapper;
 	
 	/**
 	 * @param service
 	 * @param mapper
 	 */
 	@Autowired
-	public AuthorityController(AuthorityServiceable service, AuthorityMapper mapper) {
+	public AuthorityController(AuthorityServiceable service) {
 		this.service = service;
-		this.mapper = mapper;
 	}
 	
 	/**
@@ -50,14 +50,13 @@ public class AuthorityController {
 	 * @return ResponseEntity with all existing Authorities
 	 */
 	@ApiOperation(
-		value = "This endpoint returns all Authority",
+		value = "This endpoint returns all Authorities",
 		response = Authority.class
 	)
 	@GetMapping({"", "/"})
-	public @ResponseBody ResponseEntity<Iterable<AuthorityDTO>> getAll() {
-		var result = this.service.getAll();
-		var toReturn = mapper.toListDTO(result);
-		return new ResponseEntity<>(toReturn, HttpStatus.OK);
+	public @ResponseBody ResponseEntity<List<Authority>> getAll() {
+		List<Authority> authorities = this.service.getAll();
+		return new ResponseEntity<>(authorities, HttpStatus.OK);
 	}
 	
 	/**
@@ -77,15 +76,10 @@ public class AuthorityController {
 		) }
 	)
 	@GetMapping({"/{id}"})
-	public @ResponseBody ResponseEntity<AuthorityDTO> getById(@PathVariable Long id){
-		var result = this.service.getById(id);
-		var toReturn = mapper.toDTO(result.get());
+	public @ResponseBody ResponseEntity<Authority> getById(@PathVariable Long id){
+		Authority authority = this.service.findById(id);
 		
-		if(result.isPresent()) {
-			return new ResponseEntity<>(toReturn, HttpStatus.OK);
-		} else {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
+			return new ResponseEntity<>(authority, HttpStatus.OK);
 	}
 	
 	/**

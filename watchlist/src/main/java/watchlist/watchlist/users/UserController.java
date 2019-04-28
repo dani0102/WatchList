@@ -1,5 +1,7 @@
 package watchlist.watchlist.users;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +21,6 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
-import watchlist.watchlist.movie.Movie;
 
 /**
  * This class holds REST endpoints targeted towards the entity Users.
@@ -35,17 +36,15 @@ import watchlist.watchlist.movie.Movie;
 public class UserController {
 
 	private UserServiceable service;
-	private UserMapper mapper;
 	
 	/**
 	 * @param service
 	 * @param mapper
 	 */
 	@Autowired
-	public UserController(UserServiceable service, UserMapper mapper) {
+	public UserController(UserServiceable service) {
 		super();
 		this.service = service;
-		this.mapper = mapper;
 	}
 	
 	/**
@@ -58,11 +57,9 @@ public class UserController {
 		response = User.class
 	)
 	@GetMapping({"", "/"})
-	public @ResponseBody ResponseEntity<Iterable<UserDTO>> getAll() {
-		var result = this.service.getAll();
-		var toReturn = mapper.toListDTO(result);
-		
-		return new ResponseEntity<>(toReturn, HttpStatus.OK);
+	public @ResponseBody ResponseEntity<List<User>> getAll() {
+		List<User> users = this.service.getAll();
+		return new ResponseEntity<>(users, HttpStatus.OK);
 	}
 	
 	/**
@@ -82,15 +79,9 @@ public class UserController {
 		) }
 	)
 	@GetMapping("/{id}")
-	public @ResponseBody ResponseEntity<UserDTO> getById(@PathVariable Long id) {
-		var result = this.service.getById(id);
-		var toReturn = mapper.toDTO(result.get());
-		
-		if(result.isPresent()) {
-			return new ResponseEntity<>(toReturn, HttpStatus.OK);
-		} else {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
+	public @ResponseBody ResponseEntity<User> getById(@PathVariable Long id) {
+		User user = this.service.findById(id);
+				return new ResponseEntity<>(user, HttpStatus.OK);
 	}
 	
 	/**
@@ -156,8 +147,8 @@ public class UserController {
 	)
 	@DeleteMapping("/{id}")
 	public ResponseEntity<?> deleteById(@PathVariable Long id){
-		var user = this.service.getById(id);
-		this.service.deleteUser(user.get());
+		var user = this.service.findById(id);
+		this.service.deleteUser(user);
 		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	}
 	

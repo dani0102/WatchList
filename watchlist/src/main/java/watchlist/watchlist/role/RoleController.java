@@ -1,5 +1,7 @@
 package watchlist.watchlist.role;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +19,6 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
-import watchlist.watchlist.movie.Movie;
 
 /**
  * This class holds all REST endpoints targeted towards the entity Role.
@@ -33,16 +34,14 @@ import watchlist.watchlist.movie.Movie;
 public class RoleController {
 
 	private RoleServiceable service;
-	private RoleMapper mapper;
 	
 	/**
 	 * @param service
 	 * @param mapper
 	 */
 	@Autowired
-	public RoleController(RoleServiceable service, RoleMapper mapper) {
+	public RoleController(RoleServiceable service) {
 		this.service = service;
-		this.mapper = mapper;
 	}
 	
 	/**
@@ -55,11 +54,10 @@ public class RoleController {
 		response = Role.class
 	)
 	@GetMapping({"", "/"})
-	public @ResponseBody ResponseEntity<Iterable<RoleDTO>> getAll() {
-		var result = this.service.getAll();
-		var toReturn = mapper.toListDTO(result);
+	public @ResponseBody ResponseEntity<List<Role>> getAll() {
+		List<Role> roles = this.service.getAll();
 		
-		return new ResponseEntity<>(toReturn, HttpStatus.OK);
+		return new ResponseEntity<>(roles, HttpStatus.OK);
 	}
 	
 	/**
@@ -79,15 +77,9 @@ public class RoleController {
 		) }
 	)
 	@GetMapping({"/{id}"})
-	public @ResponseBody ResponseEntity<RoleDTO> getById(@PathVariable Long id){
-		var result = this.service.getById(id);
-		var toReturn = mapper.toDTO(result.get());
-		
-		if(result.isPresent()) {
-			return new ResponseEntity<>(toReturn, HttpStatus.OK);
-		} else {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
+	public @ResponseBody ResponseEntity<Role> getById(@PathVariable Long id){
+		Role role = this.service.findById(id);
+		return new ResponseEntity<>(role, HttpStatus.OK);
 	}
 	
 	/**
