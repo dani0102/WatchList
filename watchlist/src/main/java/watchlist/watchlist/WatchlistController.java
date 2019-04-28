@@ -1,10 +1,15 @@
 package watchlist.watchlist;
 
+import java.io.ByteArrayInputStream;
+import java.util.List;
+
 /**
  * Sample Skeleton for 'WatchlistView.fxml' Controller Class
  */
 
 import java.util.Optional;
+
+import javax.swing.ImageIcon;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -23,11 +28,16 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.ScrollBar;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import watchlist.watchlist.movie.Movie;
 import watchlist.watchlist.movie.MovieService;
+import watchlist.watchlist.tvshow.TvShow;
+import watchlist.watchlist.tvshow.TvShowRepository;
+import watchlist.watchlist.tvshow.TvShowService;
+import watchlist.watchlist.tvshow.TvShowServiceable;
 import watchlist.watchlist.users.User;
 
 public class WatchlistController {
@@ -37,6 +47,9 @@ public class WatchlistController {
 	Optional<ButtonType> result;
 	User userToAdd;
 	Movie movieToAdd;
+	Image img;
+	TvShowService tvShowService;
+	TvShowRepository tvShowRepo;
 
 //	private UserController userController;
 	
@@ -77,7 +90,7 @@ public class WatchlistController {
 	private TextField search_field_tvshow; // Value injected by FXMLLoader
 
 	@FXML // fx:id="search_label_movie"
-	private Label search_label_movie; // Value injected by FXMLLoader
+	private Label search_label_movie; // Value injected bsy FXMLLoader
 
 	@FXML // fx:id="scrollbar_tvshow"
 	private ScrollBar scrollbar_tvshow; // Value injected by FXMLLoader
@@ -576,6 +589,34 @@ public class WatchlistController {
 		}
 	}
 
+	public void loadAllTvShows() {
+		//gets all tv shows enlisted in the database
+		// (currently returns null pointer exception
+		List<TvShow> allTvShows = tvShowService.getAll();
+		
+		int row = 1;
+		int column = 1;
+		
+		//iterates through every tv show
+		//gridpane: 4 columns with 2 rows for picture and title
+		for(TvShow show : allTvShows) {
+			Label image = new Label();
+			img = new Image(new ByteArrayInputStream(show.getPicture()));
+			image.setGraphic(new ImageView(img));
+			GridPane.setConstraints(image, column, row);
+			Label title = new Label(show.getTitle());
+			GridPane.setConstraints(title, column, row + 1);
+			
+			tvshow_grid_tvshow.getChildren().addAll(image, title);
+			
+			if(column == 4) {
+				column = 1;
+				row += 2;
+			}
+			column++;
+		}
+	}
+	
 	@FXML
 	void openLoginView(ActionEvent event) {
 		centerPane_login.toFront();
@@ -618,6 +659,7 @@ public class WatchlistController {
 
 	@FXML
 	void openTvShowAll(ActionEvent event) {
+		loadAllTvShows();
 		centerPane_tvshow.toFront();
 
 	}
