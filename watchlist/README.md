@@ -33,9 +33,10 @@ We implemented some Unit-tests for our Controllers and Services (Web- / Service-
 We use [Git](https://git-scm.com/), as well as [Gitkraken](https://www.gitkraken.com/)  for versioning. 
 Our repository lies here on github. 
 
-## Authors
+## Contributors
 
-* **Daniela Simões** - *Scrum Master*
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+| <a href="https://github.com/test0102test" target="_blank">**Daniela Simões**</a> | <a href="https://github.com/bemary" target="_blank">**Belinda Stifani*</a> | <a href="https://github.com/Lingelingeling" target="_blank">**Belinda Schühle**</a> |
+| :---: |:---:| :---:|
+| [![Daniela Simões](https://avatars1.githubusercontent.com/u/4284691?v=3&s=200)](https://github.com/test0102test)    | [![Belinda Stifani](https://avatars1.githubusercontent.com/u/4284691?v=3&s=200)](https://github.com/bemary) | [![Belinda Schühle](https://avatars1.githubusercontent.com/u/4284691?v=3&s=200)](https://github.com/Lingelingeling)  |
+| <a href="https://github.com/test0102test" target="_blank">`https://github.com/test0102test`</a> | <a href="https://github.com/bemary" target="_blank">`https://github.com/bemary`</a> | <a href="https://github.com/Lingelingeling" target="_blank">`https://github.com/Lingelingeling`</a> |
 
