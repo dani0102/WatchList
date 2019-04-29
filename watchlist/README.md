@@ -84,29 +84,3 @@ Our whole project is thoroughly documented with [JavaDoc](https://docs.oracle.co
 | :---: |:---:| :---:|
 | [![Daniela Simões](https://avatars1.githubusercontent.com/u/4284691?v=3&s=200)](https://github.com/test0102test)    | [![Belinda Stifani](https://avatars1.githubusercontent.com/u/4284691?v=3&s=200)](https://github.com/bemary) | [![Belinda Schühle](https://avatars1.githubusercontent.com/u/4284691?v=3&s=200)](https://github.com/Lingelingeling)  |
 | <a href="https://github.com/test0102test" target="_blank">`https://github.com/test0102test`</a> | <a href="https://github.com/bemary" target="_blank">`https://github.com/bemary`</a> | <a href="https://github.com/Lingelingeling" target="_blank">`https://github.com/Lingelingeling`</a> |
-
-
-## Reflexions
-
-### Overall
-
-Overall, we had many problems with this project. We started it as a web application but went for a JavaFX GUI in the end. This already caused us some big problems in connecting front- and backend. <br>
-The projects start was almost completely without any issues. We worked on the entities in an MVC-Pattern, which worked just fine. Also testing the functions using postman, revealed no issues. 
-
-None of us have used JavaFX so far, which made it a little more difficult but also more interesting to work with. We learned a lot new things. <br>
-All of us can say, that we have some basic knowledge in working with JavaFX and SceneBuilder now.
-
-Also, this was the first time despite our intercompany course, where we worked with PostgreSQL. It's not too different from MySQL but it was still something new we could all learn and profit from. 
-
-#### Daniela Simões
-
-> TODO
-
-#### Belinda Stifani
-
-> TODO
-
-#### Belinda Schühle
-
-My biggest problem was probably JavaFX. Like all of us, I have never worked with this before. In the company we used to work on an older project with Java Swing, so it had some similarities but it's still not quite the same. <br>
-I have also spent a lot of time with the JUnit Tests. We worked with then before but that was a while ago, so I was a little rusty in it. In the end I have really learned a lot in this project and I could also refresh some of my forgotten knowledge. 
