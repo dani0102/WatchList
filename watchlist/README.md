@@ -90,13 +90,13 @@ Our whole project is thoroughly documented with [JavaDoc](https://docs.oracle.co
 
 ### Overall
 
-Overall, we had many problems with this project. We started it as a webapplication but went for a JavaFX GUI in the end. This already caused us some big problems in connecting front- and backend. <br>
+Overall, we had many problems with this project. We started it as a web application but went for a JavaFX GUI in the end. This already caused us some big problems in connecting front- and backend. <br>
 The projects start was almost completely without any issues. We worked on the entities in an MVC-Pattern, which worked just fine. Also testing the functions using postman, revealed no issues. 
 
 None of us have used JavaFX so far, which made it a little more difficult but also more interesting to work with. We learned a lot new things. <br>
 All of us can say, that we have some basic knowledge in working with JavaFX and SceneBuilder now.
 
-Also, this was the first time despite our intercompany course, where we worked with PostreSQL. It's not too different from MySQL but it was still something new we could all learn and profit from. 
+Also, this was the first time despite our intercompany course, where we worked with PostgreSQL. It's not too different from MySQL but it was still something new we could all learn and profit from. 
 
 #### Daniela Simões
 
