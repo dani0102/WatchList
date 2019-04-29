@@ -48,7 +48,49 @@ Down here is a listing of all tools we have used in this project.
 
 ### Installation
 
-> TODO
+> Preconditions
+
+You need to install Eclipse SimRel (Or any of the last versions of eclipse) and set the JDK to Java 11. This project will not work with any JDK under 11, Therefore JavaFX is not included. <br>
+After setting eclipse up, you need to install PgAdmin, including PostgreSQL. Set the password to: 123
+
+Now, setting up the database is neccessairy. <br>
+
+> Database setup 
+
+- Open PgAdmin
+When you run PgAdmin, you will be redirected to a web application. Here you can see the UI of PgAdmin.
+- Open the Servers-Tree
+- Open PostgreSQL 10 and identify yourself with the defined password
+- Create a new database called: watchlist (All in lowercase)
+
+Now that the database is setup, we can import our project. 
+<br>Therefore, you need to clone it from the remote repository. You can do that via Gitkraken and Github.
+
+> Importing the project
+
+Now you can start eclipse. Choose the workspace of your wish. <br>
+- Open the "File" - directory
+- Klick on Import
+- Choose: Import existing gradle project
+- Choose the directory where you have cloned this project to and klick on finish.
+
+Now that the project is imported in eclipse, you need to wait a few moments for the project to build itself. 
+
+> Tasks before run
+
+Before the project can run, you need to run a few tasks. 
+- Open the gradle tasks tab (somewhere near console usually)
+- Klick on watchlist
+
+Here you have several groups of tasks. First, we will run the flyway tasks. 
+- Open the Flyway group
+- Run: FlywayClean and wait until it is finished.
+- Run: FlywayMigrate and wait until it is finished.
+
+> Run the project
+
+Under application you can find the task: run.
+<br>You can run the project with this task. 
 
 ## Running the tests
 
