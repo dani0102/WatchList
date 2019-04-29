@@ -16,7 +16,7 @@ public class WatchlistApplication extends Application {
 	public static void main(String[] args) {
 		SpringApplication.run(WatchlistApplication.class, args);
 		WatchlistController test = new WatchlistController();
-		test.loadAllTvShows();
+//		test.loadAllTvShows();
 		launch(args);
 	}
 	

@@ -1,6 +1,10 @@
 package watchlist.watchlist;
 
 import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -8,8 +12,6 @@ import java.util.List;
  */
 
 import java.util.Optional;
-
-import javax.swing.ImageIcon;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -37,11 +39,9 @@ import watchlist.watchlist.movie.MovieService;
 import watchlist.watchlist.tvshow.TvShow;
 import watchlist.watchlist.tvshow.TvShowRepository;
 import watchlist.watchlist.tvshow.TvShowService;
-import watchlist.watchlist.tvshow.TvShowServiceable;
 import watchlist.watchlist.users.User;
 
 public class WatchlistController {
-
 
 	Alert optionDialog;
 	Optional<ButtonType> result;
@@ -52,10 +52,10 @@ public class WatchlistController {
 	TvShowRepository tvShowRepo;
 
 //	private UserController userController;
-	
+
 	@Autowired
 	private MovieService movieService;
-	
+
 	@FXML // fx:id="navbar_watchlist"
 	private MenuBar navbar_watchlist; // Value injected by FXMLLoader
 
@@ -441,10 +441,24 @@ public class WatchlistController {
 
 	@FXML // fx:id="link_logout"
 	private Hyperlink link_logout; // Value injected by FXMLLoader
-	
+
 	/**
-	 * @param userController
+	 * @param tvShowService
+	 * @param movieService
 	 */
+	@Autowired
+	public WatchlistController(TvShowService tvShowService, MovieService movieService) {
+		super();
+		this.tvShowService = tvShowService;
+		this.movieService = movieService;
+	}
+
+	/**
+	 * 
+	 */
+	public WatchlistController() {
+		super();
+	}
 
 	@FXML
 	void cancelButton(ActionEvent event) {
@@ -573,50 +587,75 @@ public class WatchlistController {
 
 	@FXML
 	void saveMovie(ActionEvent event) {
-		
+
 		movieToAdd = new Movie();
 		movieToAdd.setAlias_title(alias_title_textfield_movie.getText());
 		movieToAdd.setDescription(description_textarea_movie.getText());
 		movieToAdd.setLength(Integer.parseInt(length_textfield_movie.getText()));
 		movieToAdd.setOutcome_year(Integer.parseInt(outcome_year_textfield_movie.getText()));
 		movieToAdd.setTitle(movie_textfield_movie.getText());
-		
-		//TODO: WHY TF IS IT NULL?????
-		if(movieService == null) {
+
+		// TODO: WHY TF IS IT NULL?????
+		if (movieService == null) {
 			System.out.println("Me - Movieservice this time - is very null");
-		}else {
+		} else {
 			movieService.createMovie(movieToAdd);
 		}
 	}
 
-	public void loadAllTvShows() {
-		//gets all tv shows enlisted in the database
+	@FXML
+	void loadAllTvShows() throws IOException {
+		// gets all tv shows enlisted in the database
 		// (currently returns null pointer exception
-		List<TvShow> allTvShows = tvShowService.getAll();
-		
+//		List<TvShow> allTvShows = tvShowService.getAll();
+
+//		Just for testing purposes, since our shit doesn't work 
+		List<TvShow> allTvShows = new ArrayList<>();
+
+		File fi = new File("C:\\Users\\Schuehle\\Pictures\\Camera Roll\\Stuff\\ahmed.jpg");
+		byte[] img1 = Files.readAllBytes(fi.toPath());
+
+		File fi1 = new File("C:\\Users\\Schuehle\\Pictures\\Camera Roll\\Stuff\\Fairy-Tail_Lily.png");
+		byte[] img2 = Files.readAllBytes(fi1.toPath());
+
+		File fi2 = new File("C:\\Users\\Schuehle\\Pictures\\Camera Roll\\Stuff\\Kim-Possible_Scary.png");
+		byte[] img3 = Files.readAllBytes(fi2.toPath());
+
+		File fi3 = new File("C:\\Users\\Schuehle\\Pictures\\Camera Roll\\Stuff\\Patrick-Star_Baby.jpg");
+		byte[] img4 = Files.readAllBytes(fi3.toPath());
+
+		TvShow tvShow1 = new TvShow("Konosuba", "kono subarashii", "anime", img1, 2014, 2019, 25);
+		TvShow tvShow2 = new TvShow("1Konosuba", "1kono subarashii", "1anime", img2, 2011, 2012, 26);
+		TvShow tvShow3 = new TvShow("2Konosuba", "2kono subarashii", "2anime", img3, 2012, 2013, 27);
+		TvShow tvShow4 = new TvShow("3Konosuba", "3kono subarashii", "3anime", img4, 2013, 2014, 28);
+		allTvShows.add(tvShow1);
+		allTvShows.add(tvShow2);
+		allTvShows.add(tvShow3);
+		allTvShows.add(tvShow4);
+
 		int row = 1;
 		int column = 1;
-		
-		//iterates through every tv show
-		//gridpane: 4 columns with 2 rows for picture and title
-		for(TvShow show : allTvShows) {
+
+		// iterates through every tv show
+		// gridpane: 4 columns with 2 rows for picture and title
+		for (TvShow show : allTvShows) {
 			Label image = new Label();
 			img = new Image(new ByteArrayInputStream(show.getPicture()));
 			image.setGraphic(new ImageView(img));
 			GridPane.setConstraints(image, column, row);
 			Label title = new Label(show.getTitle());
 			GridPane.setConstraints(title, column, row + 1);
-			
+
 			tvshow_grid_tvshow.getChildren().addAll(image, title);
-			
-			if(column == 4) {
+
+			if (column == 4) {
 				column = 1;
 				row += 2;
 			}
 			column++;
 		}
 	}
-	
+
 	@FXML
 	void openLoginView(ActionEvent event) {
 		centerPane_login.toFront();
@@ -658,7 +697,7 @@ public class WatchlistController {
 	}
 
 	@FXML
-	void openTvShowAll(ActionEvent event) {
+	void openTvShowAll(ActionEvent event) throws IOException {
 		loadAllTvShows();
 		centerPane_tvshow.toFront();
 
