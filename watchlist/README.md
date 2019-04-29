@@ -48,6 +48,8 @@ Down here is a listing of all tools we have used in this project.
 
 ### Installation
 
+> TODO
+
 ## Running the tests
 
 We implemented some Unit-tests for our Controllers and Services (Web- / Service-Layers). These have run without any issues until now. 
@@ -98,7 +100,11 @@ Also, this was the first time despite our intercompany course, where we worked w
 
 #### Daniela Simões
 
+> TODO
+
 #### Belinda Stifani
+
+> TODO
 
 #### Belinda Schühle
 
