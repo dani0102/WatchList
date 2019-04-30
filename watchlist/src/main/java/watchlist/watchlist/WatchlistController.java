@@ -7,10 +7,6 @@ import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Sample Skeleton for 'WatchlistView.fxml' Controller Class
- */
-
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +37,12 @@ import watchlist.watchlist.movie.MovieServiceable;
 import watchlist.watchlist.tvshow.TvShow;
 import watchlist.watchlist.users.User;
 
+/**
+ * @author Schuehle, Simões, Stifani
+ * 
+ * Controller class for the JavaFX GUI. 
+ *
+ */
 @Controller
 public class WatchlistController {
 
