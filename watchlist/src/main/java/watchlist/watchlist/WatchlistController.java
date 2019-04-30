@@ -3,6 +3,7 @@ package watchlist.watchlist;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +16,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.ResourceUtils;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -39,7 +41,6 @@ import watchlist.watchlist.movie.Movie;
 import watchlist.watchlist.movie.MovieServiceable;
 import watchlist.watchlist.tvshow.TvShow;
 import watchlist.watchlist.tvshow.TvShowRepository;
-import watchlist.watchlist.tvshow.TvShowServiceable;
 import watchlist.watchlist.users.User;
 
 @Controller
@@ -463,9 +464,10 @@ public class WatchlistController {
 
 	/**
 	 * @param event
+	 * @throws IOException 
 	 */
 	@FXML
-	void cancelButton(ActionEvent event) {
+	void cancelButton(ActionEvent event) throws IOException {
 
 		optionDialog = new Alert(AlertType.CONFIRMATION);
 		optionDialog.setTitle("Cancellation Confirmation");
@@ -474,7 +476,7 @@ public class WatchlistController {
 
 		result = optionDialog.showAndWait();
 		if (result.get() == ButtonType.OK) {
-			centerPane_home.toFront();
+			openHomeView(event);
 		} else {
 			optionDialog.close();
 		}
@@ -642,6 +644,88 @@ public class WatchlistController {
 			movieService.createMovie(movieToAdd);
 		}
 	}
+	
+	/**
+	 * @throws IOException
+	 */
+	@FXML
+	void loadAllMovies() throws IOException {
+		// gets all tv shows enlisted in the database
+		// (currently returns null pointer exception
+//		List<TvShow> allTvShows = tvShowService.getAll();
+
+		// TEST STUFF STARTS HERE
+		// Just for testing purposes, since our shit doesn't work 
+		List<Movie> allMovies = new ArrayList<>();
+
+//		File fi = new File("C:\\Users\\Schuehle\\Pictures\\Camera Roll\\Stuff\\KonoSuba_piktogramm1.gif");
+		File fi = ResourceUtils.getFile("classpath:watchlist/watchlist/images/lionking_piktogramm.gif");
+		byte[] img1 = Files.readAllBytes(fi.toPath());
+
+		File fi1 = ResourceUtils.getFile("classpath:watchlist/watchlist/images/endgame_piktogramm.jpeg");
+		byte[] img2 = Files.readAllBytes(fi1.toPath());
+
+		File fi2 = ResourceUtils.getFile("classpath:watchlist/watchlist/images/titanic_piktogramm.jpg");
+		byte[] img3 = Files.readAllBytes(fi2.toPath());
+
+		File fi3 = ResourceUtils.getFile("classpath:watchlist/watchlist/images/bttf_piktogramm.jpg");
+		byte[] img4 = Files.readAllBytes(fi3.toPath());
+		
+		File fi4 = ResourceUtils.getFile("classpath:watchlist/watchlist/images/matrix_piktogramm.gif");
+		byte[] img5 = Files.readAllBytes(fi4.toPath());
+		
+		File fi5 = ResourceUtils.getFile("classpath:watchlist/watchlist/images/wolverine_piktogramm.jpg");
+		byte[] img6 = Files.readAllBytes(fi5.toPath());
+		
+		File fi6 = ResourceUtils.getFile("classpath:watchlist/watchlist/images/sinister_piktogramm.jpg");
+		byte[] img7 = Files.readAllBytes(fi6.toPath());
+		
+		File fi7 = ResourceUtils.getFile("classpath:watchlist/watchlist/images/hp_piktogramm.jpg");
+		byte[] img8 = Files.readAllBytes(fi7.toPath());
+		
+		Movie movie1 = new Movie("The Lion King", "none", "Animated movie about a lion cup that loses his father, the king", img1, 2019, 25);
+		Movie movie2 = new Movie("Avengers: Endgame", "none", "2nd part of Infinity War", img2, 2012, 26);
+		Movie movie3 = new Movie("Titanic", "none", "First cruise ship, sinks", img3, 2013, 27);
+		Movie movie4 = new Movie("Back to the Future", "none", "Driving a car into the future and back", img4, 2014, 28);
+		Movie movie5 = new Movie("Matrix", "none", "IT movie", img5, 2014, 28);
+		Movie movie6 = new Movie("Wolverine", "none", "Iron Claws and immortal", img6, 2014, 28);
+		Movie movie7 = new Movie("Sinister", "none", "Horror movie", img7, 2014, 28);
+		Movie movie8 = new Movie("Harry Potter and the Prisoner of Azkaban", "none", "One of the harry potter parts, harry meets sirius", img8, 2014, 28);
+		
+		allMovies.add(movie1);
+		allMovies.add(movie2);
+		allMovies.add(movie3);
+		allMovies.add(movie4);
+		allMovies.add(movie5);
+		allMovies.add(movie6);
+		allMovies.add(movie7);
+		allMovies.add(movie8);
+		// TEST STUFF ENDS HERE
+
+		
+		
+		int row = 0;
+		int column = 0;
+
+		// iterates through every tv show
+		// gridpane: 4 columns with 2 rows for picture and title
+		for (Movie movie : allMovies) {
+			Label image = new Label();
+			img = new Image(new ByteArrayInputStream(movie.getPicture()));
+			image.setGraphic(new ImageView(img));
+			GridPane.setConstraints(image, column, row);
+			Label title = new Label(movie.getTitle());
+			GridPane.setConstraints(title, column, row + 1);
+
+			movie_grid_movie.getChildren().addAll(image, title);
+
+			if (column == 3) {
+				column = -1;
+				row += 2;
+			}
+			column++;
+		}
+	}
 
 	/**
 	 * @throws IOException
@@ -656,38 +740,39 @@ public class WatchlistController {
 		// Just for testing purposes, since our shit doesn't work 
 		List<TvShow> allTvShows = new ArrayList<>();
 
-		File fi = new File("C:\\Users\\Schuehle\\Pictures\\Camera Roll\\Stuff\\KonoSuba_piktogramm1.gif");
+//		File fi = new File("C:\\Users\\Schuehle\\Pictures\\Camera Roll\\Stuff\\KonoSuba_piktogramm1.gif");
+		File fi = ResourceUtils.getFile("classpath:watchlist/watchlist/images/KonoSuba_piktogramm6.gif");
 		byte[] img1 = Files.readAllBytes(fi.toPath());
 
-		File fi1 = new File("C:\\Users\\Schuehle\\Pictures\\Camera Roll\\Stuff\\KonoSuba_piktogramm2.gif");
+		File fi1 = ResourceUtils.getFile("classpath:watchlist/watchlist/images/the100_piktogramm.jpg");
 		byte[] img2 = Files.readAllBytes(fi1.toPath());
 
-		File fi2 = new File("C:\\Users\\Schuehle\\Pictures\\Camera Roll\\Stuff\\KonoSuba_piktogramm3.gif");
+		File fi2 = ResourceUtils.getFile("classpath:watchlist/watchlist/images/got_piktogramm.jpg");
 		byte[] img3 = Files.readAllBytes(fi2.toPath());
 
-		File fi3 = new File("C:\\Users\\Schuehle\\Pictures\\Camera Roll\\Stuff\\KonoSuba_piktogramm4.gif");
+		File fi3 = ResourceUtils.getFile("classpath:watchlist/watchlist/images/tvd_piktogramm.jpg");
 		byte[] img4 = Files.readAllBytes(fi3.toPath());
 		
-		File fi4 = new File("C:\\Users\\Schuehle\\Pictures\\Camera Roll\\Stuff\\KonoSuba_piktogramm5.gif");
+		File fi4 = ResourceUtils.getFile("classpath:watchlist/watchlist/images/onetreehill_piktogramm.jpg");
 		byte[] img5 = Files.readAllBytes(fi4.toPath());
 		
-		File fi5 = new File("C:\\Users\\Schuehle\\Pictures\\Camera Roll\\Stuff\\KonoSuba_piktogramm6.gif");
+		File fi5 = ResourceUtils.getFile("classpath:watchlist/watchlist/images/aot_piktogramm.jpg");
 		byte[] img6 = Files.readAllBytes(fi5.toPath());
 		
-		File fi6 = new File("C:\\Users\\Schuehle\\Pictures\\Camera Roll\\Stuff\\KonoSuba_piktogramm7.gif");
+		File fi6 = ResourceUtils.getFile("classpath:watchlist/watchlist/images/gg_piktogramm.jpg");
 		byte[] img7 = Files.readAllBytes(fi6.toPath());
 		
-		File fi7 = new File("C:\\Users\\Schuehle\\Pictures\\Camera Roll\\Stuff\\zombielandsaga_piktogramm1.jpg");
+		File fi7 = ResourceUtils.getFile("classpath:watchlist/watchlist/images/ft_piktogramm.jpg");
 		byte[] img8 = Files.readAllBytes(fi7.toPath());
 		
-		TvShow tvShow1 = new TvShow("Konosuba Wiz", "kono subarashii sekai..", "comedy anime", img1, 2014, 2019, 25);
-		TvShow tvShow2 = new TvShow("Konosuba Vanir", "Godess' blessing..", "still comedy anime", img2, 2011, 2012, 26);
-		TvShow tvShow3 = new TvShow("Konosuba Kazuma", "kono subarashii kazuma", "comedy anime all the way", img3, 2012, 2013, 27);
-		TvShow tvShow4 = new TvShow("Konosuba YunYun", "friend of megumin", "1st appearance in an ova i think", img4, 2013, 2014, 28);
-		TvShow tvShow5 = new TvShow("Konosuba YunYun still", "look before", "yup", img5, 2013, 2014, 28);
-		TvShow tvShow6 = new TvShow("Konosuba Aqua to Megumin", "Girls from konosuba", "idiot and idiot", img6, 2013, 2014, 28);
-		TvShow tvShow7 = new TvShow("Konosuba Aqua", "The godess from the title", "godess without any good powers", img7, 2013, 2014, 28);
-		TvShow tvShow8 = new TvShow("Zombieland Saga", "none", "zombie anime", img8, 2013, 2014, 28);
+		TvShow tvShow1 = new TvShow("KonoSuba", "kono subarashii sekai..", "comedy anime", img1, 2014, 2019, 25);
+		TvShow tvShow2 = new TvShow("The 100", "none", "the world got smashed by nuclear bombs, 80 years later..", img2, 2011, 2012, 26);
+		TvShow tvShow3 = new TvShow("Game of Thrones", "none", "People fighting about a throne of swords", img3, 2012, 2013, 27);
+		TvShow tvShow4 = new TvShow("The Vampire Diaries", "TVD", "vampires and doppelgangers", img4, 2013, 2014, 28);
+		TvShow tvShow5 = new TvShow("One Tree Hill", "none", "Idk", img5, 2013, 2014, 28);
+		TvShow tvShow6 = new TvShow("Attack on Titan", "Shingeki no Kyojin", "title basically explains it", img6, 2013, 2014, 28);
+		TvShow tvShow7 = new TvShow("Gilmore Girls", "none", "Life of mother and daughter", img7, 2013, 2014, 28);
+		TvShow tvShow8 = new TvShow("Fairy Tail", "none", "friendship/magic anime", img8, 2013, 2014, 28);
 		
 		allTvShows.add(tvShow1);
 		allTvShows.add(tvShow2);
@@ -715,6 +800,116 @@ public class WatchlistController {
 			GridPane.setConstraints(title, column, row + 1);
 
 			tvshow_grid_tvshow.getChildren().addAll(image, title);
+
+			if (column == 3) {
+				column = -1;
+				row += 2;
+			}
+			column++;
+		}
+	}
+	
+	/**
+	 * @throws IOException
+	 */
+	@FXML
+	void loadAllTvShowsAndMoviesHomeView() throws IOException {
+
+		// TEST STUFF STARTS HERE
+		// Just for testing purposes, since our shit doesn't work 
+		List<TvShow> allTvShows = new ArrayList<>();
+
+//		File fi = new File("C:\\Users\\Schuehle\\Pictures\\Camera Roll\\Stuff\\KonoSuba_piktogramm1.gif");
+		File fi = ResourceUtils.getFile("classpath:watchlist/watchlist/images/KonoSuba_piktogramm6.gif");
+		byte[] img1 = Files.readAllBytes(fi.toPath());
+
+		File fi1 = ResourceUtils.getFile("classpath:watchlist/watchlist/images/the100_piktogramm.jpg");
+		byte[] img2 = Files.readAllBytes(fi1.toPath());
+
+		File fi2 = ResourceUtils.getFile("classpath:watchlist/watchlist/images/got_piktogramm.jpg");
+		byte[] img3 = Files.readAllBytes(fi2.toPath());
+
+		File fi3 = ResourceUtils.getFile("classpath:watchlist/watchlist/images/tvd_piktogramm.jpg");
+		byte[] img4 = Files.readAllBytes(fi3.toPath());
+		
+		
+		TvShow tvShow1 = new TvShow("KonoSuba", "kono subarashii sekai..", "comedy anime", img1, 2014, 2019, 25);
+		TvShow tvShow2 = new TvShow("The 100", "none", "the world got smashed by nuclear bombs, 80 years later..", img2, 2011, 2012, 26);
+		TvShow tvShow3 = new TvShow("Game of Thrones", "none", "People fighting about a throne of swords", img3, 2012, 2013, 27);
+		TvShow tvShow4 = new TvShow("The Vampire Diaries", "TVD", "vampires and doppelgangers", img4, 2013, 2014, 28);
+		
+		allTvShows.add(tvShow1);
+		allTvShows.add(tvShow2);
+		allTvShows.add(tvShow3);
+		allTvShows.add(tvShow4);
+		// TEST STUFF ENDS HERE
+		
+		// TEST STUFF STARTS HERE
+		// Just for testing purposes, since our shit doesn't work 
+		List<Movie> allMovies = new ArrayList<>();
+
+//		File fi = new File("C:\\Users\\Schuehle\\Pictures\\Camera Roll\\Stuff\\KonoSuba_piktogramm1.gif");
+		File moviefi = ResourceUtils.getFile("classpath:watchlist/watchlist/images/lionking_piktogramm.gif");
+		byte[] movieimg1 = Files.readAllBytes(moviefi.toPath());
+
+		File moviefi1 = ResourceUtils.getFile("classpath:watchlist/watchlist/images/endgame_piktogramm.jpeg");
+		byte[] movieimg2 = Files.readAllBytes(moviefi1.toPath());
+
+		File moviefi2 = ResourceUtils.getFile("classpath:watchlist/watchlist/images/titanic_piktogramm.jpg");
+		byte[] movieimg3 = Files.readAllBytes(moviefi2.toPath());
+
+		File moviefi3 = ResourceUtils.getFile("classpath:watchlist/watchlist/images/bttf_piktogramm.jpg");
+		byte[] movieimg4 = Files.readAllBytes(moviefi3.toPath());
+		
+		Movie movie1 = new Movie("The Lion King", "none", "Animated movie about a lion cup that loses his father, the king", movieimg1, 2019, 25);
+		Movie movie2 = new Movie("Avengers: Endgame", "none", "2nd part of Infinity War", movieimg2, 2012, 26);
+		Movie movie3 = new Movie("Titanic", "none", "First cruise ship, sinks", movieimg3, 2013, 27);
+		Movie movie4 = new Movie("Back to the Future", "none", "Driving a car into the future and back", movieimg4, 2014, 28);
+		
+		allMovies.add(movie1);
+		allMovies.add(movie2);
+		allMovies.add(movie3);
+		allMovies.add(movie4);
+		// TEST STUFF ENDS HERE
+
+		
+		
+		int row = 0;
+		int column = 0;
+
+		// iterates through every tv show
+		// gridpane: 4 columns with 2 rows for picture and title
+		for (TvShow show : allTvShows) {
+			Label image = new Label();
+			img = new Image(new ByteArrayInputStream(show.getPicture()));
+			image.setGraphic(new ImageView(img));
+			GridPane.setConstraints(image, column, row);
+			Label title = new Label(show.getTitle());
+			GridPane.setConstraints(title, column, row + 1);
+
+			tvshowGrid.getChildren().addAll(image, title);
+
+			if (column == 3) {
+				column = -1;
+				row += 2;
+			}
+			column++;
+		}
+		
+		row = 0;
+		column = 0;
+
+		// iterates through every tv show
+		// gridpane: 4 columns with 2 rows for picture and title
+		for (Movie movie : allMovies) {
+			Label image = new Label();
+			img = new Image(new ByteArrayInputStream(movie.getPicture()));
+			image.setGraphic(new ImageView(img));
+			GridPane.setConstraints(image, column, row);
+			Label title = new Label(movie.getTitle());
+			GridPane.setConstraints(title, column, row + 1);
+
+			movieGrid.getChildren().addAll(image, title);
 
 			if (column == 3) {
 				column = -1;
@@ -754,9 +949,11 @@ public class WatchlistController {
 
 	/**
 	 * @param event
+	 * @throws IOException 
 	 */
 	@FXML
-	void openHomeView(ActionEvent event) {
+	void openHomeView(ActionEvent event) throws IOException {
+		loadAllTvShowsAndMoviesHomeView();
 		centerPane_home.toFront();
 	}
 
@@ -770,9 +967,11 @@ public class WatchlistController {
 
 	/**
 	 * @param event
+	 * @throws IOException 
 	 */
 	@FXML
-	void openMovieAll(ActionEvent event) {
+	void openMovieAll(ActionEvent event) throws IOException {
+		loadAllMovies();
 		centerPane_movie.toFront();
 
 	}
