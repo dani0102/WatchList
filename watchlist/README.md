@@ -8,14 +8,14 @@ If you are a member of watchlist, you can also add, change and delete tv shows a
 > Unknown Users can:
 - Register a new account
 - Login
-- View Tv Shows (Overview as well as detailed view)
-- View Movies (Overview as well as detailed view)
+- View Tv Shows (Overview)
+- View Movies (Overview)
 
 > Logged in Users can:
 - Logout
 - View / edit / delete the own profile
-- View Tv Shows (Overview as well as detailed view)
-- View Movies (Overview as well as detailed view)
+- View Tv Shows (Overview)
+- View Movies (Overview)
 - Add new, edit / delete existing Tv Shows
 - Add new, edit / delete existing Movies
 
@@ -23,6 +23,7 @@ If you are a member of watchlist, you can also add, change and delete tv shows a
 - Pictures of Tv Shows / Movies
 - Avatar-Picture
 - Ratings
+- Detailed Views of Movies and Tv Shows for both known and unknown users
 
 ## Getting Started
 
