@@ -66,6 +66,9 @@
                                     <RowConstraints maxHeight="247.0" minHeight="10.0" prefHeight="197.0" vgrow="SOMETIMES" />
                                     <RowConstraints maxHeight="241.0" minHeight="8.0" prefHeight="55.0" vgrow="SOMETIMES" />
                                  </rowConstraints>
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
                               </GridPane>
                            </children>
                         </Pane>
@@ -107,6 +110,9 @@
                                     <RowConstraints maxHeight="247.0" minHeight="10.0" prefHeight="197.0" vgrow="SOMETIMES" />
                                     <RowConstraints maxHeight="241.0" minHeight="8.0" prefHeight="55.0" vgrow="SOMETIMES" />
                                  </rowConstraints>
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
                               </GridPane>
                            </children>
                         </Pane>

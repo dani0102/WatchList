@@ -609,32 +609,57 @@ public class WatchlistController {
 		// (currently returns null pointer exception
 //		List<TvShow> allTvShows = tvShowService.getAll();
 
-//		Just for testing purposes, since our shit doesn't work 
+		// TEST STUFF STARTS HERE
+		// Just for testing purposes, since our shit doesn't work 
 		List<TvShow> allTvShows = new ArrayList<>();
 
-		File fi = new File("C:\\Users\\Schuehle\\Pictures\\Camera Roll\\Stuff\\ahmed.jpg");
+		File fi = new File("C:\\Users\\Schuehle\\Pictures\\Camera Roll\\Stuff\\KonoSuba_piktogramm1.gif");
 		byte[] img1 = Files.readAllBytes(fi.toPath());
 
-		File fi1 = new File("C:\\Users\\Schuehle\\Pictures\\Camera Roll\\Stuff\\Fairy-Tail_Lily.png");
+		File fi1 = new File("C:\\Users\\Schuehle\\Pictures\\Camera Roll\\Stuff\\KonoSuba_piktogramm2.gif");
 		byte[] img2 = Files.readAllBytes(fi1.toPath());
 
-		File fi2 = new File("C:\\Users\\Schuehle\\Pictures\\Camera Roll\\Stuff\\Kim-Possible_Scary.png");
+		File fi2 = new File("C:\\Users\\Schuehle\\Pictures\\Camera Roll\\Stuff\\KonoSuba_piktogramm3.gif");
 		byte[] img3 = Files.readAllBytes(fi2.toPath());
 
-		File fi3 = new File("C:\\Users\\Schuehle\\Pictures\\Camera Roll\\Stuff\\Patrick-Star_Baby.jpg");
+		File fi3 = new File("C:\\Users\\Schuehle\\Pictures\\Camera Roll\\Stuff\\KonoSuba_piktogramm4.gif");
 		byte[] img4 = Files.readAllBytes(fi3.toPath());
-
-		TvShow tvShow1 = new TvShow("Konosuba", "kono subarashii", "anime", img1, 2014, 2019, 25);
-		TvShow tvShow2 = new TvShow("1Konosuba", "1kono subarashii", "1anime", img2, 2011, 2012, 26);
-		TvShow tvShow3 = new TvShow("2Konosuba", "2kono subarashii", "2anime", img3, 2012, 2013, 27);
-		TvShow tvShow4 = new TvShow("3Konosuba", "3kono subarashii", "3anime", img4, 2013, 2014, 28);
+		
+		File fi4 = new File("C:\\Users\\Schuehle\\Pictures\\Camera Roll\\Stuff\\KonoSuba_piktogramm5.gif");
+		byte[] img5 = Files.readAllBytes(fi4.toPath());
+		
+		File fi5 = new File("C:\\Users\\Schuehle\\Pictures\\Camera Roll\\Stuff\\KonoSuba_piktogramm6.gif");
+		byte[] img6 = Files.readAllBytes(fi5.toPath());
+		
+		File fi6 = new File("C:\\Users\\Schuehle\\Pictures\\Camera Roll\\Stuff\\KonoSuba_piktogramm7.gif");
+		byte[] img7 = Files.readAllBytes(fi6.toPath());
+		
+		File fi7 = new File("C:\\Users\\Schuehle\\Pictures\\Camera Roll\\Stuff\\zombielandsaga_piktogramm1.jpg");
+		byte[] img8 = Files.readAllBytes(fi7.toPath());
+		
+		TvShow tvShow1 = new TvShow("Konosuba Wiz", "kono subarashii sekai..", "comedy anime", img1, 2014, 2019, 25);
+		TvShow tvShow2 = new TvShow("Konosuba Vanir", "Godess' blessing..", "still comedy anime", img2, 2011, 2012, 26);
+		TvShow tvShow3 = new TvShow("Konosuba Kazuma", "kono subarashii kazuma", "comedy anime all the way", img3, 2012, 2013, 27);
+		TvShow tvShow4 = new TvShow("Konosuba YunYun", "friend of megumin", "1st appearance in an ova i think", img4, 2013, 2014, 28);
+		TvShow tvShow5 = new TvShow("Konosuba YunYun still", "look before", "yup", img5, 2013, 2014, 28);
+		TvShow tvShow6 = new TvShow("Konosuba Aqua to Megumin", "Girls from konosuba", "idiot and idiot", img6, 2013, 2014, 28);
+		TvShow tvShow7 = new TvShow("Konosuba Aqua", "The godess from the title", "godess without any good powers", img7, 2013, 2014, 28);
+		TvShow tvShow8 = new TvShow("Zombieland Saga", "none", "zombie anime", img8, 2013, 2014, 28);
+		
 		allTvShows.add(tvShow1);
 		allTvShows.add(tvShow2);
 		allTvShows.add(tvShow3);
 		allTvShows.add(tvShow4);
+		allTvShows.add(tvShow5);
+		allTvShows.add(tvShow6);
+		allTvShows.add(tvShow7);
+		allTvShows.add(tvShow8);
+		// TEST STUFF ENDS HERE
 
-		int row = 1;
-		int column = 1;
+		
+		
+		int row = 0;
+		int column = 0;
 
 		// iterates through every tv show
 		// gridpane: 4 columns with 2 rows for picture and title
@@ -648,8 +673,8 @@ public class WatchlistController {
 
 			tvshow_grid_tvshow.getChildren().addAll(image, title);
 
-			if (column == 4) {
-				column = 1;
+			if (column == 3) {
+				column = -1;
 				row += 2;
 			}
 			column++;
