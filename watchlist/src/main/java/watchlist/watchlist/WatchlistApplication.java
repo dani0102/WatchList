@@ -12,28 +12,26 @@ import watchlist.watchlist.movie.MovieServiceable;
 
 @SpringBootApplication
 public class WatchlistApplication extends Application {
-	
+
 	private MovieServiceable movieService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(WatchlistApplication.class, args);
-//		WatchlistController test = new WatchlistController(tvShowService, movieService);
-//		test.loadAllTvShows();
 		launch(args);
 	}
-	
+
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-				
+
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("WatchlistView.fxml"));
 		loader.setController(new WatchlistController(movieService));
 		Parent root = loader.load();
-		
+
 		Scene scene = new Scene(root);
-		//scene.getStylesheets().add(getClass().getResource("BMISettings.css").toExternalForm());
+		// scene.getStylesheets().add(getClass().getResource("BMISettings.css").toExternalForm());
 		primaryStage.setScene(scene);
 		primaryStage.setTitle("Watchlist");
 		primaryStage.show();
 	}
-	
+
 }
