@@ -650,15 +650,11 @@ public class WatchlistController {
 	 */
 	@FXML
 	void loadAllMovies() throws IOException {
-		// gets all tv shows enlisted in the database
-		// (currently returns null pointer exception
-//		List<TvShow> allTvShows = tvShowService.getAll();
 
 		// TEST STUFF STARTS HERE
 		// Just for testing purposes, since our shit doesn't work 
 		List<Movie> allMovies = new ArrayList<>();
 
-//		File fi = new File("C:\\Users\\Schuehle\\Pictures\\Camera Roll\\Stuff\\KonoSuba_piktogramm1.gif");
 		File fi = ResourceUtils.getFile("classpath:watchlist/watchlist/images/lionking_piktogramm.gif");
 		byte[] img1 = Files.readAllBytes(fi.toPath());
 
@@ -703,7 +699,6 @@ public class WatchlistController {
 		// TEST STUFF ENDS HERE
 
 		
-		
 		int row = 0;
 		int column = 0;
 
@@ -740,7 +735,6 @@ public class WatchlistController {
 		// Just for testing purposes, since our shit doesn't work 
 		List<TvShow> allTvShows = new ArrayList<>();
 
-//		File fi = new File("C:\\Users\\Schuehle\\Pictures\\Camera Roll\\Stuff\\KonoSuba_piktogramm1.gif");
 		File fi = ResourceUtils.getFile("classpath:watchlist/watchlist/images/KonoSuba_piktogramm6.gif");
 		byte[] img1 = Files.readAllBytes(fi.toPath());
 
@@ -785,7 +779,6 @@ public class WatchlistController {
 		// TEST STUFF ENDS HERE
 
 		
-		
 		int row = 0;
 		int column = 0;
 
@@ -819,7 +812,6 @@ public class WatchlistController {
 		// Just for testing purposes, since our shit doesn't work 
 		List<TvShow> allTvShows = new ArrayList<>();
 
-//		File fi = new File("C:\\Users\\Schuehle\\Pictures\\Camera Roll\\Stuff\\KonoSuba_piktogramm1.gif");
 		File fi = ResourceUtils.getFile("classpath:watchlist/watchlist/images/KonoSuba_piktogramm6.gif");
 		byte[] img1 = Files.readAllBytes(fi.toPath());
 
@@ -848,7 +840,6 @@ public class WatchlistController {
 		// Just for testing purposes, since our shit doesn't work 
 		List<Movie> allMovies = new ArrayList<>();
 
-//		File fi = new File("C:\\Users\\Schuehle\\Pictures\\Camera Roll\\Stuff\\KonoSuba_piktogramm1.gif");
 		File moviefi = ResourceUtils.getFile("classpath:watchlist/watchlist/images/lionking_piktogramm.gif");
 		byte[] movieimg1 = Files.readAllBytes(moviefi.toPath());
 
@@ -872,7 +863,6 @@ public class WatchlistController {
 		allMovies.add(movie4);
 		// TEST STUFF ENDS HERE
 
-		
 		
 		int row = 0;
 		int column = 0;
