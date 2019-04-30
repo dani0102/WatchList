@@ -1,21 +1,23 @@
 package watchlist.watchlist;
 
-import javafx.application.Application;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import watchlist.watchlist.movie.MovieServiceable;
 
 @SpringBootApplication
 public class WatchlistApplication extends Application {
+	
+	private MovieServiceable movieService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(WatchlistApplication.class, args);
-		WatchlistController test = new WatchlistController();
+//		WatchlistController test = new WatchlistController(tvShowService, movieService);
 //		test.loadAllTvShows();
 		launch(args);
 	}
@@ -24,7 +26,7 @@ public class WatchlistApplication extends Application {
 	public void start(Stage primaryStage) throws Exception {
 				
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("WatchlistView.fxml"));
-		loader.setController(new WatchlistController());
+		loader.setController(new WatchlistController(movieService));
 		Parent root = loader.load();
 		
 		Scene scene = new Scene(root);

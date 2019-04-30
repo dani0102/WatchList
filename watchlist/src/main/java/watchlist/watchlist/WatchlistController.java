@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -35,26 +36,26 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import watchlist.watchlist.movie.Movie;
-import watchlist.watchlist.movie.MovieService;
+import watchlist.watchlist.movie.MovieServiceable;
 import watchlist.watchlist.tvshow.TvShow;
 import watchlist.watchlist.tvshow.TvShowRepository;
-import watchlist.watchlist.tvshow.TvShowService;
+import watchlist.watchlist.tvshow.TvShowServiceable;
 import watchlist.watchlist.users.User;
 
+@Controller
 public class WatchlistController {
 
+	// Cancel Button Dialogs
 	Alert optionDialog;
 	Optional<ButtonType> result;
+	
 	User userToAdd;
 	Movie movieToAdd;
 	Image img;
-	TvShowService tvShowService;
+//	private TvShowServiceable tvShowService;
 	TvShowRepository tvShowRepo;
-
-//	private UserController userController;
-
-	@Autowired
-	private MovieService movieService;
+	
+	private MovieServiceable movieService;
 
 	@FXML // fx:id="navbar_watchlist"
 	private MenuBar navbar_watchlist; // Value injected by FXMLLoader
@@ -447,9 +448,9 @@ public class WatchlistController {
 	 * @param movieService
 	 */
 	@Autowired
-	public WatchlistController(TvShowService tvShowService, MovieService movieService) {
+	public WatchlistController(MovieServiceable movieService) {
 		super();
-		this.tvShowService = tvShowService;
+//		this.tvShowService = tvShowService;
 		this.movieService = movieService;
 	}
 
@@ -460,6 +461,9 @@ public class WatchlistController {
 		super();
 	}
 
+	/**
+	 * @param event
+	 */
 	@FXML
 	void cancelButton(ActionEvent event) {
 
@@ -477,6 +481,9 @@ public class WatchlistController {
 
 	}
 
+	/**
+	 * @param event
+	 */
 	@FXML
 	void deleteMovie(ActionEvent event) {
 
@@ -495,6 +502,9 @@ public class WatchlistController {
 
 	}
 
+	/**
+	 * @param event
+	 */
 	@FXML
 	void deleteProfile(ActionEvent event) {
 
@@ -513,6 +523,9 @@ public class WatchlistController {
 
 	}
 
+	/**
+	 * @param event
+	 */
 	@FXML
 	void deleteTvShow(ActionEvent event) {
 
@@ -530,40 +543,64 @@ public class WatchlistController {
 		}
 	}
 
+	/**
+	 * @param event
+	 */
 	@FXML
 	void loginUser(ActionEvent event) {
 
 	}
 
+	/**
+	 * @param event
+	 */
 	@FXML
 	void logoutProfile(ActionEvent event) {
 
 	}
 
+	/**
+	 * @param event
+	 */
 	@FXML
 	void saveProfile(ActionEvent event) {
 
 	}
 
+	/**
+	 * @param event
+	 */
 	@FXML
 	void saveTvShow(ActionEvent event) {
 
 	}
 
+	/**
+	 * @param event
+	 */
 	@FXML
 	void openEditProfile(ActionEvent event) {
 		centerPane_edit_profile.toFront();
 	}
 
+	/**
+	 * @param event
+	 */
 	@FXML
 	void searchMovie(ActionEvent event) {
 
 	}
 
+	/**
+	 * @param event
+	 */
 	@FXML
 	void searchTvShow(ActionEvent event) {
 	}
 
+	/**
+	 * @param event
+	 */
 	@FXML
 	void signupUser(ActionEvent event) {
 //		System.out.println("before");
@@ -585,6 +622,9 @@ public class WatchlistController {
 //		}
 	}
 
+	/**
+	 * @param event
+	 */
 	@FXML
 	void saveMovie(ActionEvent event) {
 
@@ -603,6 +643,9 @@ public class WatchlistController {
 		}
 	}
 
+	/**
+	 * @throws IOException
+	 */
 	@FXML
 	void loadAllTvShows() throws IOException {
 		// gets all tv shows enlisted in the database
@@ -681,11 +724,17 @@ public class WatchlistController {
 		}
 	}
 
+	/**
+	 * @param event
+	 */
 	@FXML
 	void openLoginView(ActionEvent event) {
 		centerPane_login.toFront();
 	}
 
+	/**
+	 * @param event
+	 */
 	@FXML
 	void openAddMovieView(ActionEvent event) {
 		centerPane_edit_movie.toFront();
@@ -693,6 +742,9 @@ public class WatchlistController {
 		delete_link_movie.setVisible(false);
 	}
 
+	/**
+	 * @param event
+	 */
 	@FXML
 	void openAddTvShowView(ActionEvent event) {
 		centerPane_edit_tvshow.toFront();
@@ -700,27 +752,43 @@ public class WatchlistController {
 		delete_link_tvshow.setVisible(false);
 	}
 
+	/**
+	 * @param event
+	 */
 	@FXML
 	void openHomeView(ActionEvent event) {
 		centerPane_home.toFront();
 	}
 
+	/**
+	 * @param event
+	 */
 	@FXML
 	void openProfileView(ActionEvent event) {
 		centerPane_show_profile.toFront();
 	}
 
+	/**
+	 * @param event
+	 */
 	@FXML
 	void openMovieAll(ActionEvent event) {
 		centerPane_movie.toFront();
 
 	}
 
+	/**
+	 * @param event
+	 */
 	@FXML
 	void openRegisterView(ActionEvent event) {
 		centerPane_signup.toFront();
 	}
 
+	/**
+	 * @param event
+	 * @throws IOException
+	 */
 	@FXML
 	void openTvShowAll(ActionEvent event) throws IOException {
 		loadAllTvShows();
@@ -728,6 +796,9 @@ public class WatchlistController {
 
 	}
 
+	/**
+	 * @param event
+	 */
 	@FXML
 	void openEditMovie(ActionEvent event) {
 		centerPane_edit_movie.toFront();
@@ -735,6 +806,9 @@ public class WatchlistController {
 		delete_link_movie.setVisible(true);
 	}
 
+	/**
+	 * @param event
+	 */
 	@FXML
 	void openEditTvshow(ActionEvent event) {
 		centerPane_edit_tvshow.toFront();
