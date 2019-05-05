@@ -412,7 +412,7 @@
    <top>
       <AnchorPane prefHeight="111.0" prefWidth="956.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
-            <AnchorPane prefHeight="106.0" prefWidth="956.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <AnchorPane fx:id="topPane_loggedOut" prefHeight="106.0" prefWidth="956.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Hyperlink fx:id="link_login" layoutX="808.0" layoutY="13.0" onAction="#openLoginView" text="login" textFill="#7c0d38" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="13.0" />
                   <Hyperlink fx:id="link_register" layoutX="749.0" layoutY="14.0" onAction="#openRegisterView" text="register" textFill="#7c0d38" AnchorPane.rightAnchor="159.0" AnchorPane.topAnchor="13.0" />
@@ -423,7 +423,7 @@
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="200.0" prefWidth="956.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <AnchorPane fx:id="topPane_loggedIn" prefHeight="200.0" prefWidth="956.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Hyperlink fx:id="link_logout" layoutX="808.0" layoutY="13.0" onAction="#logoutProfile" text="logout" textFill="#7c0d38" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="13.0" />
                   <Hyperlink fx:id="link_profile" layoutX="749.0" layoutY="14.0" onAction="#openProfileView" text="profile" textFill="#7c0d38" AnchorPane.rightAnchor="159.0" AnchorPane.topAnchor="14.0" />

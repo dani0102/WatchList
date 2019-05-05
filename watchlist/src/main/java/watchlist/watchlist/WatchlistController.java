@@ -30,6 +30,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import watchlist.watchlist.movie.Movie;
@@ -40,7 +41,7 @@ import watchlist.watchlist.users.User;
 /**
  * @author Schuehle, Simões, Stifani
  * 
- * Controller class for the JavaFX GUI. 
+ *         Controller class for the JavaFX GUI.
  *
  */
 @Controller
@@ -52,7 +53,12 @@ public class WatchlistController {
 
 	User userToAdd;
 	Movie movieToAdd;
+	TvShow tvshowToAdd;
 	Image img;
+
+	List<Movie> allMovies = new ArrayList<>();
+	List<TvShow> allTvShows = new ArrayList<>();
+	List<User> allUsers = new ArrayList<>();
 
 	private MovieServiceable movieService;
 
@@ -433,11 +439,14 @@ public class WatchlistController {
 	@FXML // fx:id="email_textfield_signup"
 	private TextField email_textfield_signup; // Value injected by FXMLLoader
 
+	@FXML // fx:id="topPane_loggedOut"
+    private AnchorPane topPane_loggedOut; // Value injected by FXMLLoader
+	
 	@FXML // fx:id="link_login"
 	private Hyperlink link_login; // Value injected by FXMLLoader
 
-	@FXML // fx:id="link_register"
-	private Hyperlink link_register; // Value injected by FXMLLoader
+    @FXML // fx:id="topPane_loggedIn"
+    private AnchorPane topPane_loggedIn; // Value injected by FXMLLoader
 
 	@FXML // fx:id="link_logout"
 	private Hyperlink link_logout; // Value injected by FXMLLoader
@@ -548,7 +557,17 @@ public class WatchlistController {
 	 */
 	@FXML
 	void loginUser(ActionEvent event) {
-
+//		String username = get
+//		String password = get
+//		boolean ans = allUsers.contains(username);
+//		
+//		if(ans) {
+//			int index = allUsers.indexOf(username);
+//		}
+//		
+//		centerPane_home.toFront();
+//		topPane_loggedOut.toBack();
+//		topPane_loggedIn.toFront();
 	}
 
 	/**
@@ -556,7 +575,9 @@ public class WatchlistController {
 	 */
 	@FXML
 	void logoutProfile(ActionEvent event) {
-
+		topPane_loggedOut.toFront();
+		topPane_loggedIn.toBack();
+		centerPane_home.toFront();
 	}
 
 	/**
@@ -564,6 +585,13 @@ public class WatchlistController {
 	 */
 	@FXML
 	void saveProfile(ActionEvent event) {
+		userToAdd = new User();
+		userToAdd.setPassword(password_passwordfield_signup.getText());
+		userToAdd.setEmail(email_textfield_signup.getText());
+		userToAdd.setFirstname(firstname_textfield_signup.getText());
+		userToAdd.setLastName(lastname_textfield_signup.getText());
+		userToAdd.setUsername(username_textfield_signup.getText());
+		allUsers.add(userToAdd);
 
 	}
 
@@ -572,7 +600,13 @@ public class WatchlistController {
 	 */
 	@FXML
 	void saveTvShow(ActionEvent event) {
-
+		tvshowToAdd = new TvShow();
+		tvshowToAdd.setAlias_title(alias_title_textfield_tvshow.getText());
+		tvshowToAdd.setDescription(description_textarea_tvshow.getText());
+		tvshowToAdd.setAverage_length(Integer.parseInt(average_textfield_tvshow.getText()));
+		tvshowToAdd.setOutcome_year(Integer.parseInt(outcome_year_textfield_tvshow.getText()));
+		tvshowToAdd.setTitle(tvshow_textfield_tvshow.getText());
+		allTvShows.add(tvshowToAdd);
 	}
 
 	/**
@@ -605,12 +639,17 @@ public class WatchlistController {
 	void signupUser(ActionEvent event) {
 		// TODO: make it work..
 
-		// userToAdd = new User();
-		// userToAdd.setPassword(password_passwordfield_signup.getText());
-		// userToAdd.setEmail(email_textfield_signup.getText());
-		// userToAdd.setFirstname(firstname_textfield_signup.getText());
-		// userToAdd.setLastName(lastname_textfield_signup.getText());
-		// userToAdd.setUsername(username_textfield_signup.getText());
+		userToAdd = new User();
+		userToAdd.setPassword(password_passwordfield_signup.getText());
+		userToAdd.setEmail(email_textfield_signup.getText());
+		userToAdd.setFirstname(firstname_textfield_signup.getText());
+		userToAdd.setLastName(lastname_textfield_signup.getText());
+		userToAdd.setUsername(username_textfield_signup.getText());
+		allUsers.add(userToAdd);
+		centerPane_signup.toBack();
+		centerPane_home.toFront();
+		topPane_loggedOut.toBack();
+		topPane_loggedIn.toFront();
 		//
 		// if (userController == null) {
 		// System.out.println("Me is very null");
@@ -632,6 +671,7 @@ public class WatchlistController {
 		movieToAdd.setLength(Integer.parseInt(length_textfield_movie.getText()));
 		movieToAdd.setOutcome_year(Integer.parseInt(outcome_year_textfield_movie.getText()));
 		movieToAdd.setTitle(movie_textfield_movie.getText());
+		allMovies.add(movieToAdd);
 
 		// TODO: WHY TF IS IT NULL?????
 		if (movieService == null) {
@@ -649,7 +689,6 @@ public class WatchlistController {
 
 		// TEST STUFF STARTS HERE
 		// Just for testing purposes, since our shit doesn't work
-		List<Movie> allMovies = new ArrayList<>();
 
 		File fi = ResourceUtils.getFile("classpath:watchlist/watchlist/images/lionking_piktogramm.gif");
 		byte[] img1 = Files.readAllBytes(fi.toPath());
@@ -692,9 +731,9 @@ public class WatchlistController {
 		allMovies.add(movie3);
 		allMovies.add(movie4);
 		allMovies.add(movie5);
-		allMovies.add(movie6);
-		allMovies.add(movie7);
-		allMovies.add(movie8);
+//		allMovies.add(movie6);
+//		allMovies.add(movie7);
+//		allMovies.add(movie8);
 		// TEST STUFF ENDS HERE
 
 		int row = 0;
@@ -731,7 +770,6 @@ public class WatchlistController {
 
 		// TEST STUFF STARTS HERE
 		// Just for testing purposes, since our shit doesn't work
-		List<TvShow> allTvShows = new ArrayList<>();
 
 		File fi = ResourceUtils.getFile("classpath:watchlist/watchlist/images/KonoSuba_piktogramm6.gif");
 		byte[] img1 = Files.readAllBytes(fi.toPath());
@@ -774,9 +812,9 @@ public class WatchlistController {
 		allTvShows.add(tvShow3);
 		allTvShows.add(tvShow4);
 		allTvShows.add(tvShow5);
-		allTvShows.add(tvShow6);
-		allTvShows.add(tvShow7);
-		allTvShows.add(tvShow8);
+//		allTvShows.add(tvShow6);
+//		allTvShows.add(tvShow7);
+//		allTvShows.add(tvShow8);
 		// TEST STUFF ENDS HERE
 
 		int row = 0;
@@ -1007,5 +1045,7 @@ public class WatchlistController {
 		delete_link_tvshow.setVisible(true);
 
 	}
+
+	//
 
 }
