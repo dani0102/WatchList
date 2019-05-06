@@ -25,7 +25,65 @@
    <center>
       <AnchorPane prefHeight="568.0" prefWidth="696.0">
          <children>
-            <VBox fx:id="centerPane_movie" layoutY="62.0" prefHeight="571.0" prefWidth="689.0" style="-fx-background-color: white;">
+            <VBox fx:id="centerPane_show_profile" layoutY="64.0" prefHeight="653.0" prefWidth="688.0" style="-fx-background-color: white;">
+               <children>
+                  <Pane prefHeight="61.0" prefWidth="756.0">
+                     <children>
+                        <Label fx:id="profile_label" layoutX="319.0" layoutY="10.0" text="Profile">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Label>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="623.0" prefWidth="701.0">
+                     <children>
+                        <ImageView fx:id="profile_image_profile" fitHeight="160.0" fitWidth="235.0" layoutX="243.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../../../../../Bilder/chickennuggets.jpg" />
+                           </image></ImageView>
+                        <Label fx:id="label_username" layoutX="278.0" layoutY="223.0" text="Username:" />
+                        <Label fx:id="label_firstname" layoutX="279.0" layoutY="252.0" text="Firstname:" />
+                        <Label fx:id="label_lastname" layoutX="278.0" layoutY="282.0" text="Lastname:" />
+                        <Label fx:id="username_label_profile" layoutX="378.0" layoutY="223.0" text="____" />
+                        <Label fx:id="firstname_label_profile" layoutX="378.0" layoutY="252.0" text="____" />
+                        <Label fx:id="lastname_label_profile" layoutX="378.0" layoutY="282.0" text="____" />
+                        <Label fx:id="label_email" layoutX="279.0" layoutY="311.0" text="Email" />
+                        <Label fx:id="email_label_profile" layoutX="379.0" layoutY="311.0" text="____" />
+                        <Hyperlink fx:id="edit_link_profile" layoutX="609.0" layoutY="534.0" onAction="#openEditProfile" text="edit profile" />
+                     </children>
+                  </Pane>
+               </children>
+            </VBox>
+            <VBox fx:id="centerPane_show_movie" layoutX="-3.0" layoutY="61.0" prefHeight="658.0" prefWidth="690.0" style="-fx-background-color: white;">
+               <children>
+                  <Pane prefHeight="63.0" prefWidth="756.0">
+                     <children>
+                        <Label fx:id="movie_label_movie" layoutX="302.0" layoutY="3.0" text="movie_title">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="662.0" prefWidth="756.0">
+                     <children>
+                        <ImageView fx:id="movie_image1" fitHeight="197.0" fitWidth="205.0" layoutX="25.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="label_movie1" layoutX="276.0" layoutY="43.0" text="Movie" />
+                        <Label fx:id="label_alias_title1" layoutX="260.0" layoutY="80.0" text="Alias title" />
+                        <Label fx:id="label_outcome_year1" layoutX="240.0" layoutY="116.0" text="outcome year" />
+                        <Label fx:id="label_length1" layoutX="280.0" layoutY="154.0" text="length" />
+                        <Hyperlink fx:id="edit_link_movie" layoutX="612.0" layoutY="544.0" onAction="#openEditMovie" text="edit movie" />
+                        <Label fx:id="label_description1" layoutX="42.0" layoutY="285.0" text="Description" />
+                        <Label fx:id="description_label_viewmovie" layoutX="42.0" layoutY="318.0" text="____" />
+                        <Label fx:id="movie_label_viewmovie" layoutX="377.0" layoutY="43.0" text="____" />
+                        <Label fx:id="alias_title_label_viewmovie" layoutX="377.0" layoutY="80.0" text="____" />
+                        <Label fx:id="outcome_year_label_viewmovie" layoutX="377.0" layoutY="116.0" text="____" />
+                        <Label fx:id="length_label_viewmovie" layoutX="377.0" layoutY="155.0" text="____" />
+                     </children>
+                  </Pane>
+               </children>
+            </VBox>
+            <VBox fx:id="centerPane_movie" layoutY="62.0" prefHeight="651.0" prefWidth="689.0" style="-fx-background-color: white;">
                <children>
                   <BorderPane prefHeight="570.0" prefWidth="731.0">
                      <center>
@@ -54,7 +112,7 @@
                      <top>
                         <Pane prefHeight="52.0" prefWidth="441.0" BorderPane.alignment="CENTER">
                            <children>
-                              <TextField fx:id="search_field_movie" layoutX="96.0" layoutY="14.0" onAction="#searchMovie" prefHeight="25.0" prefWidth="267.0" />
+                              <TextField fx:id="search_field_movie" layoutX="96.0" layoutY="14.0" onAction="#searchMovie" prefHeight="25.0" prefWidth="267.0" promptText="movie" />
                               <Label fx:id="search_label_movie" layoutX="14.0" layoutY="18.0" prefHeight="17.0" prefWidth="66.0" text="Search:" />
                            </children>
                         </Pane>
@@ -62,30 +120,247 @@
                   </BorderPane>
                </children>
             </VBox>
-            <VBox fx:id="centerPane_show_tvshow" layoutX="-3.0" layoutY="61.0" prefHeight="571.0" prefWidth="689.0" style="-fx-background-color: white;">
+            <VBox fx:id="centerPane_tvshow" layoutY="62.0" prefHeight="654.0" prefWidth="691.0" style="-fx-background-color: white;">
+               <children>
+                  <BorderPane prefHeight="717.0" prefWidth="826.0">
+                     <center>
+                        <Pane prefHeight="649.0" prefWidth="816.0">
+                           <children>
+                              <GridPane fx:id="tvshow_grid_tvshow" layoutX="3.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="537.0" prefWidth="685.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="250.0" minWidth="10.0" prefWidth="200.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="250.0" minWidth="10.0" prefWidth="200.0" />
+                                    <ColumnConstraints maxWidth="250.0" minWidth="10.0" prefWidth="200.0" />
+                                    <ColumnConstraints hgrow="ALWAYS" maxWidth="250.0" minWidth="10.0" prefWidth="200.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints maxHeight="247.0" minHeight="10.0" prefHeight="197.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="207.0" minHeight="0.0" prefHeight="55.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="247.0" minHeight="10.0" prefHeight="197.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="241.0" minHeight="8.0" prefHeight="55.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </GridPane>
+                           </children>
+                        </Pane>
+                     </center>
+                     <top>
+                        <Pane prefHeight="52.0" prefWidth="441.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <TextField fx:id="search_field_tvshow" layoutX="96.0" layoutY="14.0" onAction="#searchTvShow" prefHeight="25.0" prefWidth="267.0" promptText="tvshow">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </TextField>
+                              <Label fx:id="search_label_movie" layoutX="14.0" layoutY="18.0" prefHeight="17.0" prefWidth="66.0" text="Search:" />
+                           </children>
+                        </Pane>
+                     </top>
+                  </BorderPane>
+               </children>
+            </VBox>
+            <VBox fx:id="centerPane_signup" layoutX="-4.0" layoutY="65.0" prefHeight="648.0" prefWidth="689.0" style="-fx-background-color: white;">
+               <children>
+                  <Pane prefHeight="63.0" prefWidth="744.0">
+                     <children>
+                        <Label fx:id="title_login1" layoutX="314.0" layoutY="18.0" text="Sign up">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <AnchorPane prefHeight="369.0" prefWidth="735.0">
+                     <children>
+                        <Label layoutX="270.0" layoutY="51.0" text="Username" AnchorPane.bottomAnchor="301.0" AnchorPane.topAnchor="51.0" />
+                        <Label layoutX="272.0" layoutY="88.0" prefHeight="17.0" prefWidth="61.0" text="Firstname" AnchorPane.bottomAnchor="264.0" AnchorPane.leftAnchor="272.0" AnchorPane.rightAnchor="356.0" AnchorPane.topAnchor="88.0" />
+                        <TextField fx:id="username_textfield_signup" layoutX="355.0" layoutY="47.0" promptText="username" AnchorPane.topAnchor="47.0" />
+                        <Button fx:id="button_signup_signup" layoutX="373.0" layoutY="305.0" mnemonicParsing="false" onAction="#signupUser" text="Sign up" AnchorPane.bottomAnchor="39.0" AnchorPane.topAnchor="305.0" />
+                        <Button fx:id="button_cancel_signup" layoutX="271.0" layoutY="305.0" mnemonicParsing="false" onAction="#cancelButton" text="Cancel" AnchorPane.bottomAnchor="39.0" AnchorPane.topAnchor="305.0" />
+                        <Label layoutX="195.0" layoutY="254.0" text="By clicking Sign Up, you agree to the Terms of Use and Privacy Policy." AnchorPane.bottomAnchor="98.0" AnchorPane.leftAnchor="195.0" AnchorPane.rightAnchor="194.0" AnchorPane.topAnchor="254.0" />
+                        <Label layoutX="274.0" layoutY="129.0" prefHeight="17.0" prefWidth="68.0" text="Lastname" AnchorPane.bottomAnchor="223.0" AnchorPane.topAnchor="129.0" />
+                        <Label layoutX="297.0" layoutY="168.0" prefHeight="17.0" prefWidth="42.0" text="Email" AnchorPane.bottomAnchor="184.0" AnchorPane.leftAnchor="297.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="168.0" />
+                        <Label layoutX="274.0" layoutY="209.0" prefHeight="17.0" prefWidth="62.0" text="Password" />
+                        <PasswordField fx:id="password_passwordfield_signup" layoutX="355.0" layoutY="203.0" promptText="password" AnchorPane.bottomAnchor="141.0" AnchorPane.topAnchor="203.0" />
+                        <TextField fx:id="firstname_textfield_signup" layoutX="355.0" layoutY="84.0" promptText="firstname" AnchorPane.bottomAnchor="260.0" AnchorPane.topAnchor="84.0" />
+                        <TextField fx:id="lastname_textfield_signup" layoutX="355.0" layoutY="125.0" promptText="lastname" AnchorPane.bottomAnchor="219.0" AnchorPane.topAnchor="125.0" />
+                        <TextField fx:id="email_textfield_signup" layoutX="355.0" layoutY="164.0" promptText="email" AnchorPane.bottomAnchor="180.0" AnchorPane.leftAnchor="355.0" AnchorPane.topAnchor="164.0" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+            <VBox fx:id="centerPane_home" layoutY="61.0" prefHeight="655.0" prefWidth="688.0" style="-fx-background-color: white;">
+               <children>
+                  <Label fx:id="tvshowTitle" text="Tv Shows" VBox.vgrow="ALWAYS">
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="20.0" top="20.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <GridPane fx:id="tvshowGrid" prefHeight="265.0" prefWidth="687.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="256.0" minHeight="10.0" prefHeight="256.0" vgrow="SOMETIMES" />
+                      <RowConstraints fillHeight="false" maxHeight="104.0" minHeight="0.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </GridPane>
+                  <Label fx:id="movieTitle" text="Movies">
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="20.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <GridPane fx:id="movieGrid" prefHeight="307.0" prefWidth="824.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="256.0" minHeight="10.0" prefHeight="256.0" vgrow="SOMETIMES" />
+                        <RowConstraints fillHeight="false" maxHeight="104.0" minHeight="0.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                  </GridPane>
+               </children>
+            </VBox>
+            <VBox fx:id="centerPane_edit_profile" layoutX="-2.0" layoutY="63.0" prefHeight="649.0" prefWidth="688.0" style="-fx-background-color: white;">
                <children>
                   <Pane prefHeight="63.0" prefWidth="756.0">
                      <children>
-                        <Label fx:id="tvshow_label_tvshow" layoutX="361.0" layoutY="13.0" text="tvshow_title" />
+                        <Label fx:id="profile_label1" layoutX="319.0" layoutY="13.0" text="Profile">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="606.0" prefWidth="688.0">
+                     <children>
+                        <ImageView fx:id="image_profile_edit" fitHeight="160.0" fitWidth="200.0" layoutX="254.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/chickennuggets.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="label_username1" layoutX="254.0" layoutY="214.0" text="Username" />
+                        <Label fx:id="label_firstname1" layoutX="254.0" layoutY="251.0" text="Firstname" />
+                        <Label fx:id="label_lastname1" layoutX="254.0" layoutY="287.0" text="Lastname" />
+                        <Label fx:id="label_email1" layoutX="254.0" layoutY="326.0" text="Email" />
+                        <Hyperlink fx:id="delete_link_profile" layoutX="595.0" layoutY="533.0" onAction="#deleteProfile" text="delete profile" textFill="RED" />
+                        <TextField fx:id="username_textfield_profile" layoutX="330.0" layoutY="210.0" promptText="username" />
+                        <TextField fx:id="firstname_textfield_profile" layoutX="329.0" layoutY="247.0" promptText="firstname" />
+                        <TextField fx:id="lastname_textfield_profile" layoutX="330.0" layoutY="283.0" promptText="lastname" />
+                        <TextField fx:id="email_textfield_profile" layoutX="330.0" layoutY="322.0" promptText="email@gmail.com" />
+                        <Button fx:id="save_button_profile" layoutX="359.0" layoutY="386.0" mnemonicParsing="false" onAction="#saveProfile" prefWidth="70.0" text="save" />
+                        <Button fx:id="cancel_button_profile" layoutX="259.0" layoutY="386.0" mnemonicParsing="false" onAction="#cancelButton" prefWidth="70.0" text="cancel" />
+                     </children>
+                  </Pane>
+               </children>
+            </VBox>
+            <VBox fx:id="centerPane_edit_tvshow" layoutX="-2.0" layoutY="61.0" prefHeight="654.0" prefWidth="691.0" style="-fx-background-color: white;">
+               <children>
+                  <Pane prefHeight="32.0" prefWidth="702.0">
+                     <children>
+                        <Label fx:id="tvshow_label" layoutX="312.0" layoutY="5.0" text="Tv Show">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="580.0" prefWidth="698.0">
+                     <children>
+                        <ImageView fx:id="tvshow_image_edit" fitHeight="198.0" fitWidth="207.0" layoutX="26.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="label_tvshow" layoutX="250.0" layoutY="43.0" text="Tv Show" />
+                        <Label fx:id="label_alias_title_tvedit" layoutX="250.0" layoutY="80.0" text="Alias title" />
+                        <Label fx:id="label_average_length_tvedit" layoutX="250.0" layoutY="116.0" text="Average length" />
+                        <Label fx:id="label_outcome_year_tvedit" layoutX="250.0" layoutY="155.0" text="Outcome year" />
+                        <Label fx:id="label_description_tvedit" layoutX="42.0" layoutY="285.0" text="Description" />
+                        <Label fx:id="label_outcome_year_tvedit1" layoutX="250.0" layoutY="191.0" text="End year" />
+                        <Hyperlink fx:id="delete_link_tvshow" layoutX="566.0" layoutY="529.0" onAction="#deleteTvShow" text="delete tv show" textFill="RED" />
+                        <TextArea fx:id="description_textarea_tvshow" layoutX="42.0" layoutY="312.0" prefHeight="212.0" prefWidth="609.0" promptText="description" />
+                        <TextField fx:id="tvshow_textfield_tvshow" layoutX="364.0" layoutY="39.0" promptText="tv show" />
+                        <TextField fx:id="alias_title_textfield_tvshow" layoutX="364.0" layoutY="76.0" promptText="alias title" />
+                        <TextField fx:id="average_textfield_tvshow" layoutX="364.0" layoutY="112.0" promptText="25" />
+                        <TextField fx:id="outcome_year_textfield_tvshow" layoutX="364.0" layoutY="151.0" promptText="1997" />
+                        <Button fx:id="save_button_tvshow" layoutX="358.0" layoutY="540.0" mnemonicParsing="false" onAction="#saveTvShow" prefWidth="70.0" text="save" />
+                        <Button fx:id="cancel_button_tvshow" layoutX="266.0" layoutY="540.0" mnemonicParsing="false" onAction="#cancelButton" prefWidth="70.0" text="cancel" />
+                        <TextField fx:id="end_year_textfield_tvshow" layoutX="364.0" layoutY="187.0" promptText="2010" />
+                     </children>
+                  </Pane>
+               </children>
+            </VBox>
+            <VBox fx:id="centerPane_edit_movie" layoutY="68.0" prefHeight="648.0" prefWidth="691.0" style="-fx-background-color: white;">
+               <children>
+                  <Pane prefHeight="63.0" prefWidth="756.0">
+                     <children>
+                        <Label fx:id="movie_title" layoutX="321.0" layoutY="-1.0" text="Movie">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Label>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="662.0" prefWidth="756.0">
+                     <children>
+                        <ImageView fx:id="movie_image" fitHeight="198.0" fitWidth="219.0" layoutX="14.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="label_movie" layoutX="294.0" layoutY="43.0" prefHeight="17.0" prefWidth="35.0" text="Movie" />
+                        <Label fx:id="label_alias_title" layoutX="279.0" layoutY="80.0" prefHeight="17.0" prefWidth="52.0" text="Alias title" />
+                        <Label fx:id="label_outcome_year" layoutX="258.0" layoutY="116.0" text="outcome year" />
+                        <Label fx:id="label_length" layoutX="297.0" layoutY="154.0" text="length" />
+                        <Hyperlink fx:id="delete_link_movie" layoutX="595.0" layoutY="533.0" onAction="#deleteMovie" text="delete movie" textFill="RED" />
+                        <TextField fx:id="movie_textfield_movie" layoutX="367.0" layoutY="39.0" promptText="movie" />
+                        <TextField fx:id="alias_title_textfield_movie" layoutX="366.0" layoutY="76.0" promptText="alias title" />
+                        <TextField fx:id="outcome_year_textfield_movie" layoutX="367.0" layoutY="112.0" promptText="1997" />
+                        <TextField fx:id="length_textfield_movie" layoutX="367.0" layoutY="150.0" promptText="120" />
+                        <Button fx:id="save_button_movie" layoutX="371.0" layoutY="532.0" mnemonicParsing="false" onAction="#saveMovie" prefWidth="70.0" text="save" />
+                        <Button fx:id="cancel_button_movie" layoutX="279.0" layoutY="532.0" mnemonicParsing="false" onAction="#cancelButton" prefWidth="70.0" text="cancel" />
+                        <Label fx:id="label_description" layoutX="42.0" layoutY="285.0" text="Description" />
+                        <TextArea fx:id="description_textarea_movie" layoutX="42.0" layoutY="316.0" prefHeight="200.0" prefWidth="611.0" promptText="description" />
+                     </children>
+                  </Pane>
+               </children>
+            </VBox>
+            <VBox fx:id="centerPane_show_tvshow" layoutX="-3.0" layoutY="61.0" prefHeight="648.0" prefWidth="689.0" style="-fx-background-color: white;">
+               <children>
+                  <Pane prefHeight="63.0" prefWidth="756.0">
+                     <children>
+                        <Label fx:id="tvshow_label_tvshow" layoutX="298.0" layoutY="9.0" text="tvshow_title">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Label>
                      </children>
                   </Pane>
                   <Pane prefHeight="640.0" prefWidth="825.0">
                      <children>
-                        <ImageView fx:id="tvshow_image" blendMode="MULTIPLY" fitHeight="225.0" fitWidth="244.0" layoutX="23.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="tvshow_image" blendMode="MULTIPLY" fitHeight="196.0" fitWidth="191.0" layoutX="23.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                           </image></ImageView>
-                        <Label fx:id="label_movie11" layoutX="276.0" layoutY="43.0" text="TV Show" />
-                        <Label fx:id="label_alias_title_tv" layoutX="276.0" layoutY="80.0" text="Alias title" />
-                        <Label fx:id="label_outcome_year_tv" layoutX="276.0" layoutY="158.0" text="Outcome year" />
-                        <Label fx:id="label_length_tv" layoutX="276.0" layoutY="119.0" text="Average length" />
+                        <Label fx:id="label_movie11" layoutX="269.0" layoutY="43.0" text="TV Show" />
+                        <Label fx:id="label_alias_title_tv" layoutX="266.0" layoutY="80.0" text="Alias title" />
+                        <Label fx:id="label_outcome_year_tv" layoutX="242.0" layoutY="158.0" text="Outcome year" />
+                        <Label fx:id="label_length_tv" layoutX="236.0" layoutY="119.0" text="Average length" />
                         <Label fx:id="label_description_tv" layoutX="42.0" layoutY="285.0" text="Description" />
                         <Label fx:id="description_label_viewtv" layoutX="42.0" layoutY="318.0" text="____" />
-                        <Label fx:id="tvshow_label_viewtv" layoutX="377.0" layoutY="43.0" text="____" />
-                        <Label fx:id="alias_title_label_viewtv" layoutX="377.0" layoutY="80.0" text="____" />
-                        <Label fx:id="outcome_year_label_viewtv" layoutX="377.0" layoutY="158.0" text="____" />
-                        <Label fx:id="length_label_viewtv" layoutX="377.0" layoutY="119.0" text="____" />
-                        <Label fx:id="label_end_year_tv" layoutX="276.0" layoutY="195.0" text="End year" />
-                        <Label fx:id="end_year_label_viewtv" layoutX="377.0" layoutY="195.0" text="____" />
+                        <Label fx:id="tvshow_label_viewtv" layoutX="364.0" layoutY="43.0" text="____" />
+                        <Label fx:id="alias_title_label_viewtv" layoutX="364.0" layoutY="80.0" text="____" />
+                        <Label fx:id="outcome_year_label_viewtv" layoutX="364.0" layoutY="158.0" text="____" />
+                        <Label fx:id="length_label_viewtv" layoutX="364.0" layoutY="119.0" text="____" />
+                        <Label fx:id="label_end_year_tv" layoutX="270.0" layoutY="195.0" text="End year" />
+                        <Label fx:id="end_year_label_viewtv" layoutX="364.0" layoutY="195.0" text="____" />
                         <Hyperlink fx:id="edit_link_tvshow" layoutX="601.0" layoutY="529.0" onAction="#openEditTvshow" text="edit tv show" />
                      </children>
                   </Pane>
@@ -112,281 +387,34 @@
                   </MenuBar>
                </children>
             </AnchorPane>
-            <VBox fx:id="centerPane_edit_movie" layoutY="68.0" prefHeight="569.0" prefWidth="691.0" style="-fx-background-color: white;">
+            <VBox fx:id="centerPane_login" layoutX="-4.0" layoutY="61.0" prefHeight="654.0" prefWidth="692.0" style="-fx-background-color: white;">
                <children>
-                  <Pane prefHeight="63.0" prefWidth="756.0">
+                  <Pane prefHeight="38.0" prefWidth="692.0">
                      <children>
-                        <Label fx:id="movie_title" layoutX="361.0" layoutY="13.0" text="Movie" />
-                     </children>
-                  </Pane>
-                  <Pane prefHeight="662.0" prefWidth="756.0">
-                     <children>
-                        <ImageView fx:id="movie_image" fitHeight="225.0" fitWidth="244.0" layoutX="14.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true" />
-                        <Label fx:id="label_movie" layoutX="276.0" layoutY="43.0" text="Movie" />
-                        <Label fx:id="label_alias_title" layoutX="276.0" layoutY="80.0" text="Alias title" />
-                        <Label fx:id="label_outcome_year" layoutX="276.0" layoutY="116.0" text="outcome year" />
-                        <Label fx:id="label_length" layoutX="276.0" layoutY="155.0" text="length" />
-                        <Hyperlink fx:id="delete_link_movie" layoutX="595.0" layoutY="533.0" onAction="#deleteMovie" text="delete movie" textFill="RED" />
-                        <TextField fx:id="movie_textfield_movie" layoutX="391.0" layoutY="40.0" promptText="movie" />
-                        <TextField fx:id="alias_title_textfield_movie" layoutX="390.0" layoutY="77.0" promptText="alias title" />
-                        <TextField fx:id="outcome_year_textfield_movie" layoutX="391.0" layoutY="113.0" promptText="1997" />
-                        <TextField fx:id="length_textfield_movie" layoutX="391.0" layoutY="151.0" promptText="120" />
-                        <Button fx:id="save_button_movie" layoutX="430.0" layoutY="532.0" mnemonicParsing="false" onAction="#saveMovie" prefWidth="70.0" text="save" />
-                        <Button fx:id="cancel_button_movie" layoutX="314.0" layoutY="532.0" mnemonicParsing="false" onAction="#cancelButton" prefWidth="70.0" text="cancel" />
-                        <Label fx:id="label_description" layoutX="42.0" layoutY="285.0" text="Description" />
-                        <TextArea fx:id="description_textarea_movie" layoutX="42.0" layoutY="316.0" prefHeight="200.0" prefWidth="630.0" />
-                     </children>
-                  </Pane>
-               </children>
-            </VBox>
-            <VBox fx:id="centerPane_tvshow" layoutY="62.0" prefHeight="574.0" prefWidth="691.0" style="-fx-background-color: white;">
-               <children>
-                  <BorderPane prefHeight="717.0" prefWidth="826.0">
-                     <center>
-                        <Pane prefHeight="649.0" prefWidth="816.0">
-                           <children>
-                              <GridPane fx:id="tvshow_grid_tvshow" layoutX="-8.0" layoutY="-8.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="537.0" prefWidth="685.0">
-                                 <columnConstraints>
-                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="250.0" minWidth="10.0" prefWidth="200.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="250.0" minWidth="10.0" prefWidth="200.0" />
-                                    <ColumnConstraints maxWidth="250.0" minWidth="10.0" prefWidth="200.0" />
-                                    <ColumnConstraints hgrow="ALWAYS" maxWidth="250.0" minWidth="10.0" prefWidth="200.0" />
-                                 </columnConstraints>
-                                 <rowConstraints>
-                                    <RowConstraints maxHeight="247.0" minHeight="10.0" prefHeight="197.0" vgrow="SOMETIMES" />
-                                    <RowConstraints maxHeight="207.0" minHeight="0.0" prefHeight="55.0" vgrow="SOMETIMES" />
-                                    <RowConstraints maxHeight="247.0" minHeight="10.0" prefHeight="197.0" vgrow="SOMETIMES" />
-                                    <RowConstraints maxHeight="241.0" minHeight="8.0" prefHeight="55.0" vgrow="SOMETIMES" />
-                                 </rowConstraints>
-                                 <padding>
-                                    <Insets left="10.0" />
-                                 </padding>
-                              </GridPane>
-                           </children>
-                        </Pane>
-                     </center>
-                     <top>
-                        <Pane prefHeight="52.0" prefWidth="441.0" BorderPane.alignment="CENTER">
-                           <children>
-                              <TextField fx:id="search_field_tvshow" layoutX="96.0" layoutY="14.0" onAction="#searchTvShow" prefHeight="25.0" prefWidth="267.0">
-                                 <opaqueInsets>
-                                    <Insets />
-                                 </opaqueInsets>
-                              </TextField>
-                              <Label fx:id="search_label_movie" layoutX="14.0" layoutY="18.0" prefHeight="17.0" prefWidth="66.0" text="Search:" />
-                           </children>
-                        </Pane>
-                     </top>
-                  </BorderPane>
-               </children>
-            </VBox>
-            <VBox fx:id="centerPane_login" layoutX="-4.0" layoutY="61.0" prefHeight="574.0" prefWidth="692.0" style="-fx-background-color: white;">
-               <children>
-                  <Pane prefHeight="63.0" prefWidth="756.0">
-                     <children>
-                        <Label fx:id="title_login" layoutX="361.0" layoutY="13.0" text="Login">
+                        <Label fx:id="title_login" layoutX="324.0" layoutY="11.0" text="Login">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
                      </children>
                   </Pane>
-                  <Pane prefHeight="662.0" prefWidth="756.0">
+                  <Pane prefHeight="608.0" prefWidth="692.0">
                      <children>
-                        <Label layoutX="181.0" layoutY="64.0" text="Username or email address" />
-                        <Label layoutX="284.0" layoutY="101.0" text="Password" />
-                        <TextField fx:id="username_textfield_login" layoutX="368.0" layoutY="60.0" />
-                        <PasswordField fx:id="password_passwordfield_login" layoutX="368.0" layoutY="97.0" />
-                        <Button fx:id="button_login_login" layoutX="466.0" layoutY="205.0" mnemonicParsing="false" onAction="#loginUser" text="Login" />
-                        <Button fx:id="button_cancel_login" layoutX="376.0" layoutY="205.0" mnemonicParsing="false" onAction="#cancelButton" text="Cancel" />
-                        <Label layoutX="181.0" layoutY="341.0" text="Sign up">
+                        <Label layoutX="178.0" layoutY="66.0" text="Username or email address" />
+                        <Label layoutX="272.0" layoutY="103.0" text="Password" />
+                        <TextField fx:id="username_textfield_login" layoutX="365.0" layoutY="62.0" promptText="username" />
+                        <PasswordField fx:id="password_passwordfield_login" layoutX="365.0" layoutY="99.0" promptText="password" />
+                        <Button fx:id="button_login_login" layoutX="368.0" layoutY="155.0" mnemonicParsing="false" onAction="#loginUser" text="Login" />
+                        <Button fx:id="button_cancel_login" layoutX="278.0" layoutY="155.0" mnemonicParsing="false" onAction="#cancelButton" text="Cancel" />
+                        <Label layoutX="197.0" layoutY="267.0" text="Sign up">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Label layoutX="181.0" layoutY="365.0" text="Don't have an account yet? Registration is easy and free." />
-                        <Button fx:id="button_signup_login" layoutX="181.0" layoutY="410.0" mnemonicParsing="false" onAction="#openRegisterView" text="Sign up" />
+                        <Label layoutX="197.0" layoutY="291.0" text="Don't have an account yet? Registration is easy and free." />
+                        <Button fx:id="button_signup_login" layoutX="197.0" layoutY="336.0" mnemonicParsing="false" onAction="#openRegisterView" text="Sign up" />
                      </children>
                   </Pane>
-               </children>
-            </VBox>
-            <VBox fx:id="centerPane_edit_profile" layoutX="-2.0" layoutY="63.0" prefHeight="570.0" prefWidth="688.0" style="-fx-background-color: white;">
-               <children>
-                  <Pane prefHeight="63.0" prefWidth="756.0">
-                     <children>
-                        <Label fx:id="profile_label1" layoutX="361.0" layoutY="13.0" text="Profile" />
-                     </children>
-                  </Pane>
-                  <Pane prefHeight="662.0" prefWidth="756.0">
-                     <children>
-                        <ImageView fx:id="image_profile_edit" fitHeight="160.0" fitWidth="200.0" layoutX="286.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@images/chickennuggets.jpg" />
-                           </image></ImageView>
-                        <Label fx:id="label_username1" layoutX="279.0" layoutY="215.0" text="Username:" />
-                        <Label fx:id="label_firstname1" layoutX="279.0" layoutY="252.0" text="Firstname:" />
-                        <Label fx:id="label_lastname1" layoutX="279.0" layoutY="288.0" text="Lastname:" />
-                        <Label fx:id="label_email1" layoutX="279.0" layoutY="327.0" text="Email:" />
-                        <Hyperlink fx:id="delete_link_profile" layoutX="595.0" layoutY="533.0" onAction="#deleteProfile" text="delete profile" textFill="RED" />
-                        <TextField fx:id="username_textfield_profile" layoutX="355.0" layoutY="211.0" promptText="username" />
-                        <TextField fx:id="firstname_textfield_profile" layoutX="354.0" layoutY="248.0" promptText="firstname" />
-                        <TextField fx:id="lastname_textfield_profile" layoutX="355.0" layoutY="284.0" promptText="lastname" />
-                        <TextField fx:id="email_textfield_profile" layoutX="355.0" layoutY="323.0" promptText="email" />
-                        <Button fx:id="save_button_profile" layoutX="443.0" layoutY="408.0" mnemonicParsing="false" onAction="#saveProfile" prefWidth="70.0" text="save" />
-                        <Button fx:id="cancel_button_profile" layoutX="343.0" layoutY="408.0" mnemonicParsing="false" onAction="#cancelButton" prefWidth="70.0" text="cancel" />
-                     </children>
-                  </Pane>
-               </children>
-            </VBox>
-            <VBox fx:id="centerPane_signup" layoutX="-4.0" layoutY="65.0" prefHeight="571.0" prefWidth="689.0" style="-fx-background-color: white;">
-               <children>
-                  <Pane prefHeight="63.0" prefWidth="744.0">
-                     <children>
-                        <Label fx:id="title_login1" layoutX="348.0" layoutY="14.0" text="Sign up">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-                  <AnchorPane prefHeight="369.0" prefWidth="735.0">
-                     <children>
-                        <Label layoutX="257.0" layoutY="65.0" text="Username" AnchorPane.bottomAnchor="287.0" AnchorPane.topAnchor="65.0" />
-                        <Label layoutX="259.0" layoutY="102.0" prefHeight="17.0" prefWidth="61.0" text="Firstname" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="259.0" AnchorPane.rightAnchor="369.0" AnchorPane.topAnchor="102.0" />
-                        <TextField fx:id="username_textfield_signup" layoutX="342.0" layoutY="61.0" AnchorPane.topAnchor="61.0" />
-                        <Button fx:id="button_signup_signup" layoutX="400.0" layoutY="344.0" mnemonicParsing="false" onAction="#signupUser" text="Sign up" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="344.0" />
-                        <Button fx:id="button_cancel_signup" layoutX="310.0" layoutY="344.0" mnemonicParsing="false" onAction="#cancelButton" text="Cancel" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="344.0" />
-                        <Label layoutX="173.0" layoutY="297.0" text="By clicking Sign Up, you agree to the Terms of Use and Privacy Policy." AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="173.0" AnchorPane.rightAnchor="216.0" AnchorPane.topAnchor="297.0" />
-                        <Label layoutX="261.0" layoutY="143.0" prefHeight="17.0" prefWidth="68.0" text="Lastname" AnchorPane.bottomAnchor="209.0" AnchorPane.topAnchor="143.0" />
-                        <Label layoutX="284.0" layoutY="182.0" prefHeight="17.0" prefWidth="42.0" text="Email" AnchorPane.bottomAnchor="170.0" AnchorPane.leftAnchor="284.0" AnchorPane.rightAnchor="363.0" AnchorPane.topAnchor="182.0" />
-                        <Label layoutX="261.0" layoutY="223.0" prefHeight="17.0" prefWidth="62.0" text="Password" />
-                        <PasswordField fx:id="password_passwordfield_signup" layoutX="342.0" layoutY="217.0" AnchorPane.bottomAnchor="127.0" AnchorPane.topAnchor="217.0" />
-                        <TextField fx:id="firstname_textfield_signup" layoutX="342.0" layoutY="98.0" AnchorPane.bottomAnchor="246.0" AnchorPane.topAnchor="98.0" />
-                        <TextField fx:id="lastname_textfield_signup" layoutX="342.0" layoutY="139.0" AnchorPane.bottomAnchor="205.0" AnchorPane.topAnchor="139.0" />
-                        <TextField fx:id="email_textfield_signup" layoutX="342.0" layoutY="178.0" AnchorPane.bottomAnchor="166.0" AnchorPane.leftAnchor="342.0" AnchorPane.topAnchor="178.0" />
-                     </children>
-                  </AnchorPane>
-               </children>
-            </VBox>
-            <VBox fx:id="centerPane_edit_tvshow" layoutX="-2.0" layoutY="61.0" prefHeight="573.0" prefWidth="691.0" style="-fx-background-color: white;">
-               <children>
-                  <Pane prefHeight="32.0" prefWidth="702.0">
-                     <children>
-                        <Label fx:id="tvshow_label" layoutX="361.0" layoutY="13.0" text="Tv Show" />
-                     </children>
-                  </Pane>
-                  <Pane prefHeight="580.0" prefWidth="698.0">
-                     <children>
-                        <ImageView fx:id="tvshow_image_edit" fitHeight="225.0" fitWidth="244.0" layoutX="23.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true" />
-                        <Label fx:id="label_tvshow" layoutX="276.0" layoutY="43.0" text="Tv Show" />
-                        <Label fx:id="label_alias_title_tvedit" layoutX="276.0" layoutY="80.0" text="Alias title" />
-                        <Label fx:id="label_average_length_tvedit" layoutX="276.0" layoutY="116.0" text="Average length" />
-                        <Label fx:id="label_outcome_year_tvedit" layoutX="276.0" layoutY="155.0" text="Outcome year" />
-                        <Label fx:id="label_description_tvedit" layoutX="42.0" layoutY="285.0" text="Description" />
-                        <Label fx:id="label_outcome_year_tvedit1" layoutX="276.0" layoutY="191.0" text="End year" />
-                        <Hyperlink fx:id="delete_link_tvshow" layoutX="566.0" layoutY="529.0" onAction="#deleteTvShow" text="delete tv show" textFill="RED" />
-                        <TextArea fx:id="description_textarea_tvshow" layoutX="42.0" layoutY="312.0" prefHeight="212.0" prefWidth="609.0" />
-                        <TextField fx:id="tvshow_textfield_tvshow" layoutX="390.0" layoutY="39.0" promptText="tv show" />
-                        <TextField fx:id="alias_title_textfield_tvshow" layoutX="390.0" layoutY="76.0" promptText="alias title" />
-                        <TextField fx:id="average_textfield_tvshow" layoutX="390.0" layoutY="112.0" promptText="25" />
-                        <TextField fx:id="outcome_year_textfield_tvshow" layoutX="390.0" layoutY="151.0" promptText="1997" />
-                        <Button fx:id="save_button_tvshow" layoutX="346.0" layoutY="528.0" mnemonicParsing="false" onAction="#saveTvShow" prefWidth="70.0" text="save" />
-                        <Button fx:id="cancel_button_tvshow" layoutX="254.0" layoutY="528.0" mnemonicParsing="false" onAction="#cancelButton" prefWidth="70.0" text="cancel" />
-                        <TextField fx:id="end_year_textfield_tvshow" layoutX="390.0" layoutY="187.0" promptText="2010" />
-                     </children>
-                  </Pane>
-               </children>
-            </VBox>
-            <VBox fx:id="centerPane_show_movie" layoutX="-3.0" layoutY="61.0" prefHeight="575.0" prefWidth="690.0" style="-fx-background-color: white;">
-               <children>
-                  <Pane prefHeight="63.0" prefWidth="756.0">
-                     <children>
-                        <Label fx:id="movie_label_movie" layoutX="361.0" layoutY="13.0" text="movie_title" />
-                     </children>
-                  </Pane>
-                  <Pane prefHeight="662.0" prefWidth="756.0">
-                     <children>
-                        <ImageView fx:id="movie_image1" fitHeight="225.0" fitWidth="244.0" layoutX="23.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true" />
-                        <Label fx:id="label_movie1" layoutX="276.0" layoutY="43.0" text="Movie" />
-                        <Label fx:id="label_alias_title1" layoutX="276.0" layoutY="80.0" text="Alias title" />
-                        <Label fx:id="label_outcome_year1" layoutX="276.0" layoutY="116.0" text="outcome year" />
-                        <Label fx:id="label_length1" layoutX="276.0" layoutY="155.0" text="length" />
-                        <Hyperlink fx:id="edit_link_movie" layoutX="612.0" layoutY="544.0" onAction="#openEditMovie" text="edit movie" />
-                        <Label fx:id="label_description1" layoutX="42.0" layoutY="285.0" text="Description" />
-                        <Label fx:id="description_label_viewmovie" layoutX="42.0" layoutY="318.0" text="____" />
-                        <Label fx:id="movie_label_viewmovie" layoutX="377.0" layoutY="43.0" text="____" />
-                        <Label fx:id="alias_title_label_viewmovie" layoutX="377.0" layoutY="80.0" text="____" />
-                        <Label fx:id="outcome_year_label_viewmovie" layoutX="377.0" layoutY="116.0" text="____" />
-                        <Label fx:id="length_label_viewmovie" layoutX="377.0" layoutY="155.0" text="____" />
-                     </children>
-                  </Pane>
-               </children>
-            </VBox>
-            <VBox fx:id="centerPane_show_profile" layoutY="64.0" prefHeight="568.0" prefWidth="688.0" style="-fx-background-color: white;">
-               <children>
-                  <Pane prefHeight="61.0" prefWidth="756.0">
-                     <children>
-                        <Label fx:id="profile_label" layoutX="359.0" layoutY="17.0" text="Profile" />
-                     </children>
-                  </Pane>
-                  <Pane prefHeight="623.0" prefWidth="701.0">
-                     <children>
-                        <ImageView fx:id="profile_image_profile" fitHeight="160.0" fitWidth="200.0" layoutX="278.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../../../../../../../Bilder/chickennuggets.jpg" />
-                           </image></ImageView>
-                        <Label fx:id="label_username" layoutX="278.0" layoutY="223.0" text="Username:" />
-                        <Label fx:id="label_firstname" layoutX="279.0" layoutY="252.0" text="Firstname:" />
-                        <Label fx:id="label_lastname" layoutX="278.0" layoutY="282.0" text="Lastname:" />
-                        <Label fx:id="username_label_profile" layoutX="378.0" layoutY="223.0" text="____" />
-                        <Label fx:id="firstname_label_profile" layoutX="378.0" layoutY="252.0" text="____" />
-                        <Label fx:id="lastname_label_profile" layoutX="378.0" layoutY="282.0" text="____" />
-                        <Label fx:id="label_email" layoutX="279.0" layoutY="311.0" text="Email" />
-                        <Label fx:id="email_label_profile" layoutX="379.0" layoutY="311.0" text="____" />
-                        <Hyperlink fx:id="edit_link_profile" layoutX="609.0" layoutY="534.0" onAction="#openEditProfile" text="edit profile" />
-                     </children>
-                  </Pane>
-               </children>
-            </VBox>
-            <VBox fx:id="centerPane_home" layoutY="61.0" prefHeight="572.0" prefWidth="688.0" style="-fx-background-color: white;">
-               <children>
-                  <Label fx:id="tvshowTitle" text="TV SHOWS" VBox.vgrow="ALWAYS">
-                     <VBox.margin>
-                        <Insets bottom="20.0" left="20.0" top="20.0" />
-                     </VBox.margin>
-                  </Label>
-                  <GridPane fx:id="tvshowGrid" prefHeight="307.0" prefWidth="824.0">
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints maxHeight="256.0" minHeight="10.0" prefHeight="256.0" vgrow="SOMETIMES" />
-                      <RowConstraints fillHeight="false" maxHeight="104.0" minHeight="0.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </GridPane>
-                  <Label fx:id="movieTitle" text="MOVIES">
-                     <VBox.margin>
-                        <Insets bottom="20.0" left="20.0" />
-                     </VBox.margin>
-                  </Label>
-                  <GridPane fx:id="movieGrid" prefHeight="307.0" prefWidth="824.0">
-                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="338.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints maxHeight="256.0" minHeight="10.0" prefHeight="256.0" vgrow="SOMETIMES" />
-                        <RowConstraints fillHeight="false" maxHeight="104.0" minHeight="0.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                     </rowConstraints>
-                  </GridPane>
                </children>
             </VBox>
          </children>
