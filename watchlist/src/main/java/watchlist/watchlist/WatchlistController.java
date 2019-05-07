@@ -726,6 +726,10 @@ public class WatchlistController {
 		Movie movie8 = new Movie("Harry Potter and the Prisoner of Azkaban", "none",
 				"One of the harry potter parts, harry meets sirius", img8, 2014, 28);
 
+		if(!allMovies.isEmpty()) {
+			allMovies.clear();
+		}
+		
 		allMovies.add(movie1);
 		allMovies.add(movie2);
 		allMovies.add(movie3);
@@ -807,6 +811,11 @@ public class WatchlistController {
 		TvShow tvShow7 = new TvShow("Gilmore Girls", "none", "Life of mother and daughter", img7, 2013, 2014, 28);
 		TvShow tvShow8 = new TvShow("Fairy Tail", "none", "friendship/magic anime", img8, 2013, 2014, 28);
 
+		if(!allTvShows.isEmpty()) {
+			allTvShows.clear();
+		}
+		
+		
 		allTvShows.add(tvShow1);
 		allTvShows.add(tvShow2);
 		allTvShows.add(tvShow3);
