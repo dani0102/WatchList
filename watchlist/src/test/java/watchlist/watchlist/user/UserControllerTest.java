@@ -80,7 +80,7 @@ public class UserControllerTest {
 
 		user = new User(1L, "Belinda", "Schuehle", dateOne, "beli.schuehle@gmail.com", "dabi0102", "dabi0102password");
 		userNoId = new User("Belinda", "Stifani", dateTwo, "belinda.stifani@gmail.com", "bruce0102",
-				"bruce0102password");
+				"bruce0102password", null);
 
 		userList = new ArrayList<>();
 		userList.add(user);

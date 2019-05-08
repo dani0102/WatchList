@@ -77,6 +77,25 @@ create table public.role (
 	name varchar(255) not null unique
 );
 
+--
+-- TOC entry 216 (class 1259 OID 21702)
+-- Name: users_role; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.users_role (
+    users_id bigint NOT NULL unique,
+    role_id bigint NOT NULL unique,
+    CONSTRAINT users_role_pkey PRIMARY KEY (users_id, role_id),
+    CONSTRAINT fk_users FOREIGN KEY (users_id)
+        REFERENCES public.users (users_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT fk_role FOREIGN KEY (role_id)
+        REFERENCES public.role (role_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+);
+
 create table public.authority (
 	authority_id bigserial NOT NULL unique PRIMARY KEY,
 	name varchar(255) not null unique
