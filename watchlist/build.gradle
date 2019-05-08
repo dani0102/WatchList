@@ -8,14 +8,21 @@ buildscript {
 		maven { url "https://repo.spring.io/milestone" }
 	}
 	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}" 
 	}
 }
 
 plugins {
 	id 'org.springframework.boot' version '2.1.3.RELEASE'
 	id 'java'
+	id 'application'
 	id "org.flywaydb.flyway" version "5.2.4"
+	id 'org.openjfx.javafxplugin' version '0.0.7'
+}
+
+javafx {
+    version = "11.0.1"
+    modules = [ 'javafx.controls', 'javafx.fxml']
 }
 
 apply plugin: 'java'
@@ -36,6 +43,8 @@ repositories {
 ext {
 	mapstructVersion = "1.2.0.Final"
 }
+
+//apply from: 'http://dl.bintray.com/content/shemnon/javafx-gradle/0.3.0/javafx.plugin'
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
@@ -75,6 +84,7 @@ dependencies {
 	// PostgreSQL
 	compile group: 'org.postgresql', name: 'postgresql', version: '42.2.4'
 	
+	
 	// Spring Boot testing
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	testCompile('org.springframework.security:spring-security-test')
@@ -88,6 +98,8 @@ dependencies {
 	// mockito
 	testCompile group: 'org.mockito', name: 'mockito-core', version: '2.21.0'
 }
+
+mainClassName = 'watchlist.watchlist.WatchlistApplication'
 
 //Flyway Configuration
 import java.util.Properties
@@ -120,7 +132,7 @@ task setMigrateDev() {
 			validateOnMigrate = true
 
 			//executes production and development sql scripts
-			locations = ["filesystem:$project.projectDir/src/main/resources/db/migrationproduction", "filesystem:$project.projectDir/src/main/resources/db/migration/development"]
+			locations = ["filesystem:$project.projectDir/src/main/resources/db/migration/production", "filesystem:$project.projectDir/src/main/resources/db/migration/development"]
 		}
 	}
 }
