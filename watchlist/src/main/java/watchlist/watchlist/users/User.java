@@ -1,14 +1,21 @@
 package watchlist.watchlist.users;
 
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+
+import watchlist.watchlist.role.Role;
 
 /**
  * This class is the entity Users.
@@ -48,11 +55,21 @@ public class User {
 	@Column
 	@NotBlank
 	private String password;
+	
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(
+		name = "users_role",
+		joinColumns = @JoinColumn(name = "users_id"),
+		inverseJoinColumns = @JoinColumn(name = "role_id")
+	)
+	private Set<Role> roles;
 
 	public User() {
 		super();
 	}
 	
+
+
 	/**
 	 * @param firstname
 	 * @param lastname
@@ -60,8 +77,10 @@ public class User {
 	 * @param email
 	 * @param username
 	 * @param password
+	 * @param roles
 	 */
-	public User(String firstname, String lastname, Date birthdate, String email, String username, String password) {
+	public User(@NotBlank String firstname, @NotBlank String lastname, Date birthdate, @NotBlank String email,
+			@NotBlank String username, @NotBlank String password, Set<Role> roles) {
 		super();
 		this.firstname = firstname;
 		this.lastname = lastname;
@@ -69,7 +88,34 @@ public class User {
 		this.email = email;
 		this.username = username;
 		this.password = password;
+		this.roles = roles;
 	}
+
+
+
+	/**
+	 * @param users_id
+	 * @param firstname
+	 * @param lastname
+	 * @param birthdate
+	 * @param email
+	 * @param username
+	 * @param password
+	 * @param roles
+	 */
+	public User(long users_id, @NotBlank String firstname, @NotBlank String lastname, Date birthdate,
+			@NotBlank String email, @NotBlank String username, @NotBlank String password, Set<Role> roles) {
+		super();
+		this.users_id = users_id;
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.birthdate = birthdate;
+		this.email = email;
+		this.username = username;
+		this.password = password;
+		this.roles = roles;
+	}
+
 
 	/**
 	 * @param users_id
@@ -80,8 +126,8 @@ public class User {
 	 * @param username
 	 * @param password
 	 */
-	public User(long users_id, String firstname, String lastname, Date birthdate, String email, String username,
-			String password) {
+	public User(long users_id, @NotBlank String firstname, @NotBlank String lastname, Date birthdate, @NotBlank String email,
+			@NotBlank String username, @NotBlank String password) {
 		super();
 		this.users_id = users_id;
 		this.firstname = firstname;
@@ -91,6 +137,7 @@ public class User {
 		this.username = username;
 		this.password = password;
 	}
+
 
 	/**
 	 * @return
@@ -188,6 +235,31 @@ public class User {
 	 */
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+
+
+	/**
+	 * @return the roles
+	 */
+	public Set<Role> getRoles() {
+		return roles;
+	}
+
+
+	/**
+	 * @param roles the roles to set
+	 */
+	public void setRoles(Set<Role> roles) {
+		this.roles = roles;
+	}
+
+
+	/**
+	 * @param lastname the lastname to set
+	 */
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
 	}
 	
 }
