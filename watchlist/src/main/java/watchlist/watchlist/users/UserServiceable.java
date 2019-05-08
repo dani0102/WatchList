@@ -3,6 +3,7 @@ package watchlist.watchlist.users;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -13,7 +14,7 @@ import org.springframework.stereotype.Service;
  *
  */
 @Service
-public interface UserServiceable {
+public interface UserServiceable extends UserDetailsService {
 
 	/**
 	 * @param id
@@ -49,5 +50,13 @@ public interface UserServiceable {
 	 * @return Returns requested entity with given primary key id
 	 */
 	User findById(Long id);
+	
+	/**
+	 * This method finds a User with a given name
+	 *
+	 * @param  name Descriptive name of User
+	 * @return      Returns requested User with given descriptive name of User
+	 */
+	User findByEmail(String name);
 	
 }

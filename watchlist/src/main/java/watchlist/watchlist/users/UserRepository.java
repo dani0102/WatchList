@@ -12,5 +12,13 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
+	
+	/**
+	 * This method finds a User with a given name
+	 *
+	 * @param  name Descriptive name of User
+	 * @return      Returns requested User with given descriptive name of User
+	 */
+	User findByEmail(String name);
 
 }

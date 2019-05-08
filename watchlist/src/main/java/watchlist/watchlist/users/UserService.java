@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 /**
@@ -73,6 +75,20 @@ public class UserService implements UserServiceable {
 	public User findById(Long id) {
 		Optional<User> entity = repository.findById(id);
 		return entity.get();
+	}
+
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+User user = findByEmail(username);
+		
+		if (user == null) { throw new UsernameNotFoundException("User could not be found"); }
+		return new UserDetailsImpl(user);
+	}
+
+	@Override
+	public User findByEmail(String name) {
+		User user = repository.findByEmail(name);
+		return user;
 	}
 	
 }

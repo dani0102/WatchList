@@ -47,11 +47,11 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	//testImplementation 'org.springframework.security:spring-security-test'
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
-	//compile('org.springframework.boot:spring-boot-starter-security')
 	compile('org.springframework.boot:spring-boot-starter-web')
 	
 	// JWT
-	compile("io.jsonwebtoken:jjwt:0.7.0")
+	compile "org.springframework.boot:spring-boot-starter-security"
+	compile "io.jsonwebtoken:jjwt:0.7.0"
 	
 	//Mapstruct
 	implementation "org.mapstruct:mapstruct:${mapstructVersion}"
