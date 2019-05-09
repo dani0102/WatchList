@@ -3,6 +3,7 @@ package watchlist.watchlist.security;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
  * This class holds all password encoder beans
@@ -10,7 +11,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
  * @author Belinda Schühle
  */
 @Configuration
-public class PasswordEncoder {
+public class WebMvcConfig implements WebMvcConfigurer{
 
 	@Bean
 	public BCryptPasswordEncoder pwEncoder() {

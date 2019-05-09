@@ -59,4 +59,12 @@ public interface UserServiceable extends UserDetailsService {
 	 */
 	User findByEmail(String name);
 	
+	/**
+	 * This method finds a User with a given name
+	 *
+	 * @param  name Descriptive name of User
+	 * @return      Returns requested User with given descriptive name of User
+	 */
+	User findByUsername(String name);
+	
 }
