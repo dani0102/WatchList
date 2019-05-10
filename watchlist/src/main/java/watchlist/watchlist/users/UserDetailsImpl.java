@@ -73,7 +73,6 @@ public class UserDetailsImpl implements UserDetails {
 	 */
 	@Override
 	public boolean isAccountNonExpired() {
-		// TODO implement account expired check
 		return true;
 	}
 	
@@ -82,7 +81,6 @@ public class UserDetailsImpl implements UserDetails {
 	 */
 	@Override
 	public boolean isCredentialsNonExpired() {
-		// TODO implement credentials expired check
 		return true;
 	}
 	
@@ -102,13 +100,11 @@ public class UserDetailsImpl implements UserDetails {
 
 	@Override
 	public boolean isAccountNonLocked() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean isEnabled() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 }

@@ -14,24 +14,25 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
 /**
- * This class holds REST endpoints targeted towards the entity Users.
+ * This class holds REST endpoints targeted towards Login and Register-Functionalities.
  * 
- * @author Daniela Simoes
+ * @author Belinda Schühle
  *
  */
 @Controller
 @Api(
-		value = "UserController"
+		value = "LoginController"
 	)
 public class LoginController {
 
 	private UserServiceable service;
 	
+	
 	/**
 	 * @param service
-	 * @param mapper
 	 */
 	@Autowired
 	public LoginController(UserServiceable service) {
@@ -40,7 +41,14 @@ public class LoginController {
 	}
 	
 	
-	
+	/**
+	 * This method returns the login-view
+	 *
+	 * @return modelAndView with all login-related content
+	 */
+	@ApiOperation(
+		value = "This endpoint returns the login-view"
+	)
 	@GetMapping("/login")
     public ModelAndView login(){
         ModelAndView modelAndView = new ModelAndView();
@@ -49,6 +57,14 @@ public class LoginController {
     }
 
 
+	/**
+	 * This method returns the register-view
+	 *
+	 * @return modelAndView with all register-related content
+	 */
+	@ApiOperation(
+		value = "This endpoint returns the register-view"
+	)
 	@GetMapping("/register")
     public ModelAndView registration(){
         ModelAndView modelAndView = new ModelAndView();
@@ -58,6 +74,16 @@ public class LoginController {
         return modelAndView;
     }
 
+	/**
+	 * This method registers/creates a new user
+	 * 
+	 * @param user
+	 * @param bindingResult
+	 * @return modelAndView with all register-related content
+	 */
+	@ApiOperation(
+		value = "This endpoint registers/creates a new user"
+	)
 	@PostMapping("/register")
     public ModelAndView createNewUser(@Valid User user, BindingResult bindingResult) {
         ModelAndView modelAndView = new ModelAndView();
@@ -78,17 +104,5 @@ public class LoginController {
         }
         return modelAndView;
     }
-
-	@GetMapping("/admin/home")
-    public ModelAndView home(){
-        ModelAndView modelAndView = new ModelAndView();
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        User user = service.findByEmail(auth.getName());
-        modelAndView.addObject("username", "Welcome " + user.getFirstname() + " " + user.getLastname() + " (" + user.getEmail() + ")");
-        modelAndView.addObject("adminMessage","Content Available Only for Users with Admin Role");
-        modelAndView.setViewName("admin/home");
-        return modelAndView;
-    }
-	
 	 
 }

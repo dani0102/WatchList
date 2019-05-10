@@ -65,11 +65,19 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	}
 
+	/**
+	 * @return
+	 * @throws Exception
+	 */
 	@Bean
 	public AuthenticationManager customAuthenticationManager() throws Exception {
 		return authenticationManager();
 	}
 
+	/**
+	 * @param auth
+	 * @throws Exception
+	 */
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(userDetailsService).passwordEncoder(webmvcConf.pwEncoder());
