@@ -52,19 +52,19 @@ public interface UserServiceable extends UserDetailsService {
 	User findById(Long id);
 	
 	/**
-	 * This method finds a User with a given name
+	 * This method finds a User with a given email
 	 *
-	 * @param  name Descriptive name of User
-	 * @return      Returns requested User with given descriptive name of User
+	 * @param  email Descriptive name of User
+	 * @return      Returns requested User with given descriptive email of User
 	 */
-	User findByEmail(String name);
+	User findByEmail(String email);
 	
 	/**
-	 * This method finds a User with a given name
+	 * This method finds a User with a given username
 	 *
-	 * @param  name Descriptive name of User
-	 * @return      Returns requested User with given descriptive name of User
+	 * @param  username Descriptive username of User
+	 * @return      Returns requested User with given descriptive username of User
 	 */
-	User findByUsername(String name);
+	User findByUsername(String username);
 	
 }

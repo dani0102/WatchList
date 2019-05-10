@@ -51,7 +51,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
 				// SuccessURL is only temporary, until the frontend is developed
 				.logoutSuccessUrl("/register").and() 
-				.exceptionHandling().accessDeniedPage("/access-denied")
+				.exceptionHandling().accessDeniedPage("/access-denied") // TODO: implement access-denied and Error pages
 				.and().formLogin()
 				.loginPage("/login").successHandler(new AuthenticationSuccessHandler() {
 					@Override

@@ -3,8 +3,6 @@ package watchlist.watchlist.users;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -88,16 +86,23 @@ public class LoginController {
     public ModelAndView createNewUser(@Valid User user, BindingResult bindingResult) {
         ModelAndView modelAndView = new ModelAndView();
         User userExists = service.findByEmail(user.getEmail());
+        User usernameExists = service.findByUsername(user.getUsername());
         if (userExists != null) {
             bindingResult
                     .rejectValue("email", "error.users",
                             "There is already a user registered with the email provided");
         }
+        if (usernameExists != null) {
+            bindingResult
+                    .rejectValue("username", "error.users",
+                            "There is already someone using that username, choose a new one");
+        }
         if (bindingResult.hasErrors()) {
             modelAndView.setViewName("register");
         } else {
+        	// TODO: Add validations for users like email, birthdate etc. 
             service.createUser(user);
-            modelAndView.addObject("successMessage", "User has been registered successfully");
+            modelAndView.addObject("successMessage", "Your account has been registered successfully");
             modelAndView.addObject("user", new User());
             modelAndView.setViewName("register");
 
