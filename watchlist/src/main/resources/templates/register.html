@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org">
+	
+
+
+<!-- Temporary template for testing purposes
+	 Later to be replaced by an angular-frontend -->
+
+	
+	
 <head>
 	<title>Registration Form</title>
-<!-- 	<link rel="stylesheet" type="text/css" th:href="@{/css/registration.css}" /> -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -25,7 +32,7 @@
 						<div class="col-sm-9">
 						<label th:if="${#fields.hasErrors('username')}" th:errors="*{username}"
 								class="validation-message"></label>
-						<input type="text" th:field="*{username}" placeholder="username"
+						<input type="text" th:field="*{username}" placeholder="Username"
 								class="form-control" /> 
 						</div>
 					</div>
@@ -34,7 +41,7 @@
 						<div class="col-sm-9">
 						<label th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}"
 								class="validation-message"></label>
-						<input type="text" th:field="*{firstname}" placeholder="Name"
+						<input type="text" th:field="*{firstname}" placeholder="Firstname"
 								class="form-control" /> 
 						</div>
 					</div>
@@ -44,12 +51,12 @@
 						<label	th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}"
 								class="validation-message"></label>
 							<input type="text" th:field="*{lastname}"
-								placeholder="Last Name" class="form-control" /> 
+								placeholder="Lastname" class="form-control" /> 
 						</div>
 					</div>
 					<div class="form-group">
 						<div class="col-sm-9">
-							<input type="text" th:field="*{email}" placeholder="Email"
+							<input type="text" th:field="*{email}" placeholder="Email-Address"
 								class="form-control" /> <label
 								th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
 								class="validation-message"></label>

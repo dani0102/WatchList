@@ -44,9 +44,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.authorizeRequests().antMatchers("/").permitAll()
 				.antMatchers("/login").permitAll()
 				.antMatchers("/register").permitAll()
+				// TODO: Create admin-pages
 				.antMatchers("/admin/**").hasAuthority("ADMIN")
 				.anyRequest()
 				.authenticated().and().csrf().disable()
+				// TODO: add logout-functionalities
 				.logout().permitAll()
 				.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
 				// SuccessURL is only temporary, until the frontend is developed
