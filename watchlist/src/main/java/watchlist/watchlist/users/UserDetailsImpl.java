@@ -8,6 +8,9 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import watchlist.watchlist.authority.Authority;
+import watchlist.watchlist.role.Role;
+
 
 /**
  * This class implements an additional layer of logic to the traditional entity
@@ -41,11 +44,11 @@ public class UserDetailsImpl implements UserDetails {
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		ArrayList<SimpleGrantedAuthority> grantedAuthorities = new ArrayList<>();
-		/*for (Role role : user.getRoles()) {
+		for (Role role : user.getRoles()) {
 			for (Authority authority : role.getAuthorities()) {
 				grantedAuthorities.add(new SimpleGrantedAuthority(authority.getName()));
 			}
-		}*/
+		}
 		return grantedAuthorities;
 	}
 	
