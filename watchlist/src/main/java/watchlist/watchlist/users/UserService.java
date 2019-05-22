@@ -2,11 +2,21 @@ package watchlist.watchlist.users;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import watchlist.watchlist.role.Role;
 
 /**
  * This class implements all data access related methods targeted towards the
@@ -18,7 +28,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService implements UserServiceable {
 
-	private UserRepository repository;
+	@Autowired
+    private UserRepository repository;
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
 	/**
 	 * @param repository
@@ -40,6 +53,7 @@ public class UserService implements UserServiceable {
 
 	@Override
 	public void createUser(User user) {
+		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 		this.repository.save(user);
 	}
 
@@ -74,5 +88,34 @@ public class UserService implements UserServiceable {
 		Optional<User> entity = repository.findById(id);
 		return entity.get();
 	}
+
+	@Override
+	public User findByEmail(String name) {
+		User user = repository.findByEmail(name);
+		return user;
+	}
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public User findByUsername(String name) {
+		User user = ((UserRepository) repository).findByUsername(name);
+		return user;
+	}
+
+	 @Override
+		    @Transactional(readOnly = true)
+		    public UserDetails loadUserByUsername(String username) {
+		        User user = repository.findByUsername(username);
+		        if (user == null) throw new UsernameNotFoundException(username);
+	
+		        Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
+		        for (Role role : user.getRoles()){
+		            grantedAuthorities.add(new SimpleGrantedAuthority(role.getName()));
+		        }
+	
+		        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), grantedAuthorities);
+		    }
 	
 }
