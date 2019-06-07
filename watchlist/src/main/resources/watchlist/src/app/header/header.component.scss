@@ -1,0 +1,32 @@
+.navbar-inverse {
+  background-color: #893033 !important;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav a.icon {
+    float: right !important;
+    display: block !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute !important;
+    right: 0 !important;
+    top: 0 !important;
+  }
+  .topnav.responsive a {
+    float: none !important;
+    display: block !important;
+    text-align: left !important;
+  }
+}

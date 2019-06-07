@@ -49,11 +49,12 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
 	compile('org.springframework.boot:spring-boot-starter-web')
 	
+	testCompile('org.springframework.boot:spring-boot-starter-test')
 	// JWT
 	compile "org.springframework.boot:spring-boot-starter-security"
 	compile "io.jsonwebtoken:jjwt:0.7.0"
 	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-thymeleaf
-compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version: '2.1.4.RELEASE'
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version: '2.1.4.RELEASE'
 	
 	
 	//Mapstruct
@@ -93,8 +94,45 @@ compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf'
 	// mockito
 	testCompile group: 'org.mockito', name: 'mockito-core', version: '2.21.0'
 }
-
 mainClassName = 'watchlist.watchlist.WatchlistApplication'
+def webappDir = "src/main/resources/watchlist"
+
+sourceSets {
+	main {
+		resources {
+			srcDirs = ["$webappDir/dist", "src/main/resources"]
+		}
+	}
+}
+
+
+ 
+task buildAngular(type:Exec) {
+	// installAngular should be run prior to this task
+	dependsOn "installAngular"
+	workingDir "$webappDir"
+	inputs.dir "$webappDir"
+	// Add task to the standard build group
+	group = BasePlugin.BUILD_GROUP
+	// ng doesn't exist as a file in windows -> ng.cmd
+	if (System.getProperty("os.name").toUpperCase().contains("WINDOWS")){
+		commandLine "ng.cmd", "build"
+	} else {
+		commandLine "ng", "build"
+	}
+}
+task installAngular(type:Exec) {
+	workingDir "$webappDir"
+	inputs.dir "$webappDir"
+	group = BasePlugin.BUILD_GROUP
+	if (System.getProperty("os.name").toUpperCase().contains("WINDOWS")){
+		commandLine "npm.cmd", "install"
+	} else {
+		commandLine "npm", "install"
+	}
+}
+
+processResources.dependsOn('buildAngular')
 
 //Flyway Configuration
 import java.util.Properties
@@ -134,3 +172,4 @@ task setMigrateDev() {
 
 flywayMigrateDev.dependsOn setMigrateDev
 flywayMigrate.mustRunAfter setMigrateDev
+

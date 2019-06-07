@@ -1,0 +1,20 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <img id ="watchlist_logo" src="assets/img/watchlist_logo.png" alt="logo">
+    </div>
+    <div class="topnav" id="myTopnav">
+    <ul class="nav navbar-nav">
+      <li><a routerLink="/home">Home</a></li>
+      <li><a routerLink="/movies" routerLinkActive="active">Movies</a></li>
+      <li><a routerLink="/tvshows">Tv Shows</a></li>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i>    </a>
+    </ul>
+  </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a routerLink="/signup"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+      <li><a routerLink="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+    </ul>
+  </div>
+</nav> 
+<router-outlet></router-outlet>

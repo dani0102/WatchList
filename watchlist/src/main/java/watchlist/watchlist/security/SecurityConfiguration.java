@@ -43,7 +43,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		http
 				.authorizeRequests().antMatchers("/").permitAll()
 				.antMatchers("/login").permitAll()
-				.antMatchers("/register").permitAll()
+				.antMatchers("/signup").permitAll()
+				.antMatchers("/").permitAll()
 				// TODO: Create admin-pages
 				.antMatchers("/admin/**").hasAuthority("ADMIN")
 				.anyRequest()
@@ -52,7 +53,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.logout().permitAll()
 				.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
 				// SuccessURL is only temporary, until the frontend is developed
-				.logoutSuccessUrl("/register").and() 
+				.logoutSuccessUrl("/signup").and() 
 				.exceptionHandling().accessDeniedPage("/access-denied") // TODO: implement access-denied and Error pages
 				.and().formLogin()
 				.loginPage("/login").successHandler(new AuthenticationSuccessHandler() {
@@ -61,7 +62,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 					public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
 							Authentication authentication) throws IOException, ServletException {
 						// SuccessURL is only temporary, until the frontend is developed
-						redirectStrategy.sendRedirect(request, response, "/register");
+						redirectStrategy.sendRedirect(request, response, "/signup");
 					}
 				});
 

@@ -3,10 +3,10 @@ package watchlist.watchlist.users;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 //import org.springframework.web.bind.annotation.RequestMapping;
 //import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
@@ -15,12 +15,12 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 /**
- * This class holds REST endpoints targeted towards Login and Register-Functionalities.
+ * This class holds REST endpoints targeted towards Login and Signup-Functionalities.
  * 
  * @author Belinda Schühle
  *
  */
-@Controller
+@RestController
 @Api(
 		value = "LoginController"
 	)
@@ -63,12 +63,12 @@ public class LoginController {
 	@ApiOperation(
 		value = "This endpoint returns the register-view"
 	)
-	@GetMapping("/register")
+	@GetMapping("/signup")
     public ModelAndView registration(){
         ModelAndView modelAndView = new ModelAndView();
         User user = new User();
         modelAndView.addObject("user", user);
-        modelAndView.setViewName("register");
+        modelAndView.setViewName("signup");
         return modelAndView;
     }
 
@@ -82,7 +82,7 @@ public class LoginController {
 	@ApiOperation(
 		value = "This endpoint registers/creates a new user"
 	)
-	@PostMapping("/register")
+	@PostMapping("/signup")
     public ModelAndView createNewUser(@Valid User user, BindingResult bindingResult) {
         ModelAndView modelAndView = new ModelAndView();
         User userExists = service.findByEmail(user.getEmail());
@@ -98,13 +98,13 @@ public class LoginController {
                             "There is already someone using that username, choose a new one");
         }
         if (bindingResult.hasErrors()) {
-            modelAndView.setViewName("register");
+            modelAndView.setViewName("signup");
         } else {
         	// TODO: Add validations for users like email, birthdate etc. 
             service.createUser(user);
             modelAndView.addObject("successMessage", "Your account has been registered successfully");
             modelAndView.addObject("user", new User());
-            modelAndView.setViewName("register");
+            modelAndView.setViewName("signup");
 
         }
         return modelAndView;
